@@ -40,11 +40,12 @@ dependencies {
     implementation libs.appcompat
     implementation libs.material
 
-    implementation libs.projectlombok.lombok
-    implementation libs.hilt.android
-    implementation libs.volley
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+
+    implementation libs.projectlombok.lombok
+    implementation libs.hilt.android
+    implementation libs.volley
     implementation libs.httpclient
 }
