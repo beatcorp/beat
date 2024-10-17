@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Beat"
 include ':app'
+include ':core'
