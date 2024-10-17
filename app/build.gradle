@@ -33,9 +33,12 @@ android {
 }
 
 dependencies {
+    implementation project(':core')
+    implementation project(':media')
+
     implementation libs.appcompat
     implementation libs.material
-    implementation project(':core')
+
     implementation libs.projectlombok.lombok
     implementation libs.hilt.android
     implementation libs.volley
