@@ -21,6 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Beat"
 include ':app'
-include ':music'
-include ':media'
 include ':core'
+include ':media'
+include ':music'
