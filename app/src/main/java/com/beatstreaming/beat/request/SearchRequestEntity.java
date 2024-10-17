@@ -1,6 +1,6 @@
 package com.beatstreaming.beat.request;
 
-import com.beatstreaming.beat.entity.TrackEntity;
+import com.beatstreaming.music.entity.TrackEntity;
 
 import java.util.List;
 
