@@ -9,7 +9,6 @@ espressoCore = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
 lombok = "1.18.34"
-lombokVersion = "1.18.34"
 volley = "1.2.1"
 
 [libraries]
@@ -21,9 +20,8 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
-projectlombok-lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombokVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 
 [plugins]
