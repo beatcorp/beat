@@ -11,7 +11,7 @@ import lombok.SneakyThrows;
 public class DefaultAppServer extends AppServer {
     @Override
     @SneakyThrows
-    public URI getUri() {
+    public URI getUrl() {
         return new URIBuilder().setScheme("https").setHost("api.beatstreaming.com").build();
     }
 }
