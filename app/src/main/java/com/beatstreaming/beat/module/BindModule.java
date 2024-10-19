@@ -1,6 +1,8 @@
 package com.beatstreaming.beat.module;
 
+import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
+import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.server.AppServerManager;
 
 import javax.inject.Singleton;
@@ -17,5 +19,11 @@ public class BindModule {
     @Singleton
     public AppServerManager provideAppServerManager() {
         return new DefaultAppServerManager();
+    }
+
+    @Provides
+    @Singleton
+    public HomePage provideHomePage() {
+        return new AppHomePage();
     }
 }

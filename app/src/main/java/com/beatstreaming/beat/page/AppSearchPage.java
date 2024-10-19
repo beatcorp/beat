@@ -13,7 +13,7 @@ import com.beatstreaming.beat.databinding.SearchPageBinding;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class SearchPage extends Fragment {
+public class AppSearchPage extends Fragment {
     private SearchPageBinding searchPageBinding;
 
     @Override
