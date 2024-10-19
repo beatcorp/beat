@@ -24,6 +24,8 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
+        this.binding.trackSection.init();
+
         super.onLoad(searchResultEntity);
     }
 }
