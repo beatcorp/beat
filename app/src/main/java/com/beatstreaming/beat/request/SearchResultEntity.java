@@ -7,6 +7,6 @@ import java.util.List;
 import lombok.Getter;
 
 @Getter
-public class SearchRequestEntity {
+public class SearchResultEntity {
     private List<TrackEntity> tracks;
 }
