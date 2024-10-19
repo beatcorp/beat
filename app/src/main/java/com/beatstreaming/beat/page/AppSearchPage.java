@@ -18,6 +18,8 @@ public class AppSearchPage extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.searchPageBinding = SearchPageBinding.inflate(this.getLayoutInflater());
+
         return this.searchPageBinding.getRoot();
     }
 }

@@ -7,17 +7,19 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.beat.databinding.SearchPageBinding;
+import com.beatstreaming.beat.databinding.HomePageBinding;
 import com.beatstreaming.core.pages.HomePage;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppHomePage extends HomePage {
-    private SearchPageBinding searchPageBinding;
+    private HomePageBinding homePageBinding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return this.searchPageBinding.getRoot();
+        this.homePageBinding = HomePageBinding.inflate(this.getLayoutInflater());
+
+        return this.homePageBinding.getRoot();
     }
 }
