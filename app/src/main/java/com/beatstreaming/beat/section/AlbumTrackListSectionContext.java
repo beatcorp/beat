@@ -2,12 +2,11 @@ package com.beatstreaming.beat.section;
 
 import android.content.Context;
 
-import androidx.recyclerview.widget.GridLayoutManager;
-
 import com.beatstreaming.beat.R;
 import com.beatstreaming.beat.item.TrackListIndexItemBinder;
 import com.beatstreaming.core.component.ListSectionContext;
 import com.beatstreaming.core.component.SectionContext;
+import com.beatstreaming.core.layout.ListGridLayoutManager;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -19,7 +18,7 @@ public class AlbumTrackListSectionContext extends ListSectionContext<AppSourceCo
 
     @Override
     public SectionContext<AppSourceContext, TrackEntity> getPageContext() {
-        this.listSectionBinding.sectionList.setLayoutManager(new GridLayoutManager(this.context, 2));
+        this.listSectionBinding.sectionList.setLayoutManager(new ListGridLayoutManager(this.context));
 
         return super.getPageContext();
     }
