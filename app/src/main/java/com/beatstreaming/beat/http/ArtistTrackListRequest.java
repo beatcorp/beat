@@ -1,32 +1,33 @@
-package com.beatstreaming.beat.section;
+package com.beatstreaming.beat.http;
 
 import android.content.Context;
 
 import com.android.volley.Request;
+import com.beatstreaming.beat.payload.ArtistPayload;
 import com.beatstreaming.core.http.HttpRequestSection;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.AppSourcePageBinding;
-import com.beatstreaming.media.section.AppSourceListSection;
-import com.beatstreaming.media.server.AppServer;
+import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.TrackListImageItemBinder;
+import com.beatstreaming.music.section.ArtistTrackListSection;
 
 import org.apache.http.client.utils.URIBuilder;
 
 import lombok.SneakyThrows;
 
-public class ArtistTrackListSection extends HttpRequestSection<ArtistEntity, AppSourceListSection<AppSourceContext, TrackEntity>, AppSourceContext, ArtistEntity> {
+public class ArtistTrackListRequest extends HttpRequestSection<ArtistEntity, ArtistTrackListSection, AppSourceContext, TrackEntity> {
     private final TrackListImageItemBinder trackListImageItemBinder;
 
     @SneakyThrows
-    public ArtistTrackListSection(Context context, AppSourcePageBinding appSourcePageBinding, AppServer appServer, TrackListImageItemBinder trackListImageItemBinder) {
-        super(context, appSourcePageBinding.recommendedAppList, new AppSourceListSection<>(context), ArtistEntity.class, Request.Method.GET);
+    public ArtistTrackListRequest(Context context, AppSourcePageBinding appSourcePageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, TrackListImageItemBinder trackListImageItemBinder) {
+        super(context, appSourcePageBinding.recommendedAppList, new ArtistTrackListSection(context), ArtistEntity.class, Request.Method.GET);
 
         this.trackListImageItemBinder = trackListImageItemBinder;
 
-        this.load(new URIBuilder(appServer.getUrl()).setPathSegments("api", "v1", "app", "featured").build());
+        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "artist").addParameter("id", artistPayload.getId()).build());
     }
 
     @Override
