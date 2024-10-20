@@ -1,4 +1,4 @@
-package com.beatstreaming.beat.search;
+package com.beatstreaming.beat.section;
 
 import android.content.Context;
 
@@ -11,8 +11,8 @@ import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.ArtistEntity;
 
-public class SearchArtistsSectionContext extends ListSectionContext<AppSourceContext, ArtistEntity> {
-    public SearchArtistsSectionContext(Context context, AppSourceContext appSourceContext, ArtistEntity[] entities, ArtistCardImageItemBinder binder) {
+public class SearchArtistListSectionContext extends ListSectionContext<AppSourceContext, ArtistEntity> {
+    public SearchArtistListSectionContext(Context context, AppSourceContext appSourceContext, ArtistEntity[] entities, ArtistCardImageItemBinder binder) {
         super(context, R.string.section_search_artist_title, new ListRecyclerViewAdapter<AppSourceContext, ArtistEntity>(appSourceContext, entities, binder));
     }
 

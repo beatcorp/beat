@@ -1,5 +1,6 @@
 package com.beatstreaming.beat.module;
 
+import com.beatstreaming.beat.item.TrackListIndexItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
@@ -54,5 +55,11 @@ public class BindModule {
     @Singleton
     public ArtistCardImageItemBinder provideArtistCardItemBinder() {
         return new ArtistCardImageItemBinder();
+    }
+
+    @Provides
+    @Singleton
+    public TrackListIndexItemBinder provideTrackListIndexItemBinder() {
+        return new TrackListIndexItemBinder();
     }
 }

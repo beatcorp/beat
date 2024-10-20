@@ -13,9 +13,9 @@ import com.beatstreaming.beat.request.SearchResultEntity;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
-import com.beatstreaming.beat.search.SearchAlbumsSectionContext;
-import com.beatstreaming.beat.search.SearchArtistsSectionContext;
-import com.beatstreaming.beat.search.SearchTrackSectionContext;
+import com.beatstreaming.beat.section.SearchAlbumListSectionContext;
+import com.beatstreaming.beat.section.SearchArtistListSectionContext;
+import com.beatstreaming.beat.section.SearchTrackListSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -43,9 +43,9 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
-        this.binding.trackSection.init(new SearchTrackSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
-        this.binding.albumSection.init(new SearchArtistsSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getArtists(), this.artistCardItemBinder));
-        this.binding.artistSection.init(new SearchAlbumsSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getAlbums(), this.albumCardItemBinder));
+        this.binding.trackSection.init(new SearchTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
+        this.binding.albumSection.init(new SearchArtistListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getArtists(), this.artistCardItemBinder));
+        this.binding.artistSection.init(new SearchAlbumListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getAlbums(), this.albumCardItemBinder));
 
         super.onLoad(searchResultEntity);
     }

@@ -1,4 +1,4 @@
-package com.beatstreaming.beat.search;
+package com.beatstreaming.beat.section;
 
 import android.content.Context;
 
@@ -9,8 +9,8 @@ import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.TrackEntity;
 
-public class SearchTrackSectionContext extends ListSectionContext<AppSourceContext, TrackEntity> {
-    public SearchTrackSectionContext(Context context, AppSourceContext appSourceContext, TrackEntity[] entities, TrackListImageItemBinder binder) {
+public class SearchTrackListSectionContext extends ListSectionContext<AppSourceContext, TrackEntity> {
+    public SearchTrackListSectionContext(Context context, AppSourceContext appSourceContext, TrackEntity[] entities, TrackListImageItemBinder binder) {
         super(context, R.string.section_search_track_title, new ListRecyclerViewAdapter<AppSourceContext, TrackEntity>(appSourceContext, entities, binder));
     }
 }
