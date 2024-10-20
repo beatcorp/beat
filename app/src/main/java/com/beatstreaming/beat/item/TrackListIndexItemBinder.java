@@ -13,7 +13,7 @@ public class TrackListIndexItemBinder extends TrackListItemBinder {
         super.bind(context, holder, item);
 
         MediaCoverTextBinding mediaCoverTextBinding = MediaCoverTextBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));
-        mediaCoverTextBinding.mediaText.setText("test");
+        mediaCoverTextBinding.mediaText.setText(String.valueOf(context.getIndex() + 1));
 
         this.mediaCover.addView(mediaCoverTextBinding.getRoot());
     }
