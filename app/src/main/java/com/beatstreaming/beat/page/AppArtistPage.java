@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.http.ArtistTrackListRequest;
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.beat.payload.ArtistPayload;
@@ -14,6 +15,7 @@ import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.storage.AppSourceStorageItem;
 import com.beatstreaming.media.storage.AppSourceStorageManager;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
+import com.beatstreaming.music.databinding.ArtistSectionListBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.page.ArtistPage;
 
@@ -36,7 +38,7 @@ public class AppArtistPage extends ArtistPage {
 
         AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(layoutInflater.getContext());
 
-        new ArtistTrackListRequest(layoutInflater.getContext(), artistPageBinding, appSourceStorageItem.getAppSourceEntity(), new ArtistPayload(this.artistEntity.getId()), this.trackListImageItemBinder);
+        new ArtistTrackListRequest(layoutInflater.getContext(), artistPageBinding, appSourceStorageItem.getAppSourceEntity(), new ArtistPayload(this.artistEntity.getId()), ArtistSectionListBinding.inflate(this.getLayoutInflater()), this.trackListImageItemBinder);
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }

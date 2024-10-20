@@ -1,9 +1,9 @@
 package com.beatstreaming.beat.payload;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@Builder
+@AllArgsConstructor
 @Getter
 public class IdPayload {
     private final String id;
