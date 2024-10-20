@@ -3,12 +3,12 @@ package com.beatstreaming.beat.http;
 import android.content.Context;
 
 import com.android.volley.Request;
+import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.beat.request.SearchResultEntity;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
-import com.beatstreaming.media.databinding.SearchPageBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.item.TrackListItemBinder;
 import com.beatstreaming.music.search.SearchTrackSectionContext;

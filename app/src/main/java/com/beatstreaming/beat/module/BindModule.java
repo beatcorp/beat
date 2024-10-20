@@ -1,5 +1,6 @@
 package com.beatstreaming.beat.module;
 
+import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;

@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.payload.SearchPayload;
-import com.beatstreaming.media.databinding.SearchPageBinding;
 import com.beatstreaming.media.storage.AppSourceStorageItem;
 import com.beatstreaming.media.storage.AppSourceStorageManager;
 import com.beatstreaming.music.item.TrackListItemBinder;

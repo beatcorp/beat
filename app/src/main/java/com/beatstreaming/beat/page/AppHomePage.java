@@ -6,14 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.beat.databinding.HomePageBinding;
+import com.beatstreaming.core.pages.HomePage;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class AppHomePage extends Fragment {
+public class AppHomePage extends HomePage {
     private HomePageBinding homePageBinding;
 
     @Override
