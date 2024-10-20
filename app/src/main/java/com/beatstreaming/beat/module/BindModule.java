@@ -6,6 +6,7 @@ import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.music.item.TrackListItemBinder;
 
 import javax.inject.Singleton;
 
@@ -33,5 +34,11 @@ public class BindModule {
     @Singleton
     public Pages[] providePages() {
         return AppPages.values();
+    }
+
+    @Provides
+    @Singleton
+    public TrackListItemBinder provideTrackListItemBinder() {
+        return new TrackListItemBinder();
     }
 }
