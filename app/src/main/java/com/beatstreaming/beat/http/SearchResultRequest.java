@@ -33,7 +33,7 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
-        this.binding.trackSection.init(new SearchTrackSectionContext(new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
+        this.binding.trackSection.init(new SearchTrackSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
 
         super.onLoad(searchResultEntity);
     }
