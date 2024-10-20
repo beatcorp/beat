@@ -10,9 +10,9 @@ import com.beatstreaming.beat.request.SearchResultEntity;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
-import com.beatstreaming.music.item.AlbumCardItemBinder;
-import com.beatstreaming.music.item.ArtistCardItemBinder;
-import com.beatstreaming.music.item.TrackListItemBinder;
+import com.beatstreaming.music.item.AlbumCardImageItemBinder;
+import com.beatstreaming.music.item.ArtistCardImageItemBinder;
+import com.beatstreaming.music.item.TrackListImageItemBinder;
 import com.beatstreaming.music.search.SearchAlbumsSectionContext;
 import com.beatstreaming.music.search.SearchArtistsSectionContext;
 import com.beatstreaming.music.search.SearchTrackSectionContext;
@@ -24,12 +24,12 @@ import lombok.SneakyThrows;
 public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, SearchPageResultBinding> {
     private final AppSourceEntity appSourceEntity;
 
-    private final TrackListItemBinder trackListItemBinder;
-    private final ArtistCardItemBinder artistCardItemBinder;
-    private final AlbumCardItemBinder albumCardItemBinder;
+    private final TrackListImageItemBinder trackListItemBinder;
+    private final ArtistCardImageItemBinder artistCardItemBinder;
+    private final AlbumCardImageItemBinder albumCardItemBinder;
 
     @SneakyThrows
-    public SearchResultRequest(Context context, SearchPageBinding searchPageBinding, AppSourceEntity appSourceEntity, SearchPayload searchPayload, SearchPageResultBinding searchPageResultBinding, TrackListItemBinder trackListItemBinder, ArtistCardItemBinder artistCardItemBinder, AlbumCardItemBinder albumCardItemBinder) {
+    public SearchResultRequest(Context context, SearchPageBinding searchPageBinding, AppSourceEntity appSourceEntity, SearchPayload searchPayload, SearchPageResultBinding searchPageResultBinding, TrackListImageItemBinder trackListItemBinder, ArtistCardImageItemBinder artistCardItemBinder, AlbumCardImageItemBinder albumCardItemBinder) {
         super(context, searchPageBinding.searchResultList, searchPageResultBinding, SearchResultEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;

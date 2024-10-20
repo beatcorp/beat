@@ -14,9 +14,9 @@ import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.media.storage.AppSourceStorageItem;
 import com.beatstreaming.media.storage.AppSourceStorageManager;
-import com.beatstreaming.music.item.AlbumCardItemBinder;
-import com.beatstreaming.music.item.ArtistCardItemBinder;
-import com.beatstreaming.music.item.TrackListItemBinder;
+import com.beatstreaming.music.item.AlbumCardImageItemBinder;
+import com.beatstreaming.music.item.ArtistCardImageItemBinder;
+import com.beatstreaming.music.item.TrackListImageItemBinder;
 
 import javax.inject.Inject;
 
@@ -28,9 +28,12 @@ public class AppSearchPage extends Fragment {
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
-    @Inject TrackListItemBinder trackListItemBinder;
-    @Inject ArtistCardItemBinder artistCardItemBinder;
-    @Inject AlbumCardItemBinder albumCardItemBinder;
+    @Inject
+    TrackListImageItemBinder trackListItemBinder;
+    @Inject
+    ArtistCardImageItemBinder artistCardItemBinder;
+    @Inject
+    AlbumCardImageItemBinder albumCardItemBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
