@@ -28,7 +28,7 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
         this.appSourceEntity = appSourceEntity;
         this.trackListItemBinder = trackListItemBinder;
 
-        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "app", "search").addParameter("query", searchPayload.getQuery()).build());
+        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "search").addParameter("query", searchPayload.getQuery()).build());
     }
 
     @Override
