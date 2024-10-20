@@ -9,6 +9,7 @@ import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.music.item.AlbumCardImageItemBinder;
 import com.beatstreaming.music.item.ArtistCardImageItemBinder;
 import com.beatstreaming.music.item.TrackListImageItemBinder;
+import com.beatstreaming.music.page.ArtistPage;
 
 import javax.inject.Singleton;
 
