@@ -10,6 +10,7 @@ import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
+import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.section.ArtistTrackListSection;
@@ -22,8 +23,8 @@ public class ArtistTrackListRequest extends HttpRequestSection<ArtistEntity, Art
     private final TrackListImageItemBinder trackListImageItemBinder;
 
     @SneakyThrows
-    public ArtistTrackListRequest(Context context, AppSourcePageBinding appSourcePageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, TrackListImageItemBinder trackListImageItemBinder) {
-        super(context, appSourcePageBinding.recommendedAppList, new ArtistTrackListSection(context), ArtistEntity.class, Request.Method.GET);
+    public ArtistTrackListRequest(Context context, ArtistPageBinding artistPageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, TrackListImageItemBinder trackListImageItemBinder) {
+        super(context, artistPageBinding.artistTracksList, new ArtistTrackListSection(context), ArtistEntity.class, Request.Method.GET);
 
         this.trackListImageItemBinder = trackListImageItemBinder;
 
