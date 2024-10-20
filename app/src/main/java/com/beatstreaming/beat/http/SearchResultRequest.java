@@ -21,7 +21,7 @@ import org.apache.http.client.utils.URIBuilder;
 
 import lombok.SneakyThrows;
 
-public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, SearchPageResultBinding> {
+public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, SearchPageBinding, SearchPageResultBinding> {
     private final AppSourceEntity appSourceEntity;
 
     private final TrackListImageItemBinder trackListItemBinder;
@@ -30,7 +30,7 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @SneakyThrows
     public SearchResultRequest(Context context, SearchPageBinding searchPageBinding, AppSourceEntity appSourceEntity, SearchPayload searchPayload, SearchPageResultBinding searchPageResultBinding, TrackListImageItemBinder trackListItemBinder, ArtistCardImageItemBinder artistCardItemBinder, AlbumCardImageItemBinder albumCardItemBinder) {
-        super(context, searchPageBinding.searchResultList, searchPageResultBinding, SearchResultEntity.class, Request.Method.GET);
+        super(context, searchPageBinding.searchResultList, searchPageBinding, searchPageResultBinding, SearchResultEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
 
@@ -43,9 +43,9 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
-        this.binding.trackSection.init(new SearchTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
-        this.binding.albumSection.init(new SearchArtistListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getArtists(), this.artistCardItemBinder));
-        this.binding.artistSection.init(new SearchAlbumListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getAlbums(), this.albumCardItemBinder));
+        this.resultBinding.trackSection.init(new SearchTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
+        this.resultBinding.albumSection.init(new SearchArtistListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getArtists(), this.artistCardItemBinder));
+        this.resultBinding.artistSection.init(new SearchAlbumListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getAlbums(), this.albumCardItemBinder));
 
         super.onLoad(searchResultEntity);
     }

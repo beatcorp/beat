@@ -17,13 +17,13 @@ import org.apache.http.client.utils.URIBuilder;
 
 import lombok.SneakyThrows;
 
-public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, AlbumSectionListBinding> {
+public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, CollectionPageBinding, AlbumSectionListBinding> {
     private final AppSourceEntity appSourceEntity;
     private final TrackListIndexItemBinder trackListIndexItemBinder;
 
     @SneakyThrows
     public AlbumTrackListRequest(Context context, CollectionPageBinding collectionPageBinding, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, TrackListIndexItemBinder trackListIndexItemBinder) {
-        super(context, collectionPageBinding.collectionList, albumSectionListBinding, AlbumEntity.class, Request.Method.GET);
+        super(context, collectionPageBinding.collectionList, collectionPageBinding, albumSectionListBinding, AlbumEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
         this.trackListIndexItemBinder = trackListIndexItemBinder;
@@ -33,7 +33,7 @@ public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, Album
 
     @Override
     public void onLoad(AlbumEntity albumEntity) {
-        this.binding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), albumEntity.getTracks(), this.trackListIndexItemBinder));
+        this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), albumEntity.getTracks(), this.trackListIndexItemBinder));
 
         super.onLoad(albumEntity);
     }

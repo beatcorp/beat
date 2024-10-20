@@ -12,18 +12,19 @@ import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.databinding.ArtistSectionListBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.client.utils.URIBuilder;
 
 import lombok.SneakyThrows;
 
-public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, ArtistSectionListBinding> {
+public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, ArtistPageBinding, ArtistSectionListBinding> {
     private final AppSourceEntity appSourceEntity;
     private final TrackListImageItemBinder trackListItemBinder;
 
     @SneakyThrows
     public ArtistTrackListRequest(Context context, ArtistPageBinding artistPageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, ArtistSectionListBinding artistSectionListBinding, TrackListImageItemBinder trackListItemBinder) {
-        super(context, artistPageBinding.artistTrackList, artistSectionListBinding, ArtistEntity.class, Request.Method.GET);
+        super(context, artistPageBinding.artistTrackList, artistPageBinding, artistSectionListBinding, ArtistEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
         this.trackListItemBinder = trackListItemBinder;
@@ -33,7 +34,9 @@ public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, Art
 
     @Override
     public void onLoad(ArtistEntity artistEntity) {
-        this.binding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), artistEntity.getTracks(), this.trackListItemBinder));
+        Picasso.get().load(artistEntity.getImage().getUrl()).into(this.pageBinding.artistImage.mediaImage);
+
+        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), artistEntity.getTracks(), this.trackListItemBinder));
 
         super.onLoad(artistEntity);
     }

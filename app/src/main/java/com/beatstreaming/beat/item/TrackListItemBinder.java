@@ -1,5 +1,9 @@
 package com.beatstreaming.beat.item;
 
+import android.view.View;
+
+import com.beatstreaming.beat.page.AppArtistPage;
+import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.entity.NameItemEntity;
@@ -18,5 +22,15 @@ public class TrackListItemBinder extends MediaListItemBinder<TrackEntity> {
         this.mediaSubtitle.setText(Arrays.stream(item.getArtists())
                 .map(NameItemEntity::getName)
                 .collect(Collectors.joining(", ")));
+
+        this.mediaSubtitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new AppArtistPage(context, item.getArtist()))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 }
