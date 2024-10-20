@@ -16,5 +16,10 @@
             android:hint="@string/page_search_bar_hint" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include android:id="@+id/search_result_list" layout="@layout/http_request_status" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include android:id="@+id/search_result_list" layout="@layout/http_request_status" />
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
