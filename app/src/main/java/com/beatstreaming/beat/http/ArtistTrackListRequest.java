@@ -3,6 +3,7 @@ package com.beatstreaming.beat.http;
 import android.content.Context;
 
 import com.android.volley.Request;
+import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.beat.payload.ArtistPayload;
 import com.beatstreaming.core.http.HttpRequestSection;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
@@ -11,7 +12,6 @@ import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.item.TrackListImageItemBinder;
 import com.beatstreaming.music.section.ArtistTrackListSection;
 
 import org.apache.http.client.utils.URIBuilder;

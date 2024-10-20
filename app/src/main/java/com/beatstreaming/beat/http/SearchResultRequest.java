@@ -5,17 +5,17 @@ import android.content.Context;
 import com.android.volley.Request;
 import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
+import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
+import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
+import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.beat.request.SearchResultEntity;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
-import com.beatstreaming.music.item.AlbumCardImageItemBinder;
-import com.beatstreaming.music.item.ArtistCardImageItemBinder;
-import com.beatstreaming.music.item.TrackListImageItemBinder;
-import com.beatstreaming.music.search.SearchAlbumsSectionContext;
-import com.beatstreaming.music.search.SearchArtistsSectionContext;
-import com.beatstreaming.music.search.SearchTrackSectionContext;
+import com.beatstreaming.beat.search.SearchAlbumsSectionContext;
+import com.beatstreaming.beat.search.SearchArtistsSectionContext;
+import com.beatstreaming.beat.search.SearchTrackSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
 

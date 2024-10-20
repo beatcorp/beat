@@ -6,10 +6,9 @@ import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
-import com.beatstreaming.music.item.AlbumCardImageItemBinder;
-import com.beatstreaming.music.item.ArtistCardImageItemBinder;
-import com.beatstreaming.music.item.TrackListImageItemBinder;
-import com.beatstreaming.music.page.ArtistPage;
+import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
+import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
+import com.beatstreaming.beat.item.TrackListImageItemBinder;
 
 import javax.inject.Singleton;
 
