@@ -6,6 +6,8 @@ import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.music.item.AlbumCardItemBinder;
+import com.beatstreaming.music.item.ArtistCardItemBinder;
 import com.beatstreaming.music.item.TrackListItemBinder;
 
 import javax.inject.Singleton;
@@ -40,5 +42,17 @@ public class BindModule {
     @Singleton
     public TrackListItemBinder provideTrackListItemBinder() {
         return new TrackListItemBinder();
+    }
+
+    @Provides
+    @Singleton
+    public AlbumCardItemBinder provideAlbumCardItemBinder() {
+        return new AlbumCardItemBinder();
+    }
+
+    @Provides
+    @Singleton
+    public ArtistCardItemBinder provideArtistCardItemBinder() {
+        return new ArtistCardItemBinder();
     }
 }

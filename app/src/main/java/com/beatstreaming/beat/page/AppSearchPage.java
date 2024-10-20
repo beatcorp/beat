@@ -14,6 +14,8 @@ import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.media.storage.AppSourceStorageItem;
 import com.beatstreaming.media.storage.AppSourceStorageManager;
+import com.beatstreaming.music.item.AlbumCardItemBinder;
+import com.beatstreaming.music.item.ArtistCardItemBinder;
 import com.beatstreaming.music.item.TrackListItemBinder;
 
 import javax.inject.Inject;
@@ -25,7 +27,10 @@ public class AppSearchPage extends Fragment {
     private SearchPageBinding searchPageBinding;
 
     @Inject AppSourceStorageManager appSourceStorageManager;
+
     @Inject TrackListItemBinder trackListItemBinder;
+    @Inject ArtistCardItemBinder artistCardItemBinder;
+    @Inject AlbumCardItemBinder albumCardItemBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -33,7 +38,7 @@ public class AppSearchPage extends Fragment {
 
         AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(this.getContext());
 
-        new SearchResultRequest(this.getLayoutInflater().getContext(), this.searchPageBinding, appSourceStorageItem.getAppSourceEntity(), SearchPayload.builder().query("la casa azul").build(), SearchPageResultBinding.inflate(this.getLayoutInflater()), this.trackListItemBinder);
+        new SearchResultRequest(this.getLayoutInflater().getContext(), this.searchPageBinding, appSourceStorageItem.getAppSourceEntity(), SearchPayload.builder().query("la casa azul").build(), SearchPageResultBinding.inflate(this.getLayoutInflater()), this.trackListItemBinder, this.artistCardItemBinder, this.albumCardItemBinder);
 
         return this.searchPageBinding.getRoot();
     }
