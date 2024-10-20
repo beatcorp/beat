@@ -11,6 +11,8 @@ import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.item.TrackListItemBinder;
+import com.beatstreaming.music.search.SearchAlbumsSectionContext;
+import com.beatstreaming.music.search.SearchArtistsSectionContext;
 import com.beatstreaming.music.search.SearchTrackSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
@@ -34,6 +36,8 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
         this.binding.trackSection.init(new SearchTrackSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
+        this.binding.albumSection.init(new SearchArtistsSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
+        this.binding.artistSection.init(new SearchAlbumsSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), this.trackListItemBinder));
 
         super.onLoad(searchResultEntity);
     }
