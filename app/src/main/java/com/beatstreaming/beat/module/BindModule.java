@@ -7,7 +7,6 @@ import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
-import com.beatstreaming.core.serialize.ClassNameTypeAdapter;
 import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
@@ -69,7 +68,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AlbumItemType<?> provideAlbumItemType() {
+    public AlbumItemType provideAlbumItemType() {
         return new AppAlbumItemType();
     }
 
