@@ -15,6 +15,9 @@ import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -31,7 +34,7 @@ public class AppLibraryPage extends Fragment {
 
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
-        libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<ListContext, LibraryItemEntity<?>>(null, libraryListStorage.list, null));
+        libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<ListContext, LibraryItemEntity<?>>(null, libraryListStorage.getArray(LibraryItemEntity.class), null));
 
         return this.libraryPageBinding.getRoot();
     }
