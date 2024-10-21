@@ -9,6 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.beat.databinding.LibraryPageBinding;
+import com.beatstreaming.core.list.ListContext;
+import com.beatstreaming.core.list.ListRecyclerViewAdapter;
+import com.beatstreaming.media.storage.library.LibraryItemEntity;
+import com.beatstreaming.media.storage.library.LibraryListStorage;
+import com.beatstreaming.media.storage.library.LibraryListStorageManager;
+
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -16,9 +23,15 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class AppLibraryPage extends Fragment {
     private LibraryPageBinding libraryPageBinding;
 
+    @Inject LibraryListStorageManager libraryListStorageManager;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.libraryPageBinding = LibraryPageBinding.inflate(this.getLayoutInflater());
+
+        LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
+
+        libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<ListContext, LibraryItemEntity<?>>(null, libraryListStorage.list, null));
 
         return this.libraryPageBinding.getRoot();
     }
