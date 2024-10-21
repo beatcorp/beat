@@ -68,7 +68,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AlbumItemType provideAlbumItemType() {
+    public AlbumItemType<?> provideAlbumItemType() {
         return new AppAlbumItemType();
     }
 
