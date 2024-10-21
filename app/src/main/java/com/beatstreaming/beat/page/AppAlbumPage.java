@@ -13,7 +13,6 @@ import com.beatstreaming.beat.payload.AlbumPayload;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.music.databinding.AlbumSectionListBinding;
-import com.beatstreaming.music.databinding.ArtistSectionListBinding;
 import com.beatstreaming.music.entity.AlbumEntity;
 import com.beatstreaming.music.page.AlbumPage;
 
