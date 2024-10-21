@@ -1,6 +1,7 @@
 package com.beatstreaming.beat.module;
 
 import com.beatstreaming.beat.item.AppAlbumItemType;
+import com.beatstreaming.beat.item.AppArtistItemType;
 import com.beatstreaming.beat.item.TrackListIndexItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
@@ -11,8 +12,9 @@ import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
-import com.beatstreaming.media.item.AlbumItemType;
+import com.beatstreaming.music.item.AlbumItemType;
 import com.beatstreaming.music.item.AbstractLibraryItemBinder;
+import com.beatstreaming.music.item.ArtistItemType;
 
 import javax.inject.Singleton;
 
@@ -68,13 +70,19 @@ public class BindModule {
 
     @Provides
     @Singleton
+    public AbstractLibraryItemBinder provideAbstractLibraryItemBinder() {
+        return new AbstractLibraryItemBinder();
+    }
+
+    @Provides
+    @Singleton
     public AlbumItemType provideAlbumItemType() {
         return new AppAlbumItemType();
     }
 
     @Provides
     @Singleton
-    public AbstractLibraryItemBinder provideAbstractLibraryItemBinder() {
-        return new AbstractLibraryItemBinder();
+    public ArtistItemType provideArtistItemType() {
+        return new AppArtistItemType();
     }
 }

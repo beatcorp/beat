@@ -1,7 +1,7 @@
 package com.beatstreaming.beat.item;
 
-import com.beatstreaming.media.item.AlbumItemType;
 import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.music.item.AlbumItemType;
 
 public class AppAlbumItemType extends AlbumItemType {
     public AppAlbumItemType() {
