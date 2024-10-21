@@ -1,8 +1,8 @@
 package com.beatstreaming.beat.item;
 
-import com.beatstreaming.media.storage.library.ItemType;
+import com.beatstreaming.media.item.AlbumItemType;
 
-public class AlbumItemType implements ItemType<AlbumCardImageItemBinder> {
+public class AppAlbumItemType extends AlbumItemType<AlbumCardImageItemBinder> {
     @Override
     public Class<AlbumCardImageItemBinder> getBinder() {
         return AlbumCardImageItemBinder.class;
