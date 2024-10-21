@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.beat.databinding.LibraryPageBinding;
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
@@ -33,7 +34,7 @@ public class AppLibraryPage extends Fragment {
 
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
-        this.libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<AppSourceContext, LibraryItemEntity<?>>(null, libraryListStorage.list.toArray(new LibraryItemEntity[]{}), this.abstractLibraryItemBinder));
+        this.libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<AppSourceContext, LibraryItemEntity<ItemEntity>>(null, libraryListStorage.list.toArray(new LibraryItemEntity[]{}), this.abstractLibraryItemBinder));
 
         return this.libraryPageBinding.getRoot();
     }
