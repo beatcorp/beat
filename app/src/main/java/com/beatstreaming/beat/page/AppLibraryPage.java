@@ -9,11 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.beat.databinding.LibraryPageBinding;
-import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
+import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
+import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 
 import javax.inject.Inject;
 
@@ -24,6 +25,7 @@ public class AppLibraryPage extends Fragment {
     private LibraryPageBinding libraryPageBinding;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
+    @Inject AbstractLibraryItemBinder abstractLibraryItemBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -31,7 +33,7 @@ public class AppLibraryPage extends Fragment {
 
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
-        this.libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<ListContext, LibraryItemEntity<?>>(null, libraryListStorage.list.toArray(new LibraryItemEntity[]{}), null));
+        this.libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<AppSourceContext, LibraryItemEntity<?>>(null, libraryListStorage.list.toArray(new LibraryItemEntity[]{}), this.abstractLibraryItemBinder));
 
         return this.libraryPageBinding.getRoot();
     }
