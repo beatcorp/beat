@@ -15,8 +15,8 @@ import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.beat.payload.SearchPayload;
-import com.beatstreaming.media.storage.AppSourceStorageItem;
-import com.beatstreaming.media.storage.AppSourceStorageManager;
+import com.beatstreaming.media.storage.app.AppSourceStorageItem;
+import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
 import javax.inject.Inject;
 
