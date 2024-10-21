@@ -12,6 +12,7 @@ import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.media.item.AlbumItemType;
+import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 
 import javax.inject.Singleton;
 
@@ -69,5 +70,11 @@ public class BindModule {
     @Singleton
     public AlbumItemType<?> provideAlbumItemType() {
         return new AppAlbumItemType();
+    }
+
+    @Provides
+    @Singleton
+    public AbstractLibraryItemBinder provideAbstractLibraryItemBinder() {
+        return new AbstractLibraryItemBinder();
     }
 }
