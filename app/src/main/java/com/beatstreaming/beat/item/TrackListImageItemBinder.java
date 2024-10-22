@@ -2,6 +2,7 @@ package com.beatstreaming.beat.item;
 
 import android.view.LayoutInflater;
 
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.MediaCoverImageBinding;
@@ -9,7 +10,10 @@ import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.squareup.picasso.Picasso;
 
-public class TrackListImageItemBinder extends TrackListItemBinder {
+import javax.inject.Inject;
+
+public class TrackListImageItemBinder<T extends ItemEntity> extends TrackListItemBinder<T> {
+    @Inject
     public TrackListImageItemBinder(MusicPlayer player) {
         super(player);
     }

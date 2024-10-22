@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppArtistPage extends ArtistPage {
-    @Inject TrackListImageItemBinder trackListImageItemBinder;
+    @Inject TrackListImageItemBinder<ArtistEntity> trackListImageItemBinder;
 
     public AppArtistPage(AppSourceContext appSourceContext, ArtistEntity artistEntity) {
         super(appSourceContext, artistEntity);

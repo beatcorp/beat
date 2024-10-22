@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
+import com.beatstreaming.beat.entity.SearchResultEntity;
 import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
@@ -28,7 +29,7 @@ public class AppSearchPage extends Fragment {
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
-    @Inject TrackListImageItemBinder trackListItemBinder;
+    @Inject TrackListImageItemBinder<SearchResultEntity> trackListItemBinder;
     @Inject ArtistCardImageItemBinder artistCardItemBinder;
     @Inject AlbumCardImageItemBinder albumCardItemBinder;
 

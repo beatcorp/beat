@@ -10,8 +10,10 @@ import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
+import com.beatstreaming.media.player.PlayerContext;
 import com.beatstreaming.music.databinding.AlbumSectionListBinding;
 import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.music.player.AlbumPlayerSource;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -19,7 +21,7 @@ import lombok.SneakyThrows;
 
 public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, CollectionPageBinding, AlbumSectionListBinding> {
     private final AppSourceEntity appSourceEntity;
-    private final TrackListIndexItemBinder trackListIndexItemBinder;
+    private final TrackListIndexItemBinder<AlbumEntity> trackListIndexItemBinder;
 
     @SneakyThrows
     public AlbumTrackListRequest(Context context, CollectionPageBinding collectionPageBinding, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, TrackListIndexItemBinder trackListIndexItemBinder) {
@@ -33,7 +35,12 @@ public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, Colle
 
     @Override
     public void onLoad(AlbumEntity albumEntity) {
-        this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), albumEntity.getTracks(), this.trackListIndexItemBinder));
+        this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), albumEntity.getTracks(), (TrackListIndexItemBinder) this.trackListIndexItemBinder
+                .setup(PlayerContext.<AlbumEntity>builder()
+                        .playerSource(new AlbumPlayerSource(albumEntity))
+                        .build()
+                )
+        ));
 
         super.onLoad(albumEntity);
     }

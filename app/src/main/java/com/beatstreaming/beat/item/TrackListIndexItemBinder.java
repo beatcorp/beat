@@ -2,13 +2,14 @@ package com.beatstreaming.beat.item;
 
 import android.view.LayoutInflater;
 
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.MediaCoverTextBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.player.MusicPlayer;
 
-public class TrackListIndexItemBinder extends TrackListItemBinder {
+public class TrackListIndexItemBinder<T extends ItemEntity> extends TrackListItemBinder<T> {
     public TrackListIndexItemBinder(MusicPlayer player) {
         super(player);
     }

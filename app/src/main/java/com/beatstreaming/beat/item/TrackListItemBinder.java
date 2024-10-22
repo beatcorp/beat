@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.beatstreaming.beat.page.AppArtistPage;
 import com.beatstreaming.core.MainActivity;
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.entity.NameItemEntity;
@@ -14,7 +15,7 @@ import com.beatstreaming.music.player.MusicPlayer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class TrackListItemBinder extends MediaListItemBinder<TrackEntity> {
+public class TrackListItemBinder<T extends ItemEntity> extends MediaListItemBinder<TrackEntity, T> {
     public TrackListItemBinder(MusicPlayer player) {
         super(player);
     }
