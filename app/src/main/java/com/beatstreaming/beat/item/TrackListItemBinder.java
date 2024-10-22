@@ -9,11 +9,16 @@ import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.entity.NameItemEntity;
 import com.beatstreaming.media.list.MediaListItemBinder;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.player.MusicPlayer;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class TrackListItemBinder extends MediaListItemBinder<TrackEntity> {
+    public TrackListItemBinder(MusicPlayer player) {
+        super(player);
+    }
+
     @Override
     public void bind(AppSourceContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);

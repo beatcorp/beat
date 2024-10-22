@@ -51,8 +51,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public TrackListImageItemBinder provideTrackListItemBinder() {
-        return new TrackListImageItemBinder();
+    public TrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player) {
+        return new TrackListImageItemBinder(player);
     }
 
     @Provides
@@ -69,8 +69,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public TrackListIndexItemBinder provideTrackListIndexItemBinder() {
-        return new TrackListIndexItemBinder();
+    public TrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player) {
+        return new TrackListIndexItemBinder(player);
     }
 
     @Provides

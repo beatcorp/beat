@@ -6,9 +6,14 @@ import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.MediaCoverImageBinding;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.player.MusicPlayer;
 import com.squareup.picasso.Picasso;
 
 public class TrackListImageItemBinder extends TrackListItemBinder {
+    public TrackListImageItemBinder(MusicPlayer player) {
+        super(player);
+    }
+
     @Override
     public void bind(AppSourceContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);
