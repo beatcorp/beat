@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.1"
+exoplayerUi = "2.19.1"
 gson = "2.11.0"
 hiltAndroid = "2.52"
 httpclient = "4.5.14"
@@ -16,6 +17,7 @@ hilt = "2.52"
 media3Common = "1.4.1"
 
 [libraries]
+exoplayer-ui = { module = "com.google.android.exoplayer:exoplayer-ui", version.ref = "exoplayerUi" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
