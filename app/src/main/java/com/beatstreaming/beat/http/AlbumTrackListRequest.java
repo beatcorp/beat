@@ -12,8 +12,8 @@ import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.databinding.AlbumSectionListBinding;
 import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.music.player.AlbumPlayerContext;
 import com.beatstreaming.music.player.AlbumPlayerSource;
-import com.beatstreaming.music.player.MusicPlayerContext;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -36,7 +36,7 @@ public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, Colle
     @Override
     public void onLoad(AlbumEntity albumEntity) {
         this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), albumEntity.getTracks(), (TrackListIndexItemBinder) this.trackListIndexItemBinder
-                .setup(new MusicPlayerContext<AlbumEntity>((new AppSourceContext(this.appSourceEntity)), new AlbumPlayerSource(albumEntity)))
+                .setup(new AlbumPlayerContext((new AppSourceContext(this.appSourceEntity)), new AlbumPlayerSource(albumEntity)))
         ));
 
         super.onLoad(albumEntity);
