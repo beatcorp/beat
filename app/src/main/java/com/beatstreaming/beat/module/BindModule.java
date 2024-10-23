@@ -101,7 +101,13 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public PlayerBar<?> providePlayerBar(MusicPlayer player) {
+    public MusicPlayer provideMusicPlayer(Player<?> player) {
+        return (MusicPlayer) player;
+    }
+
+    @Provides
+    @Singleton
+    public PlayerBar<?> providePlayerBar(Player<?> player) {
         return new TrackPlayerBar(player);
     }
 }
