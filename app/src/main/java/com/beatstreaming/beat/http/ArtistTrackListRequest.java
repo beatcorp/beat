@@ -12,6 +12,8 @@ import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.databinding.ArtistSectionListBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
+import com.beatstreaming.music.player.ArtistPlayerContext;
+import com.beatstreaming.music.player.ArtistPlayerSource;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.client.utils.URIBuilder;
@@ -36,7 +38,7 @@ public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, Art
     public void onLoad(ArtistEntity artistEntity) {
         Picasso.get().load(artistEntity.getImage().getUrl()).into(this.pageBinding.artistImage.mediaImage);
 
-        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), artistEntity.getTracks(), this.trackListItemBinder));
+        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), artistEntity.getTracks(), (TrackListImageItemBinder) this.trackListItemBinder.setup(new ArtistPlayerContext((new AppSourceContext(this.appSourceEntity)), new ArtistPlayerSource(artistEntity)))));
 
         super.onLoad(artistEntity);
     }
