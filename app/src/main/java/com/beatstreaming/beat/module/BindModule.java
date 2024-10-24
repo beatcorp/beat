@@ -78,12 +78,6 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AbstractLibraryItemBinder provideAbstractLibraryItemBinder() {
-        return new AbstractLibraryItemBinder();
-    }
-
-    @Provides
-    @Singleton
     public AlbumItemType provideAlbumItemType() {
         return new AppAlbumItemType();
     }
@@ -92,29 +86,5 @@ public class BindModule {
     @Singleton
     public ArtistItemType provideArtistItemType() {
         return new AppArtistItemType();
-    }
-
-    @Provides
-    @Singleton
-    public Player<?> providePlayer(@ApplicationContext Context context) {
-        return new MusicPlayer(context);
-    }
-
-    @Provides
-    @Singleton
-    public Player<TrackEntity> provideTrackEntityPlayer(Player<?> player) {
-        return (Player<TrackEntity>) player;
-    }
-
-    @Provides
-    @Singleton
-    public MusicPlayer provideMusicPlayer(Player<?> player) {
-        return (MusicPlayer) player;
-    }
-
-    @Provides
-    @Singleton
-    public PlayerBar<?> providePlayerBar(Player<TrackEntity> player) {
-        return new MusicPlayerBar(player);
     }
 }

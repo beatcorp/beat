@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
-
 @AndroidEntryPoint
 public class AppMainActivity extends MainActivity {
     @Inject PlayerBar<?> playerBar;
