@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
-import com.beatstreaming.beat.entity.SearchResultEntity;
 import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
@@ -18,6 +17,7 @@ import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
+import com.beatstreaming.music.request.SearchResultEntity;
 
 import javax.inject.Inject;
 
