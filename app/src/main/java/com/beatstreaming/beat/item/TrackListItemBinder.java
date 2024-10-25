@@ -43,7 +43,7 @@ public class TrackListItemBinder<T extends ItemEntity> extends MediaListItemBind
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                new TrackListSheet(holder.itemView.getContext()).show();
+                new TrackListSheet(holder.itemView.getContext()).setup(item).show();
 
                 return true;
             }
