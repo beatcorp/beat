@@ -8,10 +8,11 @@ import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.MediaCoverTextBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.player.MusicPlayer;
+import com.beatstreaming.music.sheet.TrackListSheet;
 
 public class TrackListIndexItemBinder<T extends ItemEntity> extends TrackListItemBinder<T> {
-    public TrackListIndexItemBinder(MusicPlayer player) {
-        super(player);
+    public TrackListIndexItemBinder(MusicPlayer player, TrackListSheet trackListSheet) {
+        super(player, trackListSheet);
     }
 
     @Override

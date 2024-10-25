@@ -16,9 +16,16 @@ import com.beatstreaming.music.sheet.TrackListSheet;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import javax.inject.Inject;
+
 public class TrackListItemBinder<T extends ItemEntity> extends MediaListItemBinder<TrackEntity, T> {
-    public TrackListItemBinder(MusicPlayer player) {
+    private final TrackListSheet trackListSheet;
+
+    @Inject
+    public TrackListItemBinder(MusicPlayer player, TrackListSheet trackListSheet) {
         super(player);
+
+        this.trackListSheet = trackListSheet;
     }
 
     @Override
@@ -43,7 +50,7 @@ public class TrackListItemBinder<T extends ItemEntity> extends MediaListItemBind
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                new TrackListSheet(holder.itemView.getContext()).setup(item).show();
+                trackListSheet.setup(item).show();
 
                 return true;
             }

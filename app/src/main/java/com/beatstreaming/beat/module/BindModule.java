@@ -13,15 +13,11 @@ import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
-import com.beatstreaming.media.player.Player;
-import com.beatstreaming.media.player.ui.PlayerBar;
 import com.beatstreaming.media.server.AppServerManager;
-import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 import com.beatstreaming.music.item.AlbumItemType;
 import com.beatstreaming.music.item.ArtistItemType;
 import com.beatstreaming.music.player.MusicPlayer;
-import com.beatstreaming.music.player.ui.MusicPlayerBar;
+import com.beatstreaming.music.sheet.TrackListSheet;
 
 import javax.inject.Singleton;
 
@@ -54,8 +50,20 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public TrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player) {
-        return new TrackListImageItemBinder(player);
+    public TrackListSheet provideTrackListSheet(@ApplicationContext Context context) {
+        return new TrackListSheet(context);
+    }
+
+    @Provides
+    @Singleton
+    public TrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player, TrackListSheet trackListSheet) {
+        return new TrackListImageItemBinder(player, trackListSheet);
+    }
+
+    @Provides
+    @Singleton
+    public TrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player, TrackListSheet trackListSheet) {
+        return new TrackListIndexItemBinder(player, trackListSheet);
     }
 
     @Provides
@@ -68,12 +76,6 @@ public class BindModule {
     @Singleton
     public ArtistCardImageItemBinder provideArtistCardItemBinder() {
         return new ArtistCardImageItemBinder();
-    }
-
-    @Provides
-    @Singleton
-    public TrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player) {
-        return new TrackListIndexItemBinder(player);
     }
 
     @Provides
