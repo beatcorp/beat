@@ -3,7 +3,7 @@ package com.beatstreaming.beat.section;
 import android.content.Context;
 
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
-import com.beatstreaming.core.component.ListSectionContext;
+import com.beatstreaming.core.component.list.ListSectionContext;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.music.R;

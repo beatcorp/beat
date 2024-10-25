@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.beatstreaming.beat.R;
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
-import com.beatstreaming.core.component.ListSectionContext;
-import com.beatstreaming.core.component.SectionContext;
+import com.beatstreaming.core.component.list.ListSectionContext;
+import com.beatstreaming.core.component.section.SectionContext;
 import com.beatstreaming.core.layout.ListGridLayoutManager;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.AppSourceContext;
