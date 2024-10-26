@@ -6,7 +6,7 @@ import com.beatstreaming.beat.page.AppArtistPage;
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.entity.NameItemEntity;
 import com.beatstreaming.media.list.MediaListItemBinder;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -22,7 +22,7 @@ public class TrackListItemBinder<T extends ItemEntity> extends MediaListItemBind
     }
 
     @Override
-    public void bind(AppSourceContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
+    public void bind(AppSourceListContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);
 
         this.mediaTitle.setText(item.getName());

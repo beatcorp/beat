@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.core.component.list.ListSectionContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.AlbumEntity;
 
-public class SearchAlbumListSectionContext extends ListSectionContext<AppSourceContext, AlbumEntity> {
-    public SearchAlbumListSectionContext(Context context, AppSourceContext appSourceContext, AlbumEntity[] entities, AlbumCardImageItemBinder binder) {
-        super(context, R.string.section_search_album_title, new ListRecyclerViewAdapter<AppSourceContext, AlbumEntity>(appSourceContext, entities, binder));
+public class SearchAlbumListSectionContext extends ListSectionContext<AppSourceListContext, AlbumEntity> {
+    public SearchAlbumListSectionContext(Context context, AppSourceListContext appSourceContext, AlbumEntity[] entities, AlbumCardImageItemBinder binder) {
+        super(context, R.string.section_search_album_title, new ListRecyclerViewAdapter<AppSourceListContext, AlbumEntity>(appSourceContext, entities, binder));
     }
 
     @Override

@@ -5,7 +5,7 @@ import android.view.View;
 import com.beatstreaming.beat.page.AppAlbumPage;
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.item.CardImageItemBinder;
 import com.beatstreaming.music.entity.AlbumEntity;
 
@@ -13,7 +13,7 @@ import lombok.SneakyThrows;
 
 public class AlbumCardImageItemBinder extends CardImageItemBinder<AlbumEntity> {
     @Override
-    public void bind(AppSourceContext context, ListViewHolder<AlbumEntity> holder, AlbumEntity item) {
+    public void bind(AppSourceListContext context, ListViewHolder<AlbumEntity> holder, AlbumEntity item) {
         super.bind(context, holder, item);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

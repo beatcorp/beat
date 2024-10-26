@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.MediaCoverImageBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.player.MusicPlayer;
@@ -19,7 +19,7 @@ public class TrackListImageItemBinder<T extends ItemEntity> extends TrackListIte
     }
 
     @Override
-    public void bind(AppSourceContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
+    public void bind(AppSourceListContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);
 
         MediaCoverImageBinding mediaCoverImageBinding = MediaCoverImageBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));

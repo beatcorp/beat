@@ -6,7 +6,7 @@ import com.android.volley.Request;
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.beat.payload.ArtistPayload;
 import com.beatstreaming.beat.section.ArtistTrackListSectionContext;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
@@ -38,7 +38,7 @@ public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, Art
     public void onLoad(ArtistEntity artistEntity) {
         Picasso.get().load(artistEntity.getImage().getUrl()).into(this.pageBinding.artistImage.mediaImage);
 
-        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), artistEntity.getTracks(), (TrackListImageItemBinder) this.trackListItemBinder.setup(new ArtistPlayerContext((new AppSourceContext(this.appSourceEntity)), new ArtistPlayerSource(artistEntity)))));
+        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), artistEntity.getTracks(), (TrackListImageItemBinder) this.trackListItemBinder.setup(new ArtistPlayerContext((new AppSourceListContext(this.appSourceEntity)), new ArtistPlayerSource(artistEntity)))));
 
         super.onLoad(artistEntity);
     }

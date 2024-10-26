@@ -12,13 +12,12 @@ import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.music.player.SearchPlayerContext;
 import com.beatstreaming.music.player.SearchPlayerSource;
 import com.beatstreaming.music.request.SearchResultEntity;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.beat.section.SearchAlbumListSectionContext;
 import com.beatstreaming.beat.section.SearchArtistListSectionContext;
 import com.beatstreaming.beat.section.SearchTrackListSectionContext;
-import com.beatstreaming.music.player.AlbumPlayerSource;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -46,9 +45,9 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
-        this.resultBinding.trackSection.init(new SearchTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getTracks(), (TrackListImageItemBinder) this.trackListItemBinder.setup(new SearchPlayerContext((new AppSourceContext(this.appSourceEntity)), new SearchPlayerSource(searchResultEntity)))));
-        this.resultBinding.albumSection.init(new SearchArtistListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getArtists(), this.artistCardItemBinder));
-        this.resultBinding.artistSection.init(new SearchAlbumListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), searchResultEntity.getAlbums(), this.albumCardItemBinder));
+        this.resultBinding.trackSection.init(new SearchTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), searchResultEntity.getTracks(), (TrackListImageItemBinder) this.trackListItemBinder.setup(new SearchPlayerContext((new AppSourceListContext(this.appSourceEntity)), new SearchPlayerSource(searchResultEntity)))));
+        this.resultBinding.albumSection.init(new SearchArtistListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), searchResultEntity.getArtists(), this.artistCardItemBinder));
+        this.resultBinding.artistSection.init(new SearchAlbumListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), searchResultEntity.getAlbums(), this.albumCardItemBinder));
 
         super.onLoad(searchResultEntity);
     }
