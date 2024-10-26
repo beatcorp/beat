@@ -5,6 +5,6 @@ import com.beatstreaming.music.item.TrackItemType;
 
 public class AppTrackItemType extends TrackItemType {
     public AppTrackItemType() {
-        super(TrackEntity.class, AppPlaylistTrackItemBinder.class);
+        super(TrackEntity.class, AppTrackListImageItemBinder.class);
     }
 }
