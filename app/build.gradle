@@ -57,7 +57,5 @@ dependencies {
     annotationProcessor libs.hilt.compiler
     implementation libs.volley
     implementation libs.httpclient
-
-    implementation libs.mapstruct
-    annotationProcessor libs.mapstruct.processor
+    implementation libs.commons.beanutils
 }
