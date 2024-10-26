@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.1"
+commonsBeanutils = "1.9.4"
 exoplayerUi = "2.19.1"
 flexbox = "3.0.0"
 gson = "2.11.0"
@@ -18,6 +19,7 @@ hilt = "2.52"
 media3Common = "1.4.1"
 
 [libraries]
+commons-beanutils = { module = "commons-beanutils:commons-beanutils", version.ref = "commonsBeanutils" }
 exoplayer-ui = { module = "com.google.android.exoplayer:exoplayer-ui", version.ref = "exoplayerUi" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
