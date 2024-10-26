@@ -35,9 +35,7 @@ public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, Colle
 
     @Override
     public void onLoad(AlbumEntity albumEntity) {
-        this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), albumEntity.getTracks(), (TrackListIndexItemBinder) this.trackListIndexItemBinder
-                .setup(new AlbumPlayerContext((new AppSourceContext(this.appSourceEntity)), new AlbumPlayerSource(albumEntity)))
-        ));
+        this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceContext(this.appSourceEntity), albumEntity.getTracks(), (TrackListIndexItemBinder) this.trackListIndexItemBinder.setup(new AlbumPlayerContext((new AppSourceContext(this.appSourceEntity)), new AlbumPlayerSource(albumEntity)))));
 
         super.onLoad(albumEntity);
     }
