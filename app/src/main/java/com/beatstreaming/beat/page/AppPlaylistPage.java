@@ -14,6 +14,7 @@ import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.databinding.ItemListBinding;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.PlaylistEntity;
+import com.beatstreaming.music.list.PlaylistListContext;
 import com.beatstreaming.music.page.PlaylistPage;
 
 import javax.inject.Inject;
@@ -33,7 +34,7 @@ public class AppPlaylistPage extends PlaylistPage {
         this.collectionPageBinding = CollectionPageBinding.inflate(this.getLayoutInflater());
 
         ItemListBinding itemListBinding = ItemListBinding.inflate(this.getLayoutInflater());
-        itemListBinding.list.setAdapter(new ListRecyclerViewAdapter(null, this.imageItemEntity.getTracks().toArray(new LibraryItemEntity[]{}), this.appPlaylistTrackItemBinder));
+        itemListBinding.list.setAdapter(new ListRecyclerViewAdapter(new PlaylistListContext(this.imageItemEntity), this.imageItemEntity.getTracks().toArray(new LibraryItemEntity[]{}), this.appPlaylistTrackItemBinder));
 
         this.collectionPageBinding.collectionList.view.addView(itemListBinding.getRoot());
 

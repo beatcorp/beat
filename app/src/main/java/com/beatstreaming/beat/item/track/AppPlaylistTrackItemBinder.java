@@ -1,14 +1,16 @@
 package com.beatstreaming.beat.item.track;
 
 import com.beatstreaming.core.list.ListBinder;
-import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.list.PlaylistListContext;
+import com.beatstreaming.music.player.PlaylistPlayerContext;
+import com.beatstreaming.music.player.PlaylistPlayerSource;
 
 import javax.inject.Inject;
 
-public class AppPlaylistTrackItemBinder extends ListBinder<ListContext, LibraryItemEntity<TrackEntity>> {
+public class AppPlaylistTrackItemBinder extends ListBinder<PlaylistListContext, LibraryItemEntity<TrackEntity>> {
     private final AppTrackListImageItemBinder appTrackListImageItemBinder;
 
     @Inject
@@ -17,10 +19,10 @@ public class AppPlaylistTrackItemBinder extends ListBinder<ListContext, LibraryI
     }
 
     @Override
-    public void bind(ListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
+    public void bind(PlaylistListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
         super.bind(context, holder, item);
 
-        this.appTrackListImageItemBinder.bind(item.getAppSourceContext(), holder, item.getItem());
+        this.appTrackListImageItemBinder.setup(new PlaylistPlayerContext(null, new PlaylistPlayerSource(context.getItem()))).bind(item.getAppSourceContext(), holder, item.getItem());
     }
 
     @Override
