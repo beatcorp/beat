@@ -22,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppAlbumPage extends AlbumPage {
-    @Inject
-    AppTrackListIndexItemBinder trackListImageItemBinder;
+    @Inject AppTrackListIndexItemBinder trackListImageItemBinder;
 
     public AppAlbumPage(AppSourceListContext appSourceContext, AlbumEntity albumEntity) {
         super(appSourceContext, albumEntity);
