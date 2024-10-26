@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.databinding.MediaCoverTextBinding;
+import com.beatstreaming.media.entity.ImageItemEntity;
 import com.beatstreaming.music.entity.AlbumEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.TrackItemType;
@@ -21,7 +22,7 @@ public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackL
     @Override
     @SneakyThrows
     public void bind(AlbumListContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
-        item.setAlbum(new AlbumEntity(context.getAlbumEntity().getName(), context.getAlbumEntity().getImage(), null));
+        item.setAlbum((AlbumEntity) (ImageItemEntity) context.getAlbumEntity());
 
         super.bind(context, holder, item);
 
