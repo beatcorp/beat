@@ -3,7 +3,7 @@ package com.beatstreaming.beat.http;
 import android.content.Context;
 
 import com.android.volley.Request;
-import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
+import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
 import com.beatstreaming.beat.payload.AlbumPayload;
 import com.beatstreaming.beat.section.AlbumTrackListSectionContext;
 import com.beatstreaming.core.http.HttpRequestBinding;

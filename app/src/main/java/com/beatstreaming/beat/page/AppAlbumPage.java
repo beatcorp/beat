@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.beat.http.AlbumTrackListRequest;
-import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
+import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
 import com.beatstreaming.beat.payload.AlbumPayload;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;

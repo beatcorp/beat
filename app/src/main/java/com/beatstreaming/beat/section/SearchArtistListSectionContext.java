@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.beatstreaming.beat.item.AppArtistCardImageItemBinder;
+import com.beatstreaming.beat.item.artist.AppArtistCardImageItemBinder;
 import com.beatstreaming.core.component.list.ListSectionContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.list.AppSourceListContext;

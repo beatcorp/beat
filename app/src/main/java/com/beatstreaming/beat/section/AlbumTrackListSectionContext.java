@@ -3,7 +3,7 @@ package com.beatstreaming.beat.section;
 import android.content.Context;
 
 import com.beatstreaming.beat.R;
-import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
+import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
 import com.beatstreaming.core.component.list.ListSectionContext;
 import com.beatstreaming.core.component.section.SectionContext;
 import com.beatstreaming.core.layout.ListGridLayoutManager;

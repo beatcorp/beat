@@ -1,4 +1,4 @@
-package com.beatstreaming.beat.item;
+package com.beatstreaming.beat.item.artist;
 
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.item.ArtistItemType;

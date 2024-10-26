@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.beat.item.AppTrackListImageItemBinder;
+import com.beatstreaming.beat.item.track.AppTrackListImageItemBinder;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
