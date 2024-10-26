@@ -1,6 +1,5 @@
 [versions]
 agp = "8.7.1"
-commonsBeanutils = "1.9.4"
 exoplayerUi = "2.19.1"
 flexbox = "3.0.0"
 gson = "2.11.0"
@@ -10,6 +9,8 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
+mapstruct = "1.6.2"
+mapstructProcessor = "1.6.2"
 material = "1.12.0"
 lombok = "1.18.34"
 media3Exoplayer = "1.4.1"
@@ -19,7 +20,6 @@ hilt = "2.52"
 media3Common = "1.4.1"
 
 [libraries]
-commons-beanutils = { module = "commons-beanutils:commons-beanutils", version.ref = "commonsBeanutils" }
 exoplayer-ui = { module = "com.google.android.exoplayer:exoplayer-ui", version.ref = "exoplayerUi" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
@@ -31,6 +31,8 @@ ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitV
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstructProcessor" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "media3Exoplayer" }
 media3-session = { module = "androidx.media3:media3-session", version.ref = "media3Exoplayer" }
