@@ -34,7 +34,7 @@ public class AppLibraryPage extends Fragment {
 
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
-        this.libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<AppSourceListContext, LibraryItemEntity<ItemEntity>>(null, libraryListStorage.list.toArray(new LibraryItemEntity[]{}), this.abstractLibraryItemBinder));
+        this.libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<AppSourceListContext, LibraryItemEntity<ItemEntity>>(null, libraryListStorage.getList().toArray(new LibraryItemEntity[]{}), this.abstractLibraryItemBinder));
 
         return this.libraryPageBinding.getRoot();
     }

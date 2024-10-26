@@ -1,10 +1,9 @@
 package com.beatstreaming.beat.module;
 
-import android.content.Context;
-
 import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.AppAlbumItemType;
 import com.beatstreaming.beat.item.AppArtistItemType;
+import com.beatstreaming.beat.item.AppPlaylistItemType;
 import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
 import com.beatstreaming.beat.item.TrackListImageItemBinder;
 import com.beatstreaming.beat.item.TrackListIndexItemBinder;
@@ -13,22 +12,18 @@ import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
-import com.beatstreaming.media.player.Player;
-import com.beatstreaming.media.player.ui.PlayerBar;
 import com.beatstreaming.media.server.AppServerManager;
-import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 import com.beatstreaming.music.item.AlbumItemType;
 import com.beatstreaming.music.item.ArtistItemType;
+import com.beatstreaming.music.item.PlaylistItemType;
+import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
 import com.beatstreaming.music.player.MusicPlayer;
-import com.beatstreaming.music.player.ui.MusicPlayerBar;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
-import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 
 @Module
@@ -78,6 +73,12 @@ public class BindModule {
 
     @Provides
     @Singleton
+    public AddPlaylistItemBinder provideAddPlaylistItemBinder() {
+        return new AddPlaylistItemBinder();
+    }
+
+    @Provides
+    @Singleton
     public AlbumItemType provideAlbumItemType() {
         return new AppAlbumItemType();
     }
@@ -86,5 +87,11 @@ public class BindModule {
     @Singleton
     public ArtistItemType provideArtistItemType() {
         return new AppArtistItemType();
+    }
+
+    @Provides
+    @Singleton
+    public PlaylistItemType providePlaylistItemType() {
+        return new AppPlaylistItemType();
     }
 }
