@@ -11,14 +11,21 @@ import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.list.AlbumListContext;
 import com.beatstreaming.music.player.MusicPlayer;
 
+import org.apache.commons.beanutils.BeanUtils;
+
+import lombok.SneakyThrows;
+
 public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<AlbumListContext, T> {
     public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType) {
         super(player, trackItemType);
     }
 
     @Override
+    @SneakyThrows
     public void bind(AlbumListContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
-        AlbumTrackEntity albumTrackEntity = ((AlbumTrackEntity) item).setup(context.getAlbumEntity());
+        AlbumTrackEntity albumTrackEntity = new AlbumTrackEntity().setup(context.getAlbumEntity());
+
+        BeanUtils.copyProperties(albumTrackEntity, item);
 
         super.bind(context, holder, albumTrackEntity);
 
