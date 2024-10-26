@@ -3,7 +3,7 @@ package com.beatstreaming.beat.http;
 import android.content.Context;
 
 import com.android.volley.Request;
-import com.beatstreaming.beat.item.TrackListImageItemBinder;
+import com.beatstreaming.beat.item.AppTrackListImageItemBinder;
 import com.beatstreaming.beat.payload.ArtistPayload;
 import com.beatstreaming.beat.section.ArtistTrackListSectionContext;
 import com.beatstreaming.media.list.AppSourceListContext;
@@ -22,10 +22,10 @@ import lombok.SneakyThrows;
 
 public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, ArtistPageBinding, ArtistSectionListBinding> {
     private final AppSourceEntity appSourceEntity;
-    private final TrackListImageItemBinder trackListItemBinder;
+    private final AppTrackListImageItemBinder trackListItemBinder;
 
     @SneakyThrows
-    public ArtistTrackListRequest(Context context, ArtistPageBinding artistPageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, ArtistSectionListBinding artistSectionListBinding, TrackListImageItemBinder trackListItemBinder) {
+    public ArtistTrackListRequest(Context context, ArtistPageBinding artistPageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, ArtistSectionListBinding artistSectionListBinding, AppTrackListImageItemBinder trackListItemBinder) {
         super(context, artistPageBinding.artistTrackList, artistPageBinding, artistSectionListBinding, ArtistEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
@@ -38,7 +38,7 @@ public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, Art
     public void onLoad(ArtistEntity artistEntity) {
         Picasso.get().load(artistEntity.getImage().getUrl()).into(this.pageBinding.artistImage.mediaImage);
 
-        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), artistEntity.getTracks(), (TrackListImageItemBinder) this.trackListItemBinder.setup(new ArtistPlayerContext((new AppSourceListContext(this.appSourceEntity)), new ArtistPlayerSource(artistEntity)))));
+        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), artistEntity.getTracks(), (AppTrackListImageItemBinder) this.trackListItemBinder.setup(new ArtistPlayerContext((new AppSourceListContext(this.appSourceEntity)), new ArtistPlayerSource(artistEntity)))));
 
         super.onLoad(artistEntity);
     }

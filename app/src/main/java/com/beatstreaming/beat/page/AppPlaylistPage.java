@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.beat.item.TrackListIndexItemBinder;
+import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
@@ -22,7 +22,8 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppPlaylistPage extends PlaylistPage {
-    @Inject TrackListIndexItemBinder trackListImageItemBinder;
+    @Inject
+    AppTrackListIndexItemBinder trackListImageItemBinder;
 
     public AppPlaylistPage(AppSourceListContext appSourceContext, PlaylistEntity playlistEntity) {
         super(appSourceContext, playlistEntity);

@@ -12,9 +12,9 @@ import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
-public class TrackListImageItemBinder<T extends ItemEntity> extends TrackListItemBinder<T> {
+public class AppTrackListImageItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<T> {
     @Inject
-    public TrackListImageItemBinder(MusicPlayer player) {
+    public AppTrackListImageItemBinder(MusicPlayer player) {
         super(player);
     }
 

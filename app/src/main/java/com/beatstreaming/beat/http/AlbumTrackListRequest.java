@@ -3,7 +3,7 @@ package com.beatstreaming.beat.http;
 import android.content.Context;
 
 import com.android.volley.Request;
-import com.beatstreaming.beat.item.TrackListIndexItemBinder;
+import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
 import com.beatstreaming.beat.payload.AlbumPayload;
 import com.beatstreaming.beat.section.AlbumTrackListSectionContext;
 import com.beatstreaming.core.http.HttpRequestBinding;
@@ -21,10 +21,10 @@ import lombok.SneakyThrows;
 
 public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, CollectionPageBinding, AlbumSectionListBinding> {
     private final AppSourceEntity appSourceEntity;
-    private final TrackListIndexItemBinder<AlbumEntity> trackListIndexItemBinder;
+    private final AppTrackListIndexItemBinder<AlbumEntity> trackListIndexItemBinder;
 
     @SneakyThrows
-    public AlbumTrackListRequest(Context context, CollectionPageBinding collectionPageBinding, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, TrackListIndexItemBinder trackListIndexItemBinder) {
+    public AlbumTrackListRequest(Context context, CollectionPageBinding collectionPageBinding, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, AppTrackListIndexItemBinder trackListIndexItemBinder) {
         super(context, collectionPageBinding.collectionList, collectionPageBinding, albumSectionListBinding, AlbumEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
@@ -35,7 +35,7 @@ public class AlbumTrackListRequest extends HttpRequestBinding<AlbumEntity, Colle
 
     @Override
     public void onLoad(AlbumEntity albumEntity) {
-        this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), albumEntity.getTracks(), (TrackListIndexItemBinder) this.trackListIndexItemBinder.setup(new AlbumPlayerContext((new AppSourceListContext(this.appSourceEntity)), new AlbumPlayerSource(albumEntity)))));
+        this.resultBinding.trackSection.init(new AlbumTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), albumEntity.getTracks(), (AppTrackListIndexItemBinder) this.trackListIndexItemBinder.setup(new AlbumPlayerContext((new AppSourceListContext(this.appSourceEntity)), new AlbumPlayerSource(albumEntity)))));
 
         super.onLoad(albumEntity);
     }

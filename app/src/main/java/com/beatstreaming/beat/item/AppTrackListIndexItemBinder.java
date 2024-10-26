@@ -9,8 +9,8 @@ import com.beatstreaming.media.databinding.MediaCoverTextBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.player.MusicPlayer;
 
-public class TrackListIndexItemBinder<T extends ItemEntity> extends TrackListItemBinder<T> {
-    public TrackListIndexItemBinder(MusicPlayer player) {
+public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<T> {
+    public AppTrackListIndexItemBinder(MusicPlayer player) {
         super(player);
     }
 

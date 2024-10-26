@@ -3,7 +3,7 @@ package com.beatstreaming.beat.section;
 import android.content.Context;
 
 import com.beatstreaming.beat.R;
-import com.beatstreaming.beat.item.TrackListIndexItemBinder;
+import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
 import com.beatstreaming.core.component.list.ListSectionContext;
 import com.beatstreaming.core.component.section.SectionContext;
 import com.beatstreaming.core.layout.ListGridLayoutManager;
@@ -12,7 +12,7 @@ import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.music.entity.TrackEntity;
 
 public class AlbumTrackListSectionContext extends ListSectionContext<AppSourceListContext, TrackEntity> {
-    public AlbumTrackListSectionContext(Context context, AppSourceListContext appSourceContext, TrackEntity[] entities, TrackListIndexItemBinder binder) {
+    public AlbumTrackListSectionContext(Context context, AppSourceListContext appSourceContext, TrackEntity[] entities, AppTrackListIndexItemBinder binder) {
         super(context, R.string.section_album_track_list_title, new ListRecyclerViewAdapter<AppSourceListContext, TrackEntity>(appSourceContext, entities, binder));
     }
 

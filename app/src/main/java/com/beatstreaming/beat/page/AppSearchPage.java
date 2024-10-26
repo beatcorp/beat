@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment;
 import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.http.SearchResultRequest;
-import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
-import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
-import com.beatstreaming.beat.item.TrackListImageItemBinder;
+import com.beatstreaming.beat.item.AppAlbumCardImageItemBinder;
+import com.beatstreaming.beat.item.AppTrackListImageItemBinder;
+import com.beatstreaming.beat.item.AppArtistCardImageItemBinder;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
@@ -29,9 +29,12 @@ public class AppSearchPage extends Fragment {
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
-    @Inject TrackListImageItemBinder<SearchResultEntity> trackListItemBinder;
-    @Inject ArtistCardImageItemBinder artistCardItemBinder;
-    @Inject AlbumCardImageItemBinder albumCardItemBinder;
+    @Inject
+    AppTrackListImageItemBinder<SearchResultEntity> trackListItemBinder;
+    @Inject
+    AppArtistCardImageItemBinder artistCardItemBinder;
+    @Inject
+    AppAlbumCardImageItemBinder albumCardItemBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {

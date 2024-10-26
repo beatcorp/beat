@@ -1,12 +1,12 @@
 package com.beatstreaming.beat.module;
 
-import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
+import com.beatstreaming.beat.item.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.AppAlbumItemType;
 import com.beatstreaming.beat.item.AppArtistItemType;
 import com.beatstreaming.beat.item.AppPlaylistItemType;
-import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
-import com.beatstreaming.beat.item.TrackListImageItemBinder;
-import com.beatstreaming.beat.item.TrackListIndexItemBinder;
+import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
+import com.beatstreaming.beat.item.AppArtistCardImageItemBinder;
+import com.beatstreaming.beat.item.AppTrackListImageItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
@@ -49,26 +49,26 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public TrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player) {
-        return new TrackListImageItemBinder(player);
+    public AppTrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player) {
+        return new AppTrackListImageItemBinder(player);
     }
 
     @Provides
     @Singleton
-    public AlbumCardImageItemBinder provideAlbumCardItemBinder() {
-        return new AlbumCardImageItemBinder();
+    public AppAlbumCardImageItemBinder provideAlbumCardItemBinder() {
+        return new AppAlbumCardImageItemBinder();
     }
 
     @Provides
     @Singleton
-    public ArtistCardImageItemBinder provideArtistCardItemBinder() {
-        return new ArtistCardImageItemBinder();
+    public AppArtistCardImageItemBinder provideArtistCardItemBinder() {
+        return new AppArtistCardImageItemBinder();
     }
 
     @Provides
     @Singleton
-    public TrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player) {
-        return new TrackListIndexItemBinder(player);
+    public AppTrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player) {
+        return new AppTrackListIndexItemBinder(player);
     }
 
     @Provides

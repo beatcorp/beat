@@ -5,6 +5,6 @@ import com.beatstreaming.music.item.AlbumItemType;
 
 public class AppAlbumItemType extends AlbumItemType {
     public AppAlbumItemType() {
-        super(AlbumEntity.class, AlbumCardImageItemBinder.class);
+        super(AlbumEntity.class, AppAlbumCardImageItemBinder.class);
     }
 }

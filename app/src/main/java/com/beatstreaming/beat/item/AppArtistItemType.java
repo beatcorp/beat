@@ -5,6 +5,6 @@ import com.beatstreaming.music.item.ArtistItemType;
 
 public class AppArtistItemType extends ArtistItemType {
     public AppArtistItemType() {
-        super(ArtistEntity.class, ArtistCardImageItemBinder.class);
+        super(ArtistEntity.class, AppArtistCardImageItemBinder.class);
     }
 }

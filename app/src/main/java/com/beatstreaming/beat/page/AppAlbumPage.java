@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.beat.http.AlbumTrackListRequest;
-import com.beatstreaming.beat.item.TrackListIndexItemBinder;
+import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
 import com.beatstreaming.beat.payload.AlbumPayload;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
@@ -22,7 +22,8 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppAlbumPage extends AlbumPage {
-    @Inject TrackListIndexItemBinder trackListImageItemBinder;
+    @Inject
+    AppTrackListIndexItemBinder trackListImageItemBinder;
 
     public AppAlbumPage(AppSourceListContext appSourceContext, AlbumEntity albumEntity) {
         super(appSourceContext, albumEntity);

@@ -16,8 +16,8 @@ import com.beatstreaming.music.sheet.track.TrackListSheet;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class TrackListItemBinder<T extends ItemEntity> extends MediaListItemBinder<TrackEntity, T> {
-    public TrackListItemBinder(MusicPlayer player) {
+public class AppTrackListItemBinder<T extends ItemEntity> extends MediaListItemBinder<TrackEntity, T> {
+    public AppTrackListItemBinder(MusicPlayer player) {
         super(player);
     }
 

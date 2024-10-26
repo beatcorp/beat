@@ -5,9 +5,9 @@ import android.content.Context;
 import com.android.volley.Request;
 import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
-import com.beatstreaming.beat.item.AlbumCardImageItemBinder;
-import com.beatstreaming.beat.item.ArtistCardImageItemBinder;
-import com.beatstreaming.beat.item.TrackListImageItemBinder;
+import com.beatstreaming.beat.item.AppAlbumCardImageItemBinder;
+import com.beatstreaming.beat.item.AppArtistCardImageItemBinder;
+import com.beatstreaming.beat.item.AppTrackListImageItemBinder;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.music.player.SearchPlayerContext;
 import com.beatstreaming.music.player.SearchPlayerSource;
@@ -26,12 +26,12 @@ import lombok.SneakyThrows;
 public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, SearchPageBinding, SearchPageResultBinding> {
     private final AppSourceEntity appSourceEntity;
 
-    private final TrackListImageItemBinder trackListItemBinder;
-    private final ArtistCardImageItemBinder artistCardItemBinder;
-    private final AlbumCardImageItemBinder albumCardItemBinder;
+    private final AppTrackListImageItemBinder trackListItemBinder;
+    private final AppArtistCardImageItemBinder artistCardItemBinder;
+    private final AppAlbumCardImageItemBinder albumCardItemBinder;
 
     @SneakyThrows
-    public SearchResultRequest(Context context, SearchPageBinding searchPageBinding, AppSourceEntity appSourceEntity, SearchPayload searchPayload, SearchPageResultBinding searchPageResultBinding, TrackListImageItemBinder trackListItemBinder, ArtistCardImageItemBinder artistCardItemBinder, AlbumCardImageItemBinder albumCardItemBinder) {
+    public SearchResultRequest(Context context, SearchPageBinding searchPageBinding, AppSourceEntity appSourceEntity, SearchPayload searchPayload, SearchPageResultBinding searchPageResultBinding, AppTrackListImageItemBinder trackListItemBinder, AppArtistCardImageItemBinder artistCardItemBinder, AppAlbumCardImageItemBinder albumCardItemBinder) {
         super(context, searchPageBinding.searchResultList, searchPageBinding, searchPageResultBinding, SearchResultEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
@@ -45,7 +45,7 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
-        this.resultBinding.trackSection.init(new SearchTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), searchResultEntity.getTracks(), (TrackListImageItemBinder) this.trackListItemBinder.setup(new SearchPlayerContext((new AppSourceListContext(this.appSourceEntity)), new SearchPlayerSource(searchResultEntity)))));
+        this.resultBinding.trackSection.init(new SearchTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), searchResultEntity.getTracks(), (AppTrackListImageItemBinder) this.trackListItemBinder.setup(new SearchPlayerContext((new AppSourceListContext(this.appSourceEntity)), new SearchPlayerSource(searchResultEntity)))));
         this.resultBinding.albumSection.init(new SearchArtistListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), searchResultEntity.getArtists(), this.artistCardItemBinder));
         this.resultBinding.artistSection.init(new SearchAlbumListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), searchResultEntity.getAlbums(), this.albumCardItemBinder));
 
