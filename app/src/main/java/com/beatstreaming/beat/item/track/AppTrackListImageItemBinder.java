@@ -7,6 +7,7 @@ import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.MediaCoverImageBinding;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.squareup.picasso.Picasso;
 
@@ -14,8 +15,8 @@ import javax.inject.Inject;
 
 public class AppTrackListImageItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<T> {
     @Inject
-    public AppTrackListImageItemBinder(MusicPlayer player) {
-        super(player);
+    public AppTrackListImageItemBinder(MusicPlayer player, TrackItemType trackItemType) {
+        super(player, trackItemType);
     }
 
     @Override

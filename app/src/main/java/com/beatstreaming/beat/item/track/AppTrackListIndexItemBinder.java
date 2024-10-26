@@ -7,11 +7,12 @@ import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.MediaCoverTextBinding;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.player.MusicPlayer;
 
 public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<T> {
-    public AppTrackListIndexItemBinder(MusicPlayer player) {
-        super(player);
+    public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType) {
+        super(player, trackItemType);
     }
 
     @Override
