@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.beat.item.AppTrackListIndexItemBinder;
+import com.beatstreaming.beat.item.AppTrackListImageItemBinder;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
@@ -22,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppPlaylistPage extends PlaylistPage {
-    @Inject
-    AppTrackListIndexItemBinder trackListImageItemBinder;
+    @Inject AppTrackListImageItemBinder appTrackListImageItemBinder;
 
     public AppPlaylistPage(AppSourceListContext appSourceContext, PlaylistEntity playlistEntity) {
         super(appSourceContext, playlistEntity);
@@ -34,7 +33,7 @@ public class AppPlaylistPage extends PlaylistPage {
         this.collectionPageBinding = CollectionPageBinding.inflate(this.getLayoutInflater());
 
         ItemListBinding itemListBinding = ItemListBinding.inflate(this.getLayoutInflater());
-        itemListBinding.list.setAdapter(new ListRecyclerViewAdapter(null, this.imageItemEntity.getTracks().toArray(new TrackEntity[0]), this.trackListImageItemBinder));
+        itemListBinding.list.setAdapter(new ListRecyclerViewAdapter(null, this.imageItemEntity.getTracks().toArray(new TrackEntity[0]), this.appTrackListImageItemBinder));
 
         this.collectionPageBinding.collectionList.view.addView(itemListBinding.getRoot());
 

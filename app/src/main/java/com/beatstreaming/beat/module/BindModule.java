@@ -13,6 +13,7 @@ import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.item.AlbumItemType;
 import com.beatstreaming.music.item.ArtistItemType;
 import com.beatstreaming.music.item.PlaylistItemType;
@@ -73,8 +74,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AddPlaylistItemBinder provideAddPlaylistItemBinder() {
-        return new AddPlaylistItemBinder();
+    public AddPlaylistItemBinder provideAddPlaylistItemBinder(LibraryListStorageManager libraryListStorageManager) {
+        return new AddPlaylistItemBinder(libraryListStorageManager);
     }
 
     @Provides
