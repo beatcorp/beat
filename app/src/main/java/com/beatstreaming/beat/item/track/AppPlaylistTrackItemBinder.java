@@ -9,17 +9,22 @@ import com.beatstreaming.music.entity.TrackEntity;
 import javax.inject.Inject;
 
 public class AppPlaylistTrackItemBinder extends ListBinder<ListContext, LibraryItemEntity<TrackEntity>> {
-    private final AppTrackListItemBinder appTrackListItemBinder;
+    private final AppTrackListImageItemBinder appTrackListImageItemBinder;
 
     @Inject
-    public AppPlaylistTrackItemBinder(AppTrackListItemBinder appTrackListItemBinder) {
-        this.appTrackListItemBinder = appTrackListItemBinder;
+    public AppPlaylistTrackItemBinder(AppTrackListImageItemBinder appTrackListImageItemBinder) {
+        this.appTrackListImageItemBinder = appTrackListImageItemBinder;
     }
 
     @Override
     public void bind(ListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
         super.bind(context, holder, item);
 
-        this.appTrackListItemBinder.bind(item.getAppSourceContext(), holder, item.getItem());
+        this.appTrackListImageItemBinder.bind(item.getAppSourceContext(), holder, item.getItem());
+    }
+
+    @Override
+    public int getItemLayout() {
+        return com.beatstreaming.media.R.layout.media_list_item_binder;
     }
 }
