@@ -10,8 +10,7 @@ import com.beatstreaming.music.entity.cast.AlbumTrackEntity;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.list.AlbumListContext;
 import com.beatstreaming.music.player.MusicPlayer;
-
-import org.apache.commons.beanutils.BeanUtils;
+import com.google.gson.Gson;
 
 import lombok.SneakyThrows;
 
@@ -23,9 +22,9 @@ public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackL
     @Override
     @SneakyThrows
     public void bind(AlbumListContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
-        AlbumTrackEntity albumTrackEntity = new AlbumTrackEntity().setup(context.getAlbumEntity());
+        AlbumTrackEntity albumTrackEntity = new Gson().fromJson(new Gson().toJson(item), AlbumTrackEntity.class);
 
-        BeanUtils.copyProperties(albumTrackEntity, item);
+        albumTrackEntity.setup(context.getAlbumEntity());
 
         super.bind(context, holder, albumTrackEntity);
 
