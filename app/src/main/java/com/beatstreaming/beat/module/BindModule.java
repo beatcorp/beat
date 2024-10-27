@@ -17,6 +17,7 @@ import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -67,6 +68,12 @@ public class BindModule {
     @Singleton
     public Class<? extends ShareListSheet> provideShareListSheet() {
         return AppShareListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends MediaListSheet> provideAppTrackListSheet() {
+        return AppTrackListSheet.class;
     }
 
     @Provides
