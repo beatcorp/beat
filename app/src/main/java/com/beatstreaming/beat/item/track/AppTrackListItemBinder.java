@@ -22,11 +22,13 @@ import java.util.stream.Collectors;
 
 public class AppTrackListItemBinder<T extends ListContext, V extends ItemEntity> extends MediaListItemBinder<T, TrackEntity, V> {
     protected final TrackItemType trackItemType;
+    protected final TrackListSheet trackListSheet;
 
-    public AppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType) {
+    public AppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
         super(player);
 
         this.trackItemType = trackItemType;
+        this.trackListSheet = trackListSheet;
     }
 
     @Override
@@ -51,7 +53,7 @@ public class AppTrackListItemBinder<T extends ListContext, V extends ItemEntity>
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                new TrackListSheet(holder.itemView.getContext()).setup(new LibraryItemEntity<TrackEntity>((AppSourceListContext) context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item))).show();
+                trackListSheet.setup(new LibraryItemEntity<TrackEntity>((AppSourceListContext) context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item))).show();
 
                 return true;
             }

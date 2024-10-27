@@ -10,12 +10,13 @@ import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.list.AlbumListContext;
 import com.beatstreaming.music.player.MusicPlayer;
+import com.beatstreaming.music.sheet.track.TrackListSheet;
 
 import lombok.SneakyThrows;
 
 public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<AlbumListContext, T> {
-    public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType) {
-        super(player, trackItemType);
+    public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
+        super(player, trackItemType, trackListSheet);
     }
 
     @Override

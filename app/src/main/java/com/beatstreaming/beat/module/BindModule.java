@@ -1,5 +1,7 @@
 package com.beatstreaming.beat.module;
 
+import android.content.Context;
+
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
 import com.beatstreaming.beat.item.artist.AppArtistItemType;
@@ -23,12 +25,14 @@ import com.beatstreaming.music.item.PlaylistItemType;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
 import com.beatstreaming.music.player.MusicPlayer;
+import com.beatstreaming.music.sheet.track.TrackListSheet;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 
 @Module
@@ -54,14 +58,26 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppTrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType) {
-        return new AppTrackListImageItemBinder(player, trackItemType);
+    public TrackListSheet provideTrackListSheet(@ApplicationContext Context context) {
+        return new TrackListSheet(context);
     }
 
     @Provides
     @Singleton
-    public AppTrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType) {
-        return new AppTrackListIndexItemBinder(player, trackItemType);
+    public AppTrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
+        return new AppTrackListImageItemBinder(player, trackItemType, trackListSheet);
+    }
+
+    @Provides
+    @Singleton
+    public AppTrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
+        return new AppTrackListIndexItemBinder(player, trackItemType, trackListSheet);
+    }
+
+    @Provides
+    @Singleton
+    public AppTrackListItemBinder provideAppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
+        return new AppTrackListItemBinder(player, trackItemType, trackListSheet);
     }
 
     @Provides
@@ -80,12 +96,6 @@ public class BindModule {
     @Singleton
     public AppArtistCardImageItemBinder provideArtistCardItemBinder() {
         return new AppArtistCardImageItemBinder();
-    }
-
-    @Provides
-    @Singleton
-    public AppTrackListItemBinder provideAppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType) {
-        return new AppTrackListItemBinder(player, trackItemType);
     }
 
     @Provides

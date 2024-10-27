@@ -9,14 +9,15 @@ import com.beatstreaming.media.databinding.MediaCoverImageBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.player.MusicPlayer;
+import com.beatstreaming.music.sheet.track.TrackListSheet;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
 public class AppTrackListImageItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<AppSourceListContext, T> {
     @Inject
-    public AppTrackListImageItemBinder(MusicPlayer player, TrackItemType trackItemType) {
-        super(player, trackItemType);
+    public AppTrackListImageItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
+        super(player, trackItemType, trackListSheet);
     }
 
     @Override
