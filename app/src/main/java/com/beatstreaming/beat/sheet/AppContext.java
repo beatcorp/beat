@@ -10,7 +10,7 @@ import com.beatstreaming.music.entity.TrackEntity;
 
 public class AppContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
     public AppContext() {
-        super(com.beatstreaming.media.R.string.sheet_share_copy, com.beatstreaming.core.R.drawable.info);
+        super(com.beatstreaming.media.R.string.sheet_app_about, com.beatstreaming.core.R.drawable.info);
     }
 
     @Override
