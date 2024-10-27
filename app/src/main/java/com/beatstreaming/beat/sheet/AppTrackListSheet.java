@@ -32,5 +32,6 @@ public class AppTrackListSheet extends TrackListSheet {
         this.list.add(new GoToArtistContext());
         this.list.add(new GoToAlbumContext());
         this.list.add(new ShareContext());
+        this.list.add(new ShareContext());
     }
 }
