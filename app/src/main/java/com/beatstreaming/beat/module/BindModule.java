@@ -65,8 +65,14 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public Class<? extends ShareListSheet<?>> provideShareListSheet() {
+    public Class<? extends ShareListSheet> provideShareListSheet() {
         return AppShareListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public ItemType provideItemType(TrackItemType trackItemType) {
+        return trackItemType;
     }
 
     @Provides
@@ -133,11 +139,5 @@ public class BindModule {
     @Singleton
     public PlaylistItemType providePlaylistItemType() {
         return new AppPlaylistItemType();
-    }
-
-    @Provides
-    @Singleton
-    public  ItemType<?> provideItemType(AppTrackItemType appTrackItemType) {
-        return appTrackItemType;
     }
 }
