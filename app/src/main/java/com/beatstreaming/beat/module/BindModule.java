@@ -18,6 +18,7 @@ import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.media.sheet.ShareListSheet;
+import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.item.AlbumItemType;
 import com.beatstreaming.music.item.ArtistItemType;
@@ -132,5 +133,11 @@ public class BindModule {
     @Singleton
     public PlaylistItemType providePlaylistItemType() {
         return new AppPlaylistItemType();
+    }
+
+    @Provides
+    @Singleton
+    public  ItemType<?> provideItemType(AppTrackItemType appTrackItemType) {
+        return appTrackItemType;
     }
 }
