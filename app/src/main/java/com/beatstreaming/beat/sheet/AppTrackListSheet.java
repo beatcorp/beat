@@ -19,7 +19,7 @@ public class AppTrackListSheet extends TrackListSheet {
         this.init(context);
     }
 
-    protected AppTrackListSheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
+    public AppTrackListSheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
         super(context, cancelable, onCancelListener);
 
         this.init(context);

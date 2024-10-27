@@ -7,7 +7,7 @@ import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.list.ListSheetItemContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.sheet.share.ShareListSheet;
+import com.beatstreaming.music.sheet.share.AppShareListSheet;
 
 public class ShareContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
     public ShareContext() {
@@ -16,6 +16,6 @@ public class ShareContext extends ListSheetItemContext<LibraryItemEntity<TrackEn
 
     @Override
     public void onCall(Context context, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
-        new ShareListSheet(context).setup(listSheetContext.getItem()).show();
+        new AppShareListSheet(context).setup(listSheetContext.getItem()).show();
     }
 }
