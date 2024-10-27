@@ -1,13 +1,16 @@
 package com.beatstreaming.beat.sheet;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.beatstreaming.beat.activity.AppArtistFragmentActivity;
+import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.list.ListSheetItemContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.google.gson.Gson;
 
 public class GoToArtistContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
     public GoToArtistContext() {
@@ -16,6 +19,6 @@ public class GoToArtistContext extends ListSheetItemContext<LibraryItemEntity<Tr
 
     @Override
     public void onCall(Context context, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
-        new AppArtistFragmentActivity(listSheetContext.getItem().getAppSourceContext(), listSheetContext.getItem().getItem().getArtist());
+        MainActivity.mainActivity.startActivity(new Intent(context, AppArtistFragmentActivity.class).putExtra("data", new Gson().toJson(new Object[]{listSheetContext.getItem().getAppSourceContext(), listSheetContext.getItem().getItem().getArtist()})));
     }
 }

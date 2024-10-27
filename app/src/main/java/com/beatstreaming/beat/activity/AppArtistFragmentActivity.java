@@ -9,7 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppArtistFragmentActivity extends FragmentMainActivity {
-    public AppArtistFragmentActivity(AppSourceListContext appSourceListContext, ArtistEntity artistEntity) {
-        super(AppArtistPage.class, new Class[]{AppSourceListContext.class, ArtistEntity.class}, new Object[]{appSourceListContext, artistEntity});
+    public AppArtistFragmentActivity() {
+        super(AppArtistPage.class, new Class[]{AppSourceListContext.class, ArtistEntity.class});
     }
 }
