@@ -1,5 +1,6 @@
 package com.beatstreaming.beat.item.track;
 
+import android.content.Context;
 import android.view.View;
 
 import com.beatstreaming.beat.page.AppArtistPage;
@@ -20,11 +21,13 @@ import com.beatstreaming.music.sheet.track.TrackListSheet;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import lombok.SneakyThrows;
+
 public class AppTrackListItemBinder<T extends ListContext, V extends ItemEntity> extends MediaListItemBinder<T, TrackEntity, V> {
     protected final TrackItemType trackItemType;
-    protected final TrackListSheet trackListSheet;
+    protected final Class<? extends TrackListSheet> trackListSheet;
 
-    public AppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
+    public AppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
         super(player);
 
         this.trackItemType = trackItemType;
@@ -52,8 +55,9 @@ public class AppTrackListItemBinder<T extends ListContext, V extends ItemEntity>
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
+            @SneakyThrows
             public boolean onLongClick(View view) {
-                trackListSheet.setup(new LibraryItemEntity<TrackEntity>((AppSourceListContext) context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item))).show();
+                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new LibraryItemEntity<TrackEntity>((AppSourceListContext) context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item))).show();
 
                 return true;
             }

@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 public class AppTrackListImageItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<AppSourceListContext, T> {
     @Inject
-    public AppTrackListImageItemBinder(MusicPlayer player, TrackItemType trackItemType, TrackListSheet trackListSheet) {
+    public AppTrackListImageItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
         super(player, trackItemType, trackListSheet);
     }
 
