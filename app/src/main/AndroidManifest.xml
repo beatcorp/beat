@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.AppArtistFragmentActivity" android:exported="true" />
+        <activity android:name=".activity.AppAlbumFragmentActivity" android:exported="true" />
     </application>
 
 </manifest>

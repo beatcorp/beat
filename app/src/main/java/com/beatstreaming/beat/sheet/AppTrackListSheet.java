@@ -4,7 +4,6 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.music.sheet.track.AddToPlaylistListContext;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
 
 public class AppTrackListSheet extends TrackListSheet {
@@ -31,5 +30,6 @@ public class AppTrackListSheet extends TrackListSheet {
         super.init(context);
 
         this.list.add(new GoToArtistContext());
+        this.list.add(new GoToAlbumContext());
     }
 }
