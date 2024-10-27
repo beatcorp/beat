@@ -30,6 +30,6 @@ public class AppTrackListSheet extends TrackListSheet {
     public void init(Context context) {
         super.init(context);
 
-        this.list.add(new AddToPlaylistListContext());
+        this.list.add(new GoToArtistContext());
     }
 }

@@ -11,7 +11,7 @@ import com.beatstreaming.music.entity.TrackEntity;
 
 public class GoToArtistContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
     public GoToArtistContext() {
-        super(R.string.sheet_track_item_add_to_playlist, R.drawable.playlist_add);
+        super(R.string.sheet_track_view_artist, R.drawable.artist);
     }
 
     @Override
