@@ -19,7 +19,7 @@ public class AppContext extends ListSheetItemContext<LibraryItemEntity<TrackEnti
     }
 
     @Override
-    public String format(String translation, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
-        return String.format(translation, listSheetContext.getItem().getAppSourceContext().getItem().getName());
+    public String getTitle(Context context, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
+        return String.format(super.getTitle(context, listSheetContext), listSheetContext.getItem().getAppSourceContext().getItem().getName());
     }
 }
