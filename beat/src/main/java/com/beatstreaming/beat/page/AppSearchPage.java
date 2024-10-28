@@ -29,12 +29,9 @@ public class AppSearchPage extends Fragment {
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
-    @Inject
-    AppTrackListImageItemBinder<SearchResultEntity> trackListItemBinder;
-    @Inject
-    AppArtistCardImageItemBinder artistCardItemBinder;
-    @Inject
-    AppAlbumCardImageItemBinder albumCardItemBinder;
+    @Inject AppTrackListImageItemBinder<SearchResultEntity> trackListItemBinder;
+    @Inject AppArtistCardImageItemBinder artistCardItemBinder;
+    @Inject AppAlbumCardImageItemBinder albumCardItemBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
