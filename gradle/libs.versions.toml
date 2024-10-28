@@ -16,6 +16,7 @@ picasso = "2.71828"
 volley = "1.2.1"
 hilt = "2.52"
 media3Common = "1.4.1"
+lombokVersion = "1.18.30"
 
 [libraries]
 exoplayer-ui = { module = "com.google.android.exoplayer:exoplayer-ui", version.ref = "exoplayerUi" }
@@ -35,6 +36,7 @@ media3-session = { module = "androidx.media3:media3-session", version.ref = "med
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 media3-common = { group = "androidx.media3", name = "media3-common", version.ref = "media3Common" }
+projectlombok-lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombokVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
