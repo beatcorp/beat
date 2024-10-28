@@ -20,7 +20,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Beat"
-include ':app'
+include ':beat'
 include ':core'
 include ':media'
 include ':music'
