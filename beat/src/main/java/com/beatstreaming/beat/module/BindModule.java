@@ -33,6 +33,7 @@ import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.sheet.share.AppShareListSheet;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
+import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 
@@ -49,6 +50,12 @@ public class BindModule {
     @Singleton
     public AppServerManager provideAppServerManager() {
         return new DefaultAppServerManager();
+    }
+
+    @Provides
+    @Singleton
+    public AppSourceStorageManager provideAppSourceStorageManager(Gson gson) {
+        return new AppSourceStorageManager(gson);
     }
 
     @Provides
