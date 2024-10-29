@@ -60,6 +60,24 @@ public class BindModule {
 
     @Provides
     @Singleton
+    public Class<? extends MediaListSheet> provideAppTrackListSheet() {
+        return AppTrackListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public TrackItemType provideTrackItemType() {
+        return new AppTrackItemType();
+    }
+
+    @Provides
+    @Singleton
+    public ItemType provideItemType(TrackItemType trackItemType) {
+        return trackItemType;
+    }
+
+    @Provides
+    @Singleton
     public Class<? extends TrackListSheet> provideTrackListSheet() {
         return AppTrackListSheet.class;
     }
@@ -68,18 +86,6 @@ public class BindModule {
     @Singleton
     public Class<? extends ShareListSheet> provideShareListSheet() {
         return AppShareListSheet.class;
-    }
-
-    @Provides
-    @Singleton
-    public Class<? extends MediaListSheet> provideAppTrackListSheet() {
-        return AppTrackListSheet.class;
-    }
-
-    @Provides
-    @Singleton
-    public ItemType provideItemType(TrackItemType trackItemType) {
-        return trackItemType;
     }
 
     @Provides
@@ -122,12 +128,6 @@ public class BindModule {
     @Singleton
     public AppPlaylistTrackItemBinder provideAppPlaylistTrackItemBinder(AppTrackListImageItemBinder appTrackListImageItemBinder) {
         return new AppPlaylistTrackItemBinder(appTrackListImageItemBinder);
-    }
-
-    @Provides
-    @Singleton
-    public TrackItemType provideTrackItemType() {
-        return new AppTrackItemType();
     }
 
     @Provides
