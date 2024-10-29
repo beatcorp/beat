@@ -1,5 +1,7 @@
 package com.beatstreaming.beat.module;
 
+import android.content.Context;
+
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
 import com.beatstreaming.beat.item.artist.AppArtistItemType;
@@ -17,8 +19,10 @@ import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.media.service.AppSourceService;
 import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.sheet.ShareListSheet;
+import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.item.AlbumItemType;
@@ -35,6 +39,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 
 @Module
@@ -56,6 +61,12 @@ public class BindModule {
     @Singleton
     public Pages[] providePages() {
         return AppPages.values();
+    }
+
+    @Provides
+    @Singleton
+    public AppSourceService provideAppSourceService(@ApplicationContext Context context, AppSourceStorageManager appSourceStorageManager) {
+        return new AppSourceService(context, appSourceStorageManager);
     }
 
     @Provides
