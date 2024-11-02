@@ -38,6 +38,10 @@ public class AppTrackListItemBinder<T extends ListContext, V extends ItemEntity>
     public void bind(T context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);
 
+        holder.itemView.setOnClickListener((View view) -> {
+            player.queue(playContext);
+        });
+
         this.mediaTitle.setText(item.getName());
         this.mediaSubtitle.setText(Arrays.stream(item.getArtists())
                 .map(NameItemEntity::getName)
