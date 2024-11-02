@@ -1,5 +1,6 @@
 package com.beatstreaming.beat.module;
 
+import com.beatstreaming.beat.bind.BeatBindList;
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
 import com.beatstreaming.beat.item.artist.AppArtistItemType;
@@ -14,8 +15,11 @@ import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
+import com.beatstreaming.core.bind.BindList;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
+import com.beatstreaming.media.list.MediaCardItemBinder;
+import com.beatstreaming.media.list.MediaListItemBinder;
 import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
@@ -86,6 +90,18 @@ public class BindModule {
     @Singleton
     public Class<? extends TrackListSheet> provideTrackListSheet() {
         return AppTrackListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public BeatBindList provideBeatBindList() {
+        return new BeatBindList();
+    }
+
+    @Provides
+    @Singleton
+    public BindList provideBindMap(BeatBindList beatBindList) {
+        return beatBindList;
     }
 
     @Provides
