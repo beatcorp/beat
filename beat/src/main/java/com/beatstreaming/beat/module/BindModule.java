@@ -1,5 +1,7 @@
 package com.beatstreaming.beat.module;
 
+import android.content.Context;
+
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
 import com.beatstreaming.beat.item.artist.AppArtistItemType;
@@ -16,9 +18,10 @@ import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
-import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.media.service.AppSourceService;
 import com.beatstreaming.media.sheet.MediaListSheet;
+import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -28,6 +31,7 @@ import com.beatstreaming.music.item.PlaylistItemType;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
 import com.beatstreaming.music.player.MusicPlayer;
+import com.beatstreaming.music.sheet.share.AppShareListSheet;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
 import com.google.gson.Gson;
 
@@ -36,6 +40,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 
 @Module
@@ -67,6 +72,12 @@ public class BindModule {
 
     @Provides
     @Singleton
+    public AppSourceService provideAppSourceService(@ApplicationContext Context context, AppSourceStorageManager appSourceStorageManager) {
+        return new AppSourceService(context, appSourceStorageManager);
+    }
+
+    @Provides
+    @Singleton
     public Class<? extends MediaListSheet> provideAppTrackListSheet() {
         return AppTrackListSheet.class;
     }
@@ -87,6 +98,12 @@ public class BindModule {
     @Singleton
     public Class<? extends TrackListSheet> provideTrackListSheet() {
         return AppTrackListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends ShareListSheet> provideShareListSheet() {
+        return AppShareListSheet.class;
     }
 
     @Provides
@@ -115,14 +132,14 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppAlbumCardImageItemBinder provideAlbumCardItemBinder(Player player) {
-        return new AppAlbumCardImageItemBinder(player);
+    public AppAlbumCardImageItemBinder provideAlbumCardItemBinder() {
+        return new AppAlbumCardImageItemBinder();
     }
 
     @Provides
     @Singleton
-    public AppArtistCardImageItemBinder provideArtistCardItemBinder(Player player) {
-        return new AppArtistCardImageItemBinder(player);
+    public AppArtistCardImageItemBinder provideArtistCardItemBinder() {
+        return new AppArtistCardImageItemBinder();
     }
 
     @Provides
