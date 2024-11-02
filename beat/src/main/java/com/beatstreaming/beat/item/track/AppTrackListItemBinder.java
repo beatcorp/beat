@@ -9,7 +9,7 @@ import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.entity.NameItemEntity;
+import com.beatstreaming.core.entity.NameItemEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.list.MediaListItemBinder;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
