@@ -39,7 +39,7 @@ public class AppTrackListItemBinder<T extends ListContext, V extends ItemEntity>
         super.bind(context, holder, item);
 
         holder.itemView.setOnClickListener((View view) -> {
-            player.queue(playContext);
+            this.player.queue(this.playContext);
         });
 
         this.mediaTitle.setText(item.getName());
