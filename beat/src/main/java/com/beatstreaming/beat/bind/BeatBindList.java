@@ -4,6 +4,7 @@ import com.beatstreaming.beat.item.track.AppTrackListItemBinder;
 import com.beatstreaming.core.bind.BindList;
 import com.beatstreaming.core.bind.BindListItem;
 import com.beatstreaming.core.bind.BindType;
+import com.beatstreaming.music.entity.TrackEntity;
 
 import javax.inject.Inject;
 
@@ -14,6 +15,6 @@ public class BeatBindList extends BindList {
     public BeatBindList(AppTrackListItemBinder appTrackListItemBinder) {
         this.appTrackListItemBinder = appTrackListItemBinder;
 
-        this.list.add(new BindListItem("track", BindType.LIST, this.appTrackListItemBinder));
+        this.list.add(new BindListItem("track", BindType.LIST, TrackEntity[].class, this.appTrackListItemBinder));
     }
 }

@@ -19,7 +19,6 @@ import lombok.SneakyThrows;
 
 public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, SearchPageBinding, SearchPageResultBinding> {
     private final AppSourceEntity appSourceEntity;
-
     private final SectionListBinder sectionListBinder;
 
     @SneakyThrows
@@ -27,7 +26,6 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
         super(context, searchPageBinding.searchResultList, searchPageBinding, searchPageResultBinding, SearchResultEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
-
         this.sectionListBinder = sectionListBinder;
 
         this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "search").addParameter("query", searchPayload.getQuery()).build());
