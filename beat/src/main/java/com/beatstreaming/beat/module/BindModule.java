@@ -18,8 +18,6 @@ import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.bind.BindList;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
-import com.beatstreaming.media.list.MediaCardItemBinder;
-import com.beatstreaming.media.list.MediaListItemBinder;
 import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
@@ -94,8 +92,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public BeatBindList provideBeatBindList() {
-        return new BeatBindList();
+    public BeatBindList provideBeatBindList(AppTrackListItemBinder appTrackListItemBinder) {
+        return new BeatBindList(appTrackListItemBinder);
     }
 
     @Provides

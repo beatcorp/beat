@@ -8,9 +8,12 @@ import com.beatstreaming.core.bind.BindType;
 import javax.inject.Inject;
 
 public class BeatBindList extends BindList {
-    @Inject AppTrackListItemBinder appTrackListItemBinder;
+    private final AppTrackListItemBinder appTrackListItemBinder;
 
-    public BeatBindList() {
+    @Inject
+    public BeatBindList(AppTrackListItemBinder appTrackListItemBinder) {
+        this.appTrackListItemBinder = appTrackListItemBinder;
+
         this.list.add(new BindListItem("track", BindType.LIST, this.appTrackListItemBinder));
     }
 }
