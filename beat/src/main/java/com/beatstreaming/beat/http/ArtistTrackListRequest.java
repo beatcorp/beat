@@ -38,7 +38,7 @@ public class ArtistTrackListRequest extends HttpRequestBinding<ArtistEntity, Art
     public void onLoad(ArtistEntity artistEntity) {
         Picasso.get().load(artistEntity.getImage().getUrl()).into(this.pageBinding.artistImage.mediaImage);
 
-        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), artistEntity.getTracks(), (AppTrackListImageItemBinder) this.trackListItemBinder.setup(new ArtistPlayerContext((new AppSourceListContext(this.appSourceEntity)), new ArtistPlayerSource(artistEntity)))));
+        this.resultBinding.trackSection.init(new ArtistTrackListSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), artistEntity.getTracks(), (AppTrackListImageItemBinder) this.trackListItemBinder.setup(new ArtistPlayerContext(this.appSourceEntity, new ArtistPlayerSource(artistEntity)))));
 
         super.onLoad(artistEntity);
     }

@@ -20,6 +20,10 @@ public class SearchSectionListBinder extends SectionListBinder<SearchPlayerConte
     public void bind(SearchPlayerContext context, ListViewHolder<SectionEntity<? extends ItemEntity>> holder, SectionEntity<? extends ItemEntity> item) {
         super.bind(context, holder, item);
 
+        if (this.bindListItem == null) {
+            return;
+        }
+
         this.bindListItem.getBinder().setup(context);
     }
 }
