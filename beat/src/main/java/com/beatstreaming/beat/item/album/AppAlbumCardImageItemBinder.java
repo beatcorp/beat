@@ -7,11 +7,16 @@ import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.item.CardImageItemBinder;
+import com.beatstreaming.media.player.Player;
 import com.beatstreaming.music.entity.AlbumEntity;
 
 import lombok.SneakyThrows;
 
 public class AppAlbumCardImageItemBinder extends CardImageItemBinder<AlbumEntity> {
+    public AppAlbumCardImageItemBinder(Player<AlbumEntity> player) {
+        super(player);
+    }
+
     @Override
     public void bind(AppSourceListContext context, ListViewHolder<AlbumEntity> holder, AlbumEntity item) {
         super.bind(context, holder, item);
