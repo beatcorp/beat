@@ -12,7 +12,7 @@ import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.payload.SearchPayload;
-import com.beatstreaming.core.bind.BindMap;
+import com.beatstreaming.core.list.SectionListBinder;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
@@ -26,7 +26,7 @@ public class AppSearchPage extends Fragment {
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
-    @Inject BindMap bindMap;
+    @Inject SectionListBinder sectionListBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -34,7 +34,7 @@ public class AppSearchPage extends Fragment {
 
         AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(this.getContext());
 
-        new SearchResultRequest(this.getLayoutInflater().getContext(), this.searchPageBinding, appSourceStorageItem.getAppSourceEntity(), SearchPayload.builder().query("la casa azul").build(), SearchPageResultBinding.inflate(this.getLayoutInflater()), this.bindMap);
+        new SearchResultRequest(this.getLayoutInflater().getContext(), this.searchPageBinding, appSourceStorageItem.getAppSourceEntity(), SearchPayload.builder().query("la casa azul").build(), SearchPageResultBinding.inflate(this.getLayoutInflater()), this.sectionListBinder);
 
         return this.searchPageBinding.getRoot();
     }
