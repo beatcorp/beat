@@ -7,7 +7,7 @@ import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.beat.section.SearchSectionListBinder;
-import com.beatstreaming.beat.section.SectionPlayerContext;
+import com.beatstreaming.core.entity.SectionEntity;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.music.player.SearchPlayerContext;
 import com.beatstreaming.music.player.SearchPlayerSource;
@@ -36,7 +36,7 @@ public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, 
 
     @Override
     public void onLoad(SearchResultEntity searchResultEntity) {
-        this.resultBinding.sectionList.setAdapter(new ListRecyclerViewAdapter(new SectionPlayerContext(new SearchPlayerContext((new AppSourceListContext(this.appSourceEntity)), new SearchPlayerSource(searchResultEntity))), searchResultEntity.getSections(), this.sectionListBinder));
+        this.resultBinding.sectionList.setAdapter(new ListRecyclerViewAdapter(new SearchPlayerContext(new AppSourceListContext(this.appSourceEntity), new SearchPlayerSource(searchResultEntity)), searchResultEntity.getSections(), this.sectionListBinder));
 
         super.onLoad(searchResultEntity);
     }

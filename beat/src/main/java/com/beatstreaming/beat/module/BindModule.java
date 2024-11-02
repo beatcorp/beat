@@ -13,6 +13,7 @@ import com.beatstreaming.beat.item.track.AppTrackListImageItemBinder;
 import com.beatstreaming.beat.item.track.AppTrackListItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
+import com.beatstreaming.beat.section.SearchSectionListBinder;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.bind.BindList;
@@ -56,6 +57,12 @@ public class BindModule {
 
     @Provides
     @Singleton
+    public SearchSectionListBinder provideSearchSectionListBinder(Gson gson, BindList bindList) {
+        return new SearchSectionListBinder(gson, bindList);
+    }
+
+    @Provides
+    @Singleton
     public HomePage provideHomePage() {
         return new AppHomePage();
     }
@@ -92,7 +99,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public BeatBindList provideBeatBindList(AppTrackListItemBinder appTrackListItemBinder) {
+    public BeatBindList provideBeatBindList(AppTrackListImageItemBinder appTrackListItemBinder) {
         return new BeatBindList(appTrackListItemBinder);
     }
 
