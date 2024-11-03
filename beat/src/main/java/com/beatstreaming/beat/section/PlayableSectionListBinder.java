@@ -11,8 +11,8 @@ import com.beatstreaming.music.player.SectionPlayerContext;
 import com.beatstreaming.music.request.SearchResultEntity;
 import com.google.gson.Gson;
 
-public class TrackSectionListBinder extends SectionListBinder<SectionPlayerContext, ItemListItemBinder<SectionPlayerContext, SearchResultEntity>> {
-    public TrackSectionListBinder(Gson gson, BindList bindList) {
+public class PlayableSectionListBinder extends SectionListBinder<SectionPlayerContext, ItemListItemBinder<SectionPlayerContext, SearchResultEntity>> {
+    public PlayableSectionListBinder(Gson gson, BindList bindList) {
         super(gson, bindList);
     }
 
