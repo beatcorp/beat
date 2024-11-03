@@ -99,8 +99,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public BeatBindList provideBeatBindList(AppTrackListImageItemBinder appTrackListItemBinder) {
-        return new BeatBindList(appTrackListItemBinder);
+    public BeatBindList provideBeatBindList(AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+        return new BeatBindList(appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
     }
 
     @Provides

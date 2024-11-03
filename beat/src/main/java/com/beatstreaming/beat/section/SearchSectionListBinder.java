@@ -5,13 +5,13 @@ import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SectionEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.core.list.SectionListBinder;
+import com.beatstreaming.media.list.ItemListItemBinder;
 import com.beatstreaming.media.list.MediaListItemBinder;
-import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.player.SearchPlayerContext;
 import com.beatstreaming.music.request.SearchResultEntity;
 import com.google.gson.Gson;
 
-public class SearchSectionListBinder extends SectionListBinder<SearchPlayerContext, MediaListItemBinder<SearchPlayerContext, TrackEntity, SearchResultEntity>> {
+public class SearchSectionListBinder extends SectionListBinder<SearchPlayerContext, ItemListItemBinder<SearchPlayerContext, SearchResultEntity>> {
     public SearchSectionListBinder(Gson gson, BindList bindList) {
         super(gson, bindList);
     }
@@ -20,6 +20,8 @@ public class SearchSectionListBinder extends SectionListBinder<SearchPlayerConte
     public void bind(SearchPlayerContext context, ListViewHolder<SectionEntity<? extends ItemEntity>> holder, SectionEntity<? extends ItemEntity> item) {
         super.bind(context, holder, item);
 
-        this.bindListItem.getBinder().setup(context);
+        if (this.bindListItem.getBinder() instanceof MediaListItemBinder) {
+            ((MediaListItemBinder) this.bindListItem.getBinder()).setup(context);
+        }
     }
 }
