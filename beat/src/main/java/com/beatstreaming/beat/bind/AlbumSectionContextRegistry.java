@@ -21,7 +21,10 @@ public class AlbumSectionContextRegistry extends BeatSectionContextRegistry {
         super(context, appTrackListImageItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
 
         this.appTrackListIndexItemBinder = appTrackListIndexItemBinder;
+    }
 
+    @Override
+    public void init(Context context) {
         this.list.add(new SectionContextRegistryItem("track", SectionContextType.LIST, TrackEntity[].class, new DisplayListSectionContext(this.context, this.appTrackListIndexItemBinder)));
     }
 }

@@ -16,6 +16,7 @@ import com.beatstreaming.beat.item.track.AppTrackListImageItemBinder;
 import com.beatstreaming.beat.item.track.AppTrackListItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
+import com.beatstreaming.beat.section.AlbumSectionListBinder;
 import com.beatstreaming.beat.section.PlayableSectionListBinder;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
@@ -50,6 +51,11 @@ public class BindModule {
     @Provides
     public PlayableSectionListBinder provideSectionListBinder(Gson gson, SectionContextRegistry sectionContextRegistry) {
         return new PlayableSectionListBinder(gson, sectionContextRegistry);
+    }
+
+    @Provides
+    public AlbumSectionListBinder provideAlbumSectionListBinder(Gson gson, AlbumSectionContextRegistry sectionContextRegistry) {
+        return new AlbumSectionListBinder(gson, sectionContextRegistry);
     }
 
     @Provides
