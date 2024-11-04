@@ -110,18 +110,13 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public BeatSectionContextRegistry provideBeatBindList(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+    public SectionContextRegistry provideSectionContextRegistry(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
         return new BeatSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
     }
 
     @Provides
-    public SectionContextRegistry provideSectionContextRegistry(BeatSectionContextRegistry beatSectionContextRegistry) {
-        return beatSectionContextRegistry;
-    }
-
-    @Provides
-    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppTrackListIndexItemBinder appTrackListIndexItemBinder) {
-        return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder, appTrackListIndexItemBinder);
+    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppTrackListIndexItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+        return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
     }
 
     @Provides

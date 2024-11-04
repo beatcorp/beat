@@ -5,25 +5,22 @@ import android.view.LayoutInflater;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.databinding.MediaCoverTextBinding;
-import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.TrackItemType;
-import com.beatstreaming.music.list.AlbumListContext;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
 
 import lombok.SneakyThrows;
 
-public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<AlbumListContext, T> {
+public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<AppSourceListContext, T> {
     public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
         super(player, trackItemType, trackListSheet);
     }
 
     @Override
     @SneakyThrows
-    public void bind(AlbumListContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
-        item.setAlbum(new AlbumEntity(context.getAlbumEntity().getName(), context.getAlbumEntity().getImage(), null));
-
+    public void bind(AppSourceListContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);
 
         MediaCoverTextBinding mediaCoverTextBinding = MediaCoverTextBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));
