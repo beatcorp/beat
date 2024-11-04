@@ -1,5 +1,12 @@
 package com.beatstreaming.beat.bind;
 
+import android.content.Context;
+
+import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
+import com.beatstreaming.beat.item.artist.AppArtistCardImageItemBinder;
+import com.beatstreaming.beat.item.track.AppTrackListImageItemBinder;
+import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
+import com.beatstreaming.beat.section.DisplayListSectionContext;
 import com.beatstreaming.core.bind.SectionContextRegistryItem;
 import com.beatstreaming.core.bind.SectionContextType;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -7,10 +14,14 @@ import com.beatstreaming.music.entity.TrackEntity;
 import javax.inject.Inject;
 
 public class AlbumSectionContextRegistry extends BeatSectionContextRegistry {
-    @Inject
-    public AlbumSectionContextRegistry() {
-        super();
+    protected final AppTrackListIndexItemBinder appTrackListIndexItemBinder;
 
-        this.list.add(new SectionContextRegistryItem("track", SectionContextType.LIST, TrackEntity[].class, this));
+    @Inject
+    public AlbumSectionContextRegistry(Context context, AppTrackListImageItemBinder appTrackListImageItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppTrackListIndexItemBinder appTrackListIndexItemBinder) {
+        super(context, appTrackListImageItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
+
+        this.appTrackListIndexItemBinder = appTrackListIndexItemBinder;
+
+        this.list.add(new SectionContextRegistryItem("track", SectionContextType.LIST, TrackEntity[].class, new DisplayListSectionContext(this.context, this.appTrackListIndexItemBinder)));
     }
 }
