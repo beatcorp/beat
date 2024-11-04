@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.beatstreaming.beat.page.AppArtistPage;
 import com.beatstreaming.core.MainActivity;
-import com.beatstreaming.core.entity.SectionEntity;
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListViewHolder;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 import lombok.SneakyThrows;
 
-public class AppTrackListItemBinder<T extends ListContext, V extends SectionEntity> extends MediaListItemBinder<T, TrackEntity, V> {
+public class AppTrackListItemBinder<T extends ListContext, V extends ItemEntity> extends MediaListItemBinder<T, TrackEntity, V> {
     protected final TrackItemType trackItemType;
     protected final Class<? extends TrackListSheet> trackListSheet;
 
