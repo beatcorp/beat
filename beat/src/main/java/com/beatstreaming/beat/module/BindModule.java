@@ -1,6 +1,6 @@
 package com.beatstreaming.beat.module;
 
-import com.beatstreaming.beat.bind.BeatBindList;
+import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
 import com.beatstreaming.beat.item.artist.AppArtistItemType;
@@ -16,7 +16,7 @@ import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.section.PlayableSectionListBinder;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
-import com.beatstreaming.core.bind.BindList;
+import com.beatstreaming.core.bind.SectionContextRegistry;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
@@ -57,8 +57,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public PlayableSectionListBinder provideSectionListBinder(Gson gson, BindList bindList) {
-        return new PlayableSectionListBinder(gson, bindList);
+    public PlayableSectionListBinder provideSectionListBinder(Gson gson, SectionContextRegistry sectionContextRegistry) {
+        return new PlayableSectionListBinder(gson, sectionContextRegistry);
     }
 
     @Provides
@@ -99,14 +99,14 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public BeatBindList provideBeatBindList(AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
-        return new BeatBindList(appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
+    public BeatSectionContextRegistry provideBeatBindList(AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+        return new BeatSectionContextRegistry(appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
     }
 
     @Provides
     @Singleton
-    public BindList provideBindMap(BeatBindList beatBindList) {
-        return beatBindList;
+    public SectionContextRegistry provideBindMap(BeatSectionContextRegistry beatSectionContextRegistry) {
+        return beatSectionContextRegistry;
     }
 
     @Provides
