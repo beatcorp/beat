@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.artist.AppArtistCardImageItemBinder;
-import com.beatstreaming.beat.item.track.AppTrackListImageItemBinder;
+import com.beatstreaming.beat.item.track.AppTrackListItemBinder;
 import com.beatstreaming.beat.section.DisplayCarouselSectionContext;
 import com.beatstreaming.beat.section.DisplayListSectionContext;
 import com.beatstreaming.core.bind.SectionContextRegistry;
@@ -20,15 +20,15 @@ import javax.inject.Inject;
 public class BeatSectionContextRegistry extends SectionContextRegistry implements ItemInit<Context> {
     protected final Context context;
 
-    protected final AppTrackListImageItemBinder appTrackListImageItemBinder;
+    protected final AppTrackListItemBinder appTrackListItemBinder;
     protected final AppAlbumCardImageItemBinder appAlbumCardImageItemBinder;
     protected final AppArtistCardImageItemBinder appArtistCardImageItemBinder;
 
     @Inject
-    public BeatSectionContextRegistry(Context context, AppTrackListImageItemBinder appTrackListImageItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+    public BeatSectionContextRegistry(Context context, AppTrackListItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
         this.context = context;
 
-        this.appTrackListImageItemBinder = appTrackListImageItemBinder;
+        this.appTrackListItemBinder = appTrackListItemBinder;
         this.appAlbumCardImageItemBinder = appAlbumCardImageItemBinder;
         this.appArtistCardImageItemBinder = appArtistCardImageItemBinder;
 
@@ -37,7 +37,7 @@ public class BeatSectionContextRegistry extends SectionContextRegistry implement
 
     @Override
     public void init(Context context) {
-        this.list.add(new SectionContextRegistryItem("track", SectionContextType.LIST, TrackEntity[].class, new DisplayListSectionContext(this.context, this.appTrackListImageItemBinder)));
+        this.list.add(new SectionContextRegistryItem("track", SectionContextType.LIST, TrackEntity[].class, new DisplayListSectionContext(this.context, this.appTrackListItemBinder)));
         this.list.add(new SectionContextRegistryItem("album", SectionContextType.CAROUSEL, AlbumEntity[].class, new DisplayCarouselSectionContext(this.context, this.appAlbumCardImageItemBinder)));
         this.list.add(new SectionContextRegistryItem("artist", SectionContextType.CAROUSEL, ArtistEntity[].class, new DisplayCarouselSectionContext(this.context, this.appArtistCardImageItemBinder)));
     }

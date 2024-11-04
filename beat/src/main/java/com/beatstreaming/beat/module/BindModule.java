@@ -49,11 +49,13 @@ import dagger.hilt.components.SingletonComponent;
 @InstallIn(SingletonComponent.class)
 public class BindModule {
     @Provides
+    @Singleton
     public PlayableSectionListBinder provideSectionListBinder(Gson gson, SectionContextRegistry sectionContextRegistry) {
         return new PlayableSectionListBinder(gson, sectionContextRegistry);
     }
 
     @Provides
+    @Singleton
     public AlbumSectionListBinder provideAlbumSectionListBinder(Gson gson, AlbumSectionContextRegistry sectionContextRegistry) {
         return new AlbumSectionListBinder(gson, sectionContextRegistry);
     }
@@ -113,15 +115,13 @@ public class BindModule {
     }
 
     @Provides
-    @Singleton
-    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppTrackListIndexItemBinder appTrackListIndexItemBinder) {
-        return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder, appTrackListIndexItemBinder);
+    public SectionContextRegistry provideSectionContextRegistry(BeatSectionContextRegistry beatSectionContextRegistry) {
+        return beatSectionContextRegistry;
     }
 
     @Provides
-    @Singleton
-    public SectionContextRegistry provideSectionContextRegistry(BeatSectionContextRegistry beatSectionContextRegistry) {
-        return beatSectionContextRegistry;
+    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppTrackListIndexItemBinder appTrackListIndexItemBinder) {
+        return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder, appTrackListIndexItemBinder);
     }
 
     @Provides
