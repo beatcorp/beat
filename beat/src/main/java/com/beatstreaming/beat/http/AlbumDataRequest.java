@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.android.volley.Request;
 import com.beatstreaming.beat.payload.AlbumPayload;
-import com.beatstreaming.beat.section.PlayableSectionListBinder;
+import com.beatstreaming.beat.section.AlbumSectionListBinder;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
@@ -20,10 +20,10 @@ import lombok.SneakyThrows;
 
 public class AlbumDataRequest extends HttpRequestBinding<AlbumEntity, CollectionPageBinding, AlbumSectionListBinding> {
     private final AppSourceEntity appSourceEntity;
-    private final PlayableSectionListBinder sectionListBinder;
+    private final AlbumSectionListBinder sectionListBinder;
 
     @SneakyThrows
-    public AlbumDataRequest(Context context, CollectionPageBinding collectionPageBinding, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, PlayableSectionListBinder sectionListBinder) {
+    public AlbumDataRequest(Context context, CollectionPageBinding collectionPageBinding, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, AlbumSectionListBinder sectionListBinder) {
         super(context, collectionPageBinding.collectionList, collectionPageBinding, albumSectionListBinding, AlbumEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.beat.http.AlbumDataRequest;
 import com.beatstreaming.beat.payload.AlbumPayload;
-import com.beatstreaming.beat.section.PlayableSectionListBinder;
+import com.beatstreaming.beat.section.AlbumSectionListBinder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.music.databinding.AlbumSectionListBinding;
@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppAlbumPage extends AlbumPage {
-    @Inject PlayableSectionListBinder playableSectionListBinder;
+    @Inject AlbumSectionListBinder playableSectionListBinder;
 
     public AppAlbumPage(AppSourceListContext appSourceContext, AlbumEntity albumEntity) {
         super(appSourceContext, albumEntity);

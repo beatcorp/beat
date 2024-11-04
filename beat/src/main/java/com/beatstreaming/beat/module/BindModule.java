@@ -2,6 +2,7 @@ package com.beatstreaming.beat.module;
 
 import android.content.Context;
 
+import com.beatstreaming.beat.bind.AlbumSectionContextRegistry;
 import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
@@ -47,6 +48,11 @@ import dagger.hilt.components.SingletonComponent;
 @InstallIn(SingletonComponent.class)
 public class BindModule {
     @Provides
+    public PlayableSectionListBinder provideSectionListBinder(Gson gson, SectionContextRegistry sectionContextRegistry) {
+        return new PlayableSectionListBinder(gson, sectionContextRegistry);
+    }
+
+    @Provides
     @Singleton
     public AppServerManager provideAppServerManager() {
         return new DefaultAppServerManager();
@@ -56,12 +62,6 @@ public class BindModule {
     @Singleton
     public AppSourceStorageManager provideAppSourceStorageManager(Gson gson) {
         return new AppSourceStorageManager(gson);
-    }
-
-    @Provides
-    @Singleton
-    public PlayableSectionListBinder provideSectionListBinder(Gson gson, SectionContextRegistry sectionContextRegistry) {
-        return new PlayableSectionListBinder(gson, sectionContextRegistry);
     }
 
     @Provides
@@ -108,7 +108,13 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public SectionContextRegistry provideBindMap(BeatSectionContextRegistry beatSectionContextRegistry) {
+    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppTrackListIndexItemBinder appTrackListIndexItemBinder) {
+        return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder, appTrackListIndexItemBinder);
+    }
+
+    @Provides
+    @Singleton
+    public SectionContextRegistry provideSectionContextRegistry(BeatSectionContextRegistry beatSectionContextRegistry) {
         return beatSectionContextRegistry;
     }
 
