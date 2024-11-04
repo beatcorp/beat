@@ -2,7 +2,7 @@ package com.beatstreaming.beat.item.track;
 
 import android.view.LayoutInflater;
 
-import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.core.entity.SectionEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.databinding.MediaCoverTextBinding;
 import com.beatstreaming.media.list.AppSourceListContext;
@@ -13,7 +13,7 @@ import com.beatstreaming.music.sheet.track.TrackListSheet;
 
 import lombok.SneakyThrows;
 
-public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<AppSourceListContext, T> {
+public class AppTrackListIndexItemBinder<T extends SectionEntity> extends AppTrackListItemBinder<AppSourceListContext, T> {
     public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
         super(player, trackItemType, trackListSheet);
     }
