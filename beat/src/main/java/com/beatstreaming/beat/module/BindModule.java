@@ -1,5 +1,7 @@
 package com.beatstreaming.beat.module;
 
+import android.content.Context;
+
 import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
@@ -38,6 +40,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 
 @Module
@@ -99,8 +102,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public BeatSectionContextRegistry provideBeatBindList(AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
-        return new BeatSectionContextRegistry(appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
+    public BeatSectionContextRegistry provideBeatBindList(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+        return new BeatSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
     }
 
     @Provides
