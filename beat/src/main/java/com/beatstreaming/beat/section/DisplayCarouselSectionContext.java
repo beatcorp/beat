@@ -12,6 +12,11 @@ import com.beatstreaming.core.list.ListContext;
 
 public class DisplayCarouselSectionContext extends SectionContextItemContext<ListContext, ItemEntity> {
     public DisplayCarouselSectionContext(Context context, ListBinder binder) {
-        super(context, new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false), binder);
+        super(context, binder);
+    }
+
+    @Override
+    public LinearLayoutManager getLayoutManager() {
+        return new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
     }
 }

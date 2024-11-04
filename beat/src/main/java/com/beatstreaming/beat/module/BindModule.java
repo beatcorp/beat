@@ -115,6 +115,7 @@ public class BindModule {
     }
 
     @Provides
+    @Singleton
     public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppTrackListIndexItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
         return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
     }

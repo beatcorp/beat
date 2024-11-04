@@ -11,6 +11,11 @@ import com.beatstreaming.core.list.ListContext;
 
 public class DisplayListSectionContext extends SectionContextItemContext<ListContext, ItemEntity> {
     public DisplayListSectionContext(Context context, ListBinder binder) {
-        super(context, new LinearLayoutManager(context), binder);
+        super(context, binder);
+    }
+
+    @Override
+    public LinearLayoutManager getLayoutManager() {
+        return new LinearLayoutManager(context);
     }
 }
