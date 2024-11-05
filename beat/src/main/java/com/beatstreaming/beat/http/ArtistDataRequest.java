@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.android.volley.Request;
 import com.beatstreaming.beat.payload.ArtistPayload;
-import com.beatstreaming.beat.section.PlayableSectionListBinder;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;

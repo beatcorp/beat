@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.beat.http.ArtistDataRequest;
 import com.beatstreaming.beat.payload.ArtistPayload;
-import com.beatstreaming.beat.section.PlayableSectionListBinder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.databinding.ArtistSectionListBinding;

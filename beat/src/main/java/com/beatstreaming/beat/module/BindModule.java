@@ -17,7 +17,6 @@ import com.beatstreaming.beat.item.track.AppTrackListItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.section.AlbumSectionListBinder;
-import com.beatstreaming.beat.section.PlayableSectionListBinder;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.bind.SectionContextRegistry;

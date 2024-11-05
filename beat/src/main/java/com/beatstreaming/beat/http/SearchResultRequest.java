@@ -6,7 +6,6 @@ import com.android.volley.Request;
 import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.payload.SearchPayload;
-import com.beatstreaming.beat.section.PlayableSectionListBinder;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.music.player.SectionPlayerContext;
 import com.beatstreaming.music.player.SearchPlayerSource;
