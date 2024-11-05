@@ -6,7 +6,6 @@ import android.view.View;
 import com.beatstreaming.beat.page.AppArtistPage;
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.entity.ItemEntity;
-import com.beatstreaming.core.entity.NameItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.list.AppSourceListContext;
@@ -17,9 +16,6 @@ import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.player.SectionPlayerContext;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import lombok.SneakyThrows;
 
@@ -43,9 +39,9 @@ public class AppTrackListItemBinder<T extends SectionPlayerContext, V extends It
         });
 
         this.mediaTitle.setText(item.getName());
-        this.mediaSubtitle.setText(Arrays.stream(item.getArtists())
+        /*this.mediaSubtitle.setText(Arrays.stream(item.getArtists())
                 .map(NameItemEntity::getName)
-                .collect(Collectors.joining(", ")));
+                .collect(Collectors.joining(", ")));*/
 
         this.mediaSubtitle.setOnClickListener(new View.OnClickListener() {
             @Override
