@@ -12,6 +12,7 @@ import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.payload.SearchPayload;
+import com.beatstreaming.core.list.SectionListBinder;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
@@ -25,7 +26,7 @@ public class AppSearchPage extends Fragment {
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
-    @Inject PlayableSectionListBinder sectionListBinder;
+    @Inject SectionListBinder sectionListBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {

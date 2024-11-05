@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.beat.http.ArtistDataRequest;
 import com.beatstreaming.beat.payload.ArtistPayload;
+import com.beatstreaming.core.list.SectionListBinder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.databinding.ArtistSectionListBinding;
@@ -21,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppArtistPage extends ArtistPage {
-    @Inject PlayableSectionListBinder playableSectionListBinder;
+    @Inject SectionListBinder sectionListBinder;
 
     public AppArtistPage(AppSourceListContext appSourceContext, ArtistEntity artistEntity) {
         super(appSourceContext, artistEntity);
@@ -31,7 +32,7 @@ public class AppArtistPage extends ArtistPage {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.artistPageBinding = ArtistPageBinding.inflate(this.getLayoutInflater());
 
-        new ArtistDataRequest(layoutInflater.getContext(), this.artistPageBinding, this.appSourceContext.getItem(), new ArtistPayload(this.artistEntity.getId()), ArtistSectionListBinding.inflate(this.getLayoutInflater()), this.playableSectionListBinder);
+        new ArtistDataRequest(layoutInflater.getContext(), this.artistPageBinding, this.appSourceContext.getItem(), new ArtistPayload(this.artistEntity.getId()), ArtistSectionListBinding.inflate(this.getLayoutInflater()), this.sectionListBinder);
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }

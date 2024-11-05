@@ -49,12 +49,6 @@ import dagger.hilt.components.SingletonComponent;
 public class BindModule {
     @Provides
     @Singleton
-    public PlayableSectionListBinder provideSectionListBinder(Gson gson, SectionContextRegistry sectionContextRegistry) {
-        return new PlayableSectionListBinder(gson, sectionContextRegistry);
-    }
-
-    @Provides
-    @Singleton
     public AlbumSectionListBinder provideAlbumSectionListBinder(Gson gson, AlbumSectionContextRegistry sectionContextRegistry) {
         return new AlbumSectionListBinder(gson, sectionContextRegistry);
     }
