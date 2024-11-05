@@ -17,6 +17,8 @@ public class PlayableSectionListBinder extends SectionListBinder<SectionPlayerCo
 
     @Override
     public void bind(SectionPlayerContext context, ListViewHolder<SectionEntity<? extends ItemEntity>> holder, SectionEntity<? extends ItemEntity> item) {
+        context.getPlayerSource().init(item.getList());
+
         super.bind(context, holder, item);
     }
 }

@@ -26,8 +26,7 @@ public class AppSearchPage extends Fragment {
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
-    @Inject
-    PlayableSectionListBinder sectionListBinder;
+    @Inject PlayableSectionListBinder sectionListBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
