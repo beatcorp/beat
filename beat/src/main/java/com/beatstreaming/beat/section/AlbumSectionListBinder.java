@@ -17,6 +17,8 @@ public class AlbumSectionListBinder extends SectionListBinder<SectionPlayerConte
 
     @Override
     public void bind(SectionPlayerContext context, ListViewHolder<SectionEntity<ItemEntity>> holder, SectionEntity<ItemEntity> item) {
+        context.getPlayerSource().init(item.getList());
+
         super.bind(context, holder, item);
     }
 }
