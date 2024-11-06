@@ -47,7 +47,7 @@ public class AppTrackListItemBinder<T extends SectionPlayerContext, V extends It
             @Override
             public void onClick(View view) {
                 MainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new AppArtistPage((AppSourceListContext) context, item.getArtist()))
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new AppArtistPage(context, item.getArtist()))
                         .addToBackStack(null)
                         .commit();
             }

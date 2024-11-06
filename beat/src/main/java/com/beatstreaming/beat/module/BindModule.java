@@ -8,6 +8,7 @@ import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
 import com.beatstreaming.beat.item.artist.AppArtistItemType;
 import com.beatstreaming.beat.item.playlist.AppPlaylistItemType;
+import com.beatstreaming.beat.item.track.AppAlbumTrackItemBinder;
 import com.beatstreaming.beat.item.track.AppPlaylistTrackItemBinder;
 import com.beatstreaming.beat.item.track.AppTrackItemType;
 import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
@@ -109,13 +110,13 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppTrackListIndexItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppAlbumTrackItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
         return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
     }
 
     @Provides
     @Singleton
-    public AppTrackListImageItemBinder provideTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
+    public AppTrackListImageItemBinder provideAppAlbumTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
         return new AppTrackListImageItemBinder(player, trackItemType, trackListSheet);
     }
 
@@ -127,8 +128,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppTrackListItemBinder provideAppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
-        return new AppTrackListItemBinder(player, trackItemType, trackListSheet);
+    public AppAlbumTrackItemBinder provideAppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
+        return new AppAlbumTrackItemBinder(player, trackItemType, trackListSheet);
     }
 
     @Provides
