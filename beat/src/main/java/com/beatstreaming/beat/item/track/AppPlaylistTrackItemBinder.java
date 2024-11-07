@@ -5,6 +5,7 @@ import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.list.PlaylistListContext;
+import com.beatstreaming.music.player.PlaylistPlayerSource;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
 import javax.inject.Inject;
@@ -21,7 +22,7 @@ public class AppPlaylistTrackItemBinder extends ListBinder<PlaylistListContext, 
     public void bind(PlaylistListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
         super.bind(context, holder, item);
 
-        this.appTrackListImageItemBinder.bind(new SectionPlayerContext(null, null), holder, item.getItem());
+        this.appTrackListImageItemBinder.bind(new SectionPlayerContext(context.getItem(), new PlaylistPlayerSource(context.getPlayerSource().getItem())), holder, item.getItem());
     }
 
     @Override
