@@ -8,6 +8,9 @@ import com.beatstreaming.music.list.PlaylistListContext;
 import com.beatstreaming.music.player.PlaylistPlayerSource;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import javax.inject.Inject;
 
 public class AppPlaylistTrackItemBinder extends ListBinder<PlaylistListContext, LibraryItemEntity<TrackEntity>> {
@@ -22,7 +25,11 @@ public class AppPlaylistTrackItemBinder extends ListBinder<PlaylistListContext, 
     public void bind(PlaylistListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
         super.bind(context, holder, item);
 
-        this.appTrackListImageItemBinder.bind(new SectionPlayerContext(item.getAppSourceContext().getItem(), new PlaylistPlayerSource(context.getItem())), holder, item.getItem());
+        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(item.getAppSourceContext().getItem(), new PlaylistPlayerSource(context.getItem()));
+
+        sectionPlayerContext.init(Arrays.stream(context.getList()).map(LibraryItemEntity::getItem).toArray(size -> (TrackEntity[]) Array.newInstance(TrackEntity.class, size)), context.getIndex());
+
+        this.appTrackListImageItemBinder.bind(sectionPlayerContext, holder, item.getItem());
     }
 
     @Override
