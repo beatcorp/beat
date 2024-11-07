@@ -39,6 +39,8 @@ android {
 }
 
 dependencies {
+    implementation project(':youtube')
+
     implementation project(':music')
     implementation project(':media')
     implementation project(':core')
