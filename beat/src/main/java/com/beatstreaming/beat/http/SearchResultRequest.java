@@ -20,7 +20,7 @@ import lombok.SneakyThrows;
 
 public class SearchResultRequest extends HttpRequestBinding<SearchResultEntity, SearchPageBinding, SearchPageResultBinding> {
     private final AppSourceEntity appSourceEntity;
-    private final SectionListBinder sectionListBinder;
+    private final SectionListBinder<?, ?, ?> sectionListBinder;
 
     @SneakyThrows
     public SearchResultRequest(Context context, SearchPageBinding searchPageBinding, AppSourceEntity appSourceEntity, SearchPayload searchPayload, SearchPageResultBinding searchPageResultBinding, SectionListBinder sectionListBinder) {

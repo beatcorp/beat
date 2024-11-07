@@ -13,14 +13,14 @@ import com.beatstreaming.music.sheet.track.TrackListSheet;
 
 import lombok.SneakyThrows;
 
-public class AppTrackListIndexItemBinder<T extends SectionPlayerContext, V extends ItemEntity> extends AppTrackListItemBinder<T, V> {
+public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<SectionPlayerContext, T> {
     public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
         super(player, trackItemType, trackListSheet);
     }
 
     @Override
     @SneakyThrows
-    public void bind(T context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
+    public void bind(SectionPlayerContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);
 
         MediaCoverTextBinding mediaCoverTextBinding = MediaCoverTextBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));

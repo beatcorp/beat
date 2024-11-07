@@ -8,7 +8,7 @@ import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.player.SectionPlayerContext;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
 
-public class AppAlbumTrackItemBinder extends AppTrackListIndexItemBinder<SectionPlayerContext, TrackEntity> {
+public class AppAlbumTrackItemBinder extends AppTrackListIndexItemBinder<TrackEntity> {
     public AppAlbumTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
         super(player, trackItemType, trackListSheet);
     }
