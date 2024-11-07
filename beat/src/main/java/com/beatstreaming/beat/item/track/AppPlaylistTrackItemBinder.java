@@ -22,7 +22,7 @@ public class AppPlaylistTrackItemBinder extends ListBinder<PlaylistListContext, 
     public void bind(PlaylistListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
         super.bind(context, holder, item);
 
-        this.appTrackListImageItemBinder.bind(new SectionPlayerContext(context.getItem(), new PlaylistPlayerSource(context.getPlayerSource().getItem())), holder, item.getItem());
+        this.appTrackListImageItemBinder.bind(new SectionPlayerContext(item.getAppSourceContext().getItem(), new PlaylistPlayerSource(context.getItem())), holder, item.getItem());
     }
 
     @Override
