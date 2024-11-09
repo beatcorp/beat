@@ -32,7 +32,7 @@ public class AppArtistPage extends ArtistPage {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.artistPageBinding = ArtistPageBinding.inflate(this.getLayoutInflater());
 
-        new ArtistDataRequest(layoutInflater.getContext(), this.artistPageBinding, this.appSourceContext.getItem(), new ArtistPayload(this.artistEntity.getId()), ArtistSectionListBinding.inflate(this.getLayoutInflater()), this.sectionListBinder);
+        new ArtistDataRequest(layoutInflater.getContext(), this.artistPageBinding, this.appSourceContext.getItem(), new ArtistPayload(this.artistEntity.getId()), ArtistSectionListBinding.inflate(this.getLayoutInflater()), this.sectionListBinder, this.artistEntity);
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
