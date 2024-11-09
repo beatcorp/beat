@@ -12,6 +12,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 lombok = "1.18.34"
 media3Exoplayer = "1.4.1"
+okhttp = "2.7.5"
 picasso = "2.71828"
 volley = "1.2.1"
 hilt = "2.52"
@@ -33,6 +34,7 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "media3Exoplayer" }
 media3-session = { module = "androidx.media3:media3-session", version.ref = "media3Exoplayer" }
+okhttp = { module = "com.squareup.okhttp:okhttp", version.ref = "okhttp" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 media3-common = { group = "androidx.media3", name = "media3-common", version.ref = "media3Common" }
