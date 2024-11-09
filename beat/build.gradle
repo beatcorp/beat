@@ -62,4 +62,7 @@ dependencies {
     implementation libs.volley
     implementation libs.httpclient
     implementation libs.gson
+
+    implementation libs.media3.exoplayer
+    implementation libs.media3.datasource.okhttp
 }
