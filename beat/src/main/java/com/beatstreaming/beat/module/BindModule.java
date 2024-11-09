@@ -17,6 +17,7 @@ import com.beatstreaming.beat.item.track.AppTrackListImageItemBinder;
 import com.beatstreaming.beat.item.track.AppTrackListItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
 import com.beatstreaming.beat.page.AppPages;
+import com.beatstreaming.beat.player.BeatPlayer;
 import com.beatstreaming.beat.section.AlbumSectionListBinder;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
@@ -48,6 +49,12 @@ import dagger.hilt.components.SingletonComponent;
 @Module
 @InstallIn(SingletonComponent.class)
 public class BindModule {
+    @Provides
+    @Singleton
+    public MusicPlayer provideMusicPlayer(@ApplicationContext Context context) {
+        return new BeatPlayer(context);
+    }
+
     @Provides
     @Singleton
     public AlbumSectionListBinder provideAlbumSectionListBinder(Gson gson, AlbumSectionContextRegistry sectionContextRegistry) {

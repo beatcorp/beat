@@ -6,11 +6,10 @@ import androidx.media3.datasource.okhttp.OkHttpDataSource;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory;
 
-import com.beatstreaming.media.player.Player;
-import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.youtube.player.YouTubePlayerHttpClient;
 
-public class BeatPlayer extends Player<TrackEntity> {
+public class BeatPlayer extends MusicPlayer {
     public BeatPlayer(Context context) {
         super(context);
     }
