@@ -7,7 +7,7 @@ import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory;
 
 import com.beatstreaming.music.player.MusicPlayer;
-import com.beatstreaming.youtube.player.YouTubePlayerInterceptor;
+import com.beatstreaming.youtube.player.MusicYouTubePlayerInterceptor;
 
 import okhttp3.OkHttpClient;
 
@@ -19,7 +19,7 @@ public class BeatPlayer extends MusicPlayer {
     @Override
     public void onInit() {
         this.player = new ExoPlayer.Builder(this.context)
-                .setMediaSourceFactory(new DefaultMediaSourceFactory(new OkHttpDataSource.Factory(new OkHttpClient.Builder().addInterceptor(new YouTubePlayerInterceptor()).build())))
+                .setMediaSourceFactory(new DefaultMediaSourceFactory(new OkHttpDataSource.Factory(new OkHttpClient.Builder().addInterceptor(new MusicYouTubePlayerInterceptor()).build())))
                 .build();
 
         super.onInit();
