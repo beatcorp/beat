@@ -6,9 +6,9 @@ import android.content.Intent;
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.list.ListSheetItemContext;
+import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.google.gson.Gson;
 
 public class GoToContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
     private final Class<? extends MainActivity> activity;
@@ -21,7 +21,7 @@ public class GoToContext extends ListSheetItemContext<LibraryItemEntity<TrackEnt
 
     @Override
     public void onCall(Context context, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
-        MainActivity.mainActivity.startActivity(new Intent(context, this.activity).putExtra("data", new Gson().toJson(this.getItems(listSheetContext))));
+        MainActivity.mainActivity.startActivity(new Intent(context, this.activity).putExtra("data", SerializableItemEntity.GSON.toJson(this.getItems(listSheetContext))));
     }
 
     public Object[] getItems(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {

@@ -26,6 +26,7 @@ import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.media.sheet.MediaListSheet;
+import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -36,6 +37,7 @@ import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
 import com.beatstreaming.music.page.LoadableArtistPage;
 import com.beatstreaming.music.player.MusicPlayer;
+import com.beatstreaming.music.sheet.share.AppShareListSheet;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
 import com.google.gson.Gson;
 
@@ -114,6 +116,12 @@ public class BindModule {
     @Singleton
     public Class<? extends TrackListSheet> provideTrackListSheet() {
         return AppTrackListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends ShareListSheet> provideShareListSheet() {
+        return AppShareListSheet.class;
     }
 
     @Provides
