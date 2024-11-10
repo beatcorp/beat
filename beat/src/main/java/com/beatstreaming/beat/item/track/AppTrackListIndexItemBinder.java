@@ -7,6 +7,7 @@ import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.databinding.MediaCoverTextBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.TrackItemType;
+import com.beatstreaming.music.page.LoadableArtistPage;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.player.SectionPlayerContext;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
@@ -14,8 +15,8 @@ import com.beatstreaming.music.sheet.track.TrackListSheet;
 import lombok.SneakyThrows;
 
 public class AppTrackListIndexItemBinder<T extends ItemEntity> extends AppTrackListItemBinder<SectionPlayerContext, T> {
-    public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
-        super(player, trackItemType, trackListSheet);
+    public AppTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage) {
+        super(player, trackItemType, trackListSheet, loadableArtistPage);
     }
 
     @Override

@@ -25,24 +25,22 @@ public class ArtistDataRequest extends HttpRequestBinding<ArtistEntity, Loadable
     private final SectionListBinder sectionListBinder;
     private final ItemListBinding itemListBinding;
 
-    private final ArtistEntity artistEntity;
-
     @SneakyThrows
-    public ArtistDataRequest(Context context, LoadablePageBinding loadablePageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, ArtistPageBinding artistPageBinding, ItemListBinding itemListBinding, SectionListBinder sectionListBinder, ArtistEntity artistEntity) {
+    public ArtistDataRequest(Context context, LoadablePageBinding loadablePageBinding, AppSourceEntity appSourceEntity, ArtistPayload artistPayload, ArtistPageBinding artistPageBinding, ItemListBinding itemListBinding, SectionListBinder sectionListBinder) {
         super(context, loadablePageBinding.loadResult, loadablePageBinding, artistPageBinding, ArtistEntity.class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
         this.itemListBinding = itemListBinding;
         this.sectionListBinder = sectionListBinder;
 
-        this.artistEntity = artistEntity;
-
         this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "artist").addParameter("id", artistPayload.getId()).build());
     }
 
     @Override
     public void onLoad(ArtistEntity artistEntity) {
-        Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.resultBinding.artistImage.mediaImage);
+        this.resultBinding.artistName.setText(artistEntity.getName());
+
+        Picasso.get().load(artistEntity.getImage().getUrl()).into(this.resultBinding.artistImage.mediaImage);
 
         this.itemListBinding.list.setAdapter(new ListRecyclerViewAdapter(new SectionPlayerContext(this.appSourceEntity, new ArtistPlayerSource(artistEntity)), artistEntity.getSections(), this.sectionListBinder));
         this.resultBinding.artistTrackList.getRoot().addView(this.itemListBinding.getRoot());

@@ -130,20 +130,20 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppTrackListImageItemBinder provideAppAlbumTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
-        return new AppTrackListImageItemBinder(player, trackItemType, trackListSheet);
+    public AppTrackListImageItemBinder provideAppAlbumTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage) {
+        return new AppTrackListImageItemBinder(player, trackItemType, trackListSheet, loadableArtistPage);
     }
 
     @Provides
     @Singleton
-    public AppTrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
-        return new AppTrackListIndexItemBinder(player, trackItemType, trackListSheet);
+    public AppTrackListIndexItemBinder provideTrackListIndexItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage) {
+        return new AppTrackListIndexItemBinder(player, trackItemType, trackListSheet, loadableArtistPage);
     }
 
     @Provides
     @Singleton
-    public AppAlbumTrackItemBinder provideAppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet) {
-        return new AppAlbumTrackItemBinder(player, trackItemType, trackListSheet);
+    public AppAlbumTrackItemBinder provideAppTrackListItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage) {
+        return new AppAlbumTrackItemBinder(player, trackItemType, trackListSheet, loadableArtistPage);
     }
 
     @Provides
