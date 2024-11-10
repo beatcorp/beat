@@ -15,6 +15,7 @@ import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
 import com.beatstreaming.beat.item.artist.AppArtistCardImageItemBinder;
 import com.beatstreaming.beat.item.track.AppTrackListImageItemBinder;
 import com.beatstreaming.beat.page.AppHomePage;
+import com.beatstreaming.beat.page.AppLoadableArtistPage;
 import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.player.BeatPlayer;
 import com.beatstreaming.beat.section.AlbumSectionListBinder;
@@ -33,6 +34,7 @@ import com.beatstreaming.music.item.ArtistItemType;
 import com.beatstreaming.music.item.PlaylistItemType;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
+import com.beatstreaming.music.page.LoadableArtistPage;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
 import com.google.gson.Gson;
@@ -52,6 +54,12 @@ public class BindModule {
     @Singleton
     public MusicPlayer provideMusicPlayer(@ApplicationContext Context context) {
         return new BeatPlayer(context);
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends LoadableArtistPage> provideLoadableArtistPage(@ApplicationContext Context context) {
+        return AppLoadableArtistPage.class;
     }
 
     @Provides

@@ -15,17 +15,15 @@ import com.beatstreaming.media.databinding.ItemListBinding;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
-import com.beatstreaming.music.page.ArtistPage;
+import com.beatstreaming.music.page.LoadableArtistPage;
 
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class AppLoadableArtistPage extends ArtistPage {
+public class AppLoadableArtistPage extends LoadableArtistPage {
     @Inject SectionListBinder sectionListBinder;
-
-    private LoadablePageBinding loadablePageBinding;
 
     public AppLoadableArtistPage(AppSourceListContext appSourceContext, ArtistEntity artistEntity) {
         super(appSourceContext, artistEntity);
