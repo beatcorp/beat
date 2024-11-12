@@ -34,6 +34,7 @@ import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.item.AlbumItemType;
 import com.beatstreaming.music.item.ArtistItemType;
+import com.beatstreaming.music.item.ContextLibraryItemBinder;
 import com.beatstreaming.music.item.PlaylistItemType;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
@@ -54,6 +55,12 @@ import dagger.hilt.components.SingletonComponent;
 @Module
 @InstallIn(SingletonComponent.class)
 public class BindModule {
+    @Provides
+    @Singleton
+    public ContextLibraryItemBinder provideContextLibraryItemBinder() {
+        return new ContextLibraryItemBinder();
+    }
+
     @Provides
     @Singleton
     public PlayerContext providePlayerContext(TrackItemType trackItemType, HistoryListStorageManager historyListStorageManager) {
