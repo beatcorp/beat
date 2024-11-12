@@ -2,4 +2,5 @@
     <string name="app_name">Beat</string>
     <string name="section_album_track_list_title">Tracks</string>
     <string name="section_artist_track_list_title">Tracks</string>
+    <string name="home_section_last_played_track_title">Last played</string>
 </resources>

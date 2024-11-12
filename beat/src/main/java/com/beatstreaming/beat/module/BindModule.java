@@ -60,7 +60,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public Class<? extends LoadableArtistPage> provideLoadableArtistPage(@ApplicationContext Context context) {
+    public Class<? extends LoadableArtistPage> provideLoadableArtistPage() {
         return AppLoadableArtistPage.class;
     }
 
