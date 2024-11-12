@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.databinding.HomePageBinding;
 import com.beatstreaming.beat.section.HomeLastPlayedTrackSectionContext;
 import com.beatstreaming.core.pages.HomePage;
@@ -14,7 +15,6 @@ import com.beatstreaming.media.storage.history.HistoryListStorage;
 import com.beatstreaming.media.storage.history.HistoryListStorageManager;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 
 import javax.inject.Inject;
 
@@ -25,7 +25,7 @@ public class AppHomePage extends HomePage {
     private HomePageBinding homePageBinding;
 
     @Inject HistoryListStorageManager historyListStorageManager;
-    @Inject AbstractLibraryItemBinder abstractLibraryItemBinder;
+    @Inject BeatSectionContextRegistry abstractLibraryItemBinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -33,9 +33,8 @@ public class AppHomePage extends HomePage {
 
         HistoryListStorage historyListStorage = this.historyListStorageManager.load(this.getContext());
 
-        this.homePageBinding.trackSection.init(new HomeLastPlayedTrackSectionContext(null, historyListStorage.getByType(TrackEntity.class).toArray(new LibraryItemEntity[]{}), abstractLibraryItemBinder));
+        this.homePageBinding.trackSection.init(new HomeLastPlayedTrackSectionContext(null, historyListStorage.getByType(TrackEntity.class).toArray(new LibraryItemEntity[]{}), null));
 
         return this.homePageBinding.getRoot();
     }
 }
- 
