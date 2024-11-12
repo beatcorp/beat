@@ -24,10 +24,12 @@ import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.bind.SectionContextRegistry;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
+import com.beatstreaming.media.player.PlayerContext;
 import com.beatstreaming.media.server.AppServerManager;
 import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
+import com.beatstreaming.media.storage.history.HistoryListStorageManager;
 import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.item.AlbumItemType;
@@ -54,8 +56,14 @@ import dagger.hilt.components.SingletonComponent;
 public class BindModule {
     @Provides
     @Singleton
-    public MusicPlayer provideMusicPlayer(@ApplicationContext Context context) {
-        return new BeatPlayer(context);
+    public PlayerContext providePlayerContext(TrackItemType trackItemType, HistoryListStorageManager historyListStorageManager) {
+        return new PlayerContext(trackItemType, historyListStorageManager);
+    }
+
+    @Provides
+    @Singleton
+    public MusicPlayer provideMusicPlayer(@ApplicationContext Context context, PlayerContext playerContext) {
+        return new BeatPlayer(context, playerContext);
     }
 
     @Provides

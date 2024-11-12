@@ -10,16 +10,14 @@ import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory;
 
 import com.beatstreaming.media.player.PlayerContext;
-import com.beatstreaming.media.storage.history.HistoryListStorageManager;
-import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.youtube.player.MusicYouTubePlayerInterceptor;
 
 import okhttp3.OkHttpClient;
 
 public class BeatPlayer extends MusicPlayer {
-    public BeatPlayer(Context context, TrackItemType trackItemType, HistoryListStorageManager historyListStorageManager) {
-        super(context, new PlayerContext(trackItemType, historyListStorageManager));
+    public BeatPlayer(Context context, PlayerContext playerContext) {
+        super(context, playerContext);
     }
 
     @OptIn(markerClass = UnstableApi.class)
