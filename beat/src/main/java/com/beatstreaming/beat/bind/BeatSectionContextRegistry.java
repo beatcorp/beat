@@ -37,8 +37,8 @@ public class BeatSectionContextRegistry extends SectionContextRegistry implement
 
     @Override
     public void init(Context context) {
-        this.list.add(new SectionContextRegistryItem("track", SectionContextType.LIST, TrackEntity.class, new DisplayListSectionContext(this.context, this.appTrackListItemBinder)));
-        this.list.add(new SectionContextRegistryItem("album", SectionContextType.CAROUSEL, AlbumEntity.class, new DisplayCarouselSectionContext(this.context, this.appAlbumCardImageItemBinder)));
-        this.list.add(new SectionContextRegistryItem("artist", SectionContextType.CAROUSEL, ArtistEntity.class, new DisplayCarouselSectionContext(this.context, this.appArtistCardImageItemBinder)));
+        this.list.add(new SectionContextRegistryItem("track", SectionContextType.LIST, TrackEntity.class, TrackEntity[].class, new DisplayListSectionContext(this.context, this.appTrackListItemBinder)));
+        this.list.add(new SectionContextRegistryItem("album", SectionContextType.CAROUSEL, AlbumEntity.class, AlbumEntity[].class, new DisplayCarouselSectionContext(this.context, this.appAlbumCardImageItemBinder)));
+        this.list.add(new SectionContextRegistryItem("artist", SectionContextType.CAROUSEL, ArtistEntity.class, ArtistEntity[].class, new DisplayCarouselSectionContext(this.context, this.appArtistCardImageItemBinder)));
     }
 }
