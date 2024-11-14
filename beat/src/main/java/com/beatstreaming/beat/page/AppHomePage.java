@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.databinding.HomePageBinding;
 import com.beatstreaming.beat.section.HomeLastPlayedTrackSectionContext;
 import com.beatstreaming.core.bind.SectionContextRegistry;
