@@ -14,6 +14,7 @@ import com.beatstreaming.beat.databinding.SearchPageBinding;
 import com.beatstreaming.beat.databinding.SearchPageResultBinding;
 import com.beatstreaming.beat.http.SearchResultRequest;
 import com.beatstreaming.beat.payload.SearchPayload;
+import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.list.SectionListBinder;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
@@ -37,7 +38,7 @@ public class AppSearchPage extends Fragment {
 
         AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(this.getContext());
 
-        SearchView searchView = this.searchPageBinding.getRoot().findViewById(com.beatstreaming.core.R.id.search_view);
+        SearchView searchView = MainActivity.mainActivity.findViewById(com.beatstreaming.core.R.id.search_view);
         searchView.setupWithSearchBar(this.searchPageBinding.searchBar);
 
         searchView.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
