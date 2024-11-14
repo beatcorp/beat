@@ -1,9 +1,11 @@
 package com.beatstreaming.beat.page;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import com.beatstreaming.beat.payload.SearchPayload;
 import com.beatstreaming.core.list.SectionListBinder;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
+import com.google.android.material.search.SearchView;
 
 import javax.inject.Inject;
 
@@ -34,7 +37,20 @@ public class AppSearchPage extends Fragment {
 
         AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(this.getContext());
 
-        new SearchResultRequest(this.getLayoutInflater().getContext(), this.searchPageBinding, appSourceStorageItem.getAppSourceEntity(), SearchPayload.builder().query("la casa azul").build(), SearchPageResultBinding.inflate(this.getLayoutInflater()), this.sectionListBinder);
+        SearchView searchView = this.searchPageBinding.getRoot().findViewById(com.beatstreaming.core.R.id.search_view);
+        searchView.setupWithSearchBar(this.searchPageBinding.searchBar);
+
+        searchView.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                searchPageBinding.searchBar.setText(searchView.getText());
+                searchView.hide();
+
+                new SearchResultRequest(getLayoutInflater().getContext(), searchPageBinding, appSourceStorageItem.getAppSourceEntity(), SearchPayload.builder().query(searchView.getText().toString()).build(), SearchPageResultBinding.inflate(getLayoutInflater()), sectionListBinder);
+
+                return true;
+            }
+        });
 
         return this.searchPageBinding.getRoot();
     }
