@@ -39,10 +39,7 @@ public class ArtistSectionDataRequest extends HttpRequestBinding<ArtistEntity, A
 
     @Override
     public void onLoad(ArtistEntity artistEntity) {
-        this.artistEntity.setImage(artistEntity.getImage());
-
         this.pageBinding.artistName.setText(this.artistEntity.getName());
-
         Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.pageBinding.artistImage.mediaImage);
 
         this.resultBinding.sectionList.setAdapter(new ListRecyclerViewAdapter(new SectionPlayerContext(this.appSourceEntity, new ArtistPlayerSource(artistEntity)), artistEntity.getSections(), this.sectionListBinder));
