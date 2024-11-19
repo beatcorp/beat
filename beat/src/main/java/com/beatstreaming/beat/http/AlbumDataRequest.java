@@ -29,7 +29,7 @@ public class AlbumDataRequest extends HttpRequestBinding<AlbumEntity, Collection
         this.appSourceEntity = appSourceEntity;
         this.sectionListBinder = sectionListBinder;
 
-        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "album").addParameter("id", albumPayload.getId()).build());
+        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "album", albumPayload.getId()).build());
     }
 
     @Override

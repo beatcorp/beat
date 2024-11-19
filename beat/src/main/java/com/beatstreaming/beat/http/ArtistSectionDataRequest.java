@@ -34,7 +34,7 @@ public class ArtistSectionDataRequest extends HttpRequestBinding<ArtistEntity, A
 
         this.artistEntity = artistEntity;
 
-        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "artist").addParameter("id", artistPayload.getId()).build());
+        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "artist", artistPayload.getId()).build());
     }
 
     @Override

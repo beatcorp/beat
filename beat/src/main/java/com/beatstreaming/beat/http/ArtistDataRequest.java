@@ -33,7 +33,7 @@ public class ArtistDataRequest extends HttpRequestBinding<ArtistEntity, Loadable
         this.itemListBinding = itemListBinding;
         this.sectionListBinder = sectionListBinder;
 
-        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "artist").addParameter("id", artistPayload.getId()).build());
+        this.load(new URIBuilder(appSourceEntity.getUrl()).setPathSegments("api", "v1", "artist", artistPayload.getId()).build());
     }
 
     @Override
