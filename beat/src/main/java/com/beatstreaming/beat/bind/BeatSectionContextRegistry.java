@@ -30,15 +30,15 @@ public class BeatSectionContextRegistry extends SectionContextRegistry implement
     protected final AppArtistCardImageItemBinder appArtistCardImageItemBinder;
 
     @Inject
-    public BeatSectionContextRegistry(Context context, AppTrackListItemBinder appTrackListItemBinder, AppArtistListImageItemBinder appArtistListImageItemBinder, AppAlbumListImageItemBinder appAlbumListImageItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
+    public BeatSectionContextRegistry(Context context, AppTrackListItemBinder appTrackListItemBinder, AppArtistListImageItemBinder appArtistListImageItemBinder, AppAlbumListImageItemBinder appAlbumListImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder) {
         this.context = context;
 
         this.appTrackListItemBinder = appTrackListItemBinder;
         this.appArtistListImageItemBinder = appArtistListImageItemBinder;
         this.appAlbumListImageItemBinder = appAlbumListImageItemBinder;
 
-        this.appAlbumCardImageItemBinder = appAlbumCardImageItemBinder;
         this.appArtistCardImageItemBinder = appArtistCardImageItemBinder;
+        this.appAlbumCardImageItemBinder = appAlbumCardImageItemBinder;
 
         this.init(context);
     }
@@ -49,7 +49,7 @@ public class BeatSectionContextRegistry extends SectionContextRegistry implement
         this.list.add(new SectionContextRegistryItem("artist", SectionContextType.LIST, ArtistEntity.class, ArtistEntity[].class, new DisplayListSectionContext(this.context, this.appArtistListImageItemBinder)));
         this.list.add(new SectionContextRegistryItem("album", SectionContextType.LIST, AlbumEntity.class, AlbumEntity[].class, new DisplayListSectionContext(this.context, this.appAlbumListImageItemBinder)));
 
-        this.list.add(new SectionContextRegistryItem("album", SectionContextType.CAROUSEL, AlbumEntity.class, AlbumEntity[].class, new DisplayCarouselSectionContext(this.context, this.appAlbumCardImageItemBinder)));
         this.list.add(new SectionContextRegistryItem("artist", SectionContextType.CAROUSEL, ArtistEntity.class, ArtistEntity[].class, new DisplayCarouselSectionContext(this.context, this.appArtistCardImageItemBinder)));
+        this.list.add(new SectionContextRegistryItem("album", SectionContextType.CAROUSEL, AlbumEntity.class, AlbumEntity[].class, new DisplayCarouselSectionContext(this.context, this.appAlbumCardImageItemBinder)));
     }
 }

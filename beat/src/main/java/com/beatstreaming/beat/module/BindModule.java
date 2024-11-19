@@ -6,7 +6,9 @@ import com.beatstreaming.beat.bind.AlbumSectionContextRegistry;
 import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
 import com.beatstreaming.beat.item.album.AppAlbumItemType;
+import com.beatstreaming.beat.item.album.AppAlbumListImageItemBinder;
 import com.beatstreaming.beat.item.artist.AppArtistItemType;
+import com.beatstreaming.beat.item.artist.AppArtistListImageItemBinder;
 import com.beatstreaming.beat.item.playlist.AppPlaylistItemType;
 import com.beatstreaming.beat.item.track.AppAlbumTrackItemBinder;
 import com.beatstreaming.beat.item.track.AppPlaylistTrackItemBinder;
@@ -141,20 +143,32 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public SectionContextRegistry provideSectionContextRegistry(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
-        return new BeatSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
+    public SectionContextRegistry provideSectionContextRegistry(@ApplicationContext Context context, AppTrackListImageItemBinder appTrackListItemBinder, AppArtistListImageItemBinder appArtistListImageItemBinder, AppAlbumListImageItemBinder appAlbumListImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder) {
+        return new BeatSectionContextRegistry(context, appTrackListItemBinder, appArtistListImageItemBinder, appAlbumListImageItemBinder, appArtistCardImageItemBinder, appAlbumCardImageItemBinder);
     }
 
     @Provides
     @Singleton
-    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppAlbumTrackItemBinder appTrackListItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder) {
-        return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appAlbumCardImageItemBinder, appArtistCardImageItemBinder);
+    public AlbumSectionContextRegistry provideAlbumSectionContextRegistry(@ApplicationContext Context context, AppAlbumTrackItemBinder appTrackListItemBinder, AppArtistListImageItemBinder appArtistListImageItemBinder, AppAlbumListImageItemBinder appAlbumListImageItemBinder, AppArtistCardImageItemBinder appArtistCardImageItemBinder, AppAlbumCardImageItemBinder appAlbumCardImageItemBinder) {
+        return new AlbumSectionContextRegistry(context, appTrackListItemBinder, appArtistListImageItemBinder, appAlbumListImageItemBinder, appArtistCardImageItemBinder, appAlbumCardImageItemBinder);
     }
 
     @Provides
     @Singleton
     public AppTrackListImageItemBinder provideAppAlbumTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends TrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage) {
         return new AppTrackListImageItemBinder(player, trackItemType, trackListSheet, loadableArtistPage);
+    }
+
+    @Provides
+    @Singleton
+    public AppArtistListImageItemBinder provideAppArtistListImageItemBinder() {
+        return new AppArtistListImageItemBinder();
+    }
+
+    @Provides
+    @Singleton
+    public AppAlbumListImageItemBinder provideAppAlbumListImageItemBinder() {
+        return new AppAlbumListImageItemBinder();
     }
 
     @Provides
