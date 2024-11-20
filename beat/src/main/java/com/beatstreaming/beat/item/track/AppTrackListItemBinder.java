@@ -3,8 +3,6 @@ package com.beatstreaming.beat.item.track;
 import android.content.Context;
 import android.view.View;
 
-import androidx.media3.common.MediaItem;
-
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.NameItemEntity;
@@ -12,7 +10,6 @@ import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.list.MediaListItemBinder;
-import com.beatstreaming.media.player.PlayerCallback;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -41,31 +38,24 @@ public class AppTrackListItemBinder<T extends SectionPlayerContext, V extends It
     }
 
     @Override
-    public void bind(T context, ListViewHolder<TrackEntity> holder, TrackEntity track) {
-        super.bind(context, holder, track);
+    public void bind(T context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
+        super.bind(context, holder, item);
 
         holder.itemView.setOnClickListener((View view) -> {
             this.player.queue(context);
         });
 
-        this.mediaTitle.setText(track.getName());
-        this.mediaSubtitle.setText(Arrays.stream(track.getArtists())
+        this.mediaTitle.setText(item.getName());
+        this.mediaSubtitle.setText(Arrays.stream(item.getArtists())
                 .map(NameItemEntity::getName)
                 .collect(Collectors.joining(", ")));
-
-        this.player.addListener(new PlayerCallback(this.player) {
-            @Override
-            public void onMediaItemTransition(MediaItem mediaItem, int reason) {
-                mediaTitle.setTextColor(holder.itemView.getContext().getColor(player.getCurrent() == track ? com.beatstreaming.core.R.color.m3_sys_dark_primary : com.beatstreaming.core.R.color.m3_sys_dark_on_surface));
-            }
-        });
 
         this.mediaSubtitle.setOnClickListener(new View.OnClickListener() {
             @Override
             @SneakyThrows
             public void onClick(View view) {
                 MainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), loadableArtistPage.getConstructor(AppSourceListContext.class, ArtistEntity.class).newInstance(context, track.getArtist()))
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), loadableArtistPage.getConstructor(AppSourceListContext.class, ArtistEntity.class).newInstance(context, item.getArtist()))
                         .addToBackStack(null)
                         .commit();
             }
@@ -75,7 +65,7 @@ public class AppTrackListItemBinder<T extends SectionPlayerContext, V extends It
             @Override
             @SneakyThrows
             public boolean onLongClick(View view) {
-                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, track))).show();
+                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item))).show();
 
                 return true;
             }
