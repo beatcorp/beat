@@ -9,4 +9,14 @@
         android:id="@+id/track_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <com.beatstreaming.core.component.list.ItemListSection
+        android:id="@+id/artist_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.beatstreaming.core.component.list.ItemListSection
+        android:id="@+id/album_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

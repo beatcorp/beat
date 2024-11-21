@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.beat.databinding.HomePageBinding;
+import com.beatstreaming.beat.section.HomeLastPlayedArtistSectionContext;
 import com.beatstreaming.beat.section.HomeLastPlayedTrackSectionContext;
 import com.beatstreaming.core.bind.SectionContextRegistry;
 import com.beatstreaming.core.bind.SectionContextType;
@@ -38,6 +39,7 @@ public class AppHomePage extends HomePage {
         HistoryListStorage historyListStorage = this.historyListStorageManager.load(this.getContext());
 
         this.homePageBinding.trackSection.init(new HomeLastPlayedTrackSectionContext(this.getContext(), new SectionRegistryListContext(this.sectionContextRegistry, SectionContextType.LIST), historyListStorage.getByType(TrackEntity.class).toArray(new LibraryItemEntity[]{}), contextLibraryItemBinder));
+        this.homePageBinding.artistSection.init(new HomeLastPlayedArtistSectionContext(this.getContext(), new SectionRegistryListContext(this.sectionContextRegistry, SectionContextType.LIST), historyListStorage.getByType(TrackEntity.class).toArray(new LibraryItemEntity[]{}), contextLibraryItemBinder));
 
         return this.homePageBinding.getRoot();
     }
