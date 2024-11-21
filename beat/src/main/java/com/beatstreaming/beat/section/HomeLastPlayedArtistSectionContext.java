@@ -20,7 +20,7 @@ public class HomeLastPlayedArtistSectionContext extends ListSectionContext {
     public HomeLastPlayedArtistSectionContext(Context context, ListContext listContext, ArtistItemType artistItemType, LibraryItemEntity[] libraryItemEntity, ContextLibraryItemBinder contextLibraryItemBinder) {
         super(context, R.string.home_section_last_played_track_title, new ListRecyclerViewAdapter(listContext, new HashSet<>(Arrays.asList(libraryItemEntity))
                 .stream()
-                .map((item) -> new LibraryItemEntity(item.getAppSourceContext(), artistItemType, new SerializableItemEntity(item.getSerializableItemEntity().getClazz(), ((TrackEntity) item.getItem()).getArtist())))
+                .map((item) -> new LibraryItemEntity(item.getAppSourceContext(), artistItemType, new SerializableItemEntity(artistItemType.getClazz(), ((TrackEntity) item.getItem()).getArtist())))
                 .toArray(ItemEntity[]::new),
                 contextLibraryItemBinder));
     }
