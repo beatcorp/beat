@@ -26,7 +26,10 @@ public class AppTrackListImageItemBinder<T extends ItemEntity> extends AppTrackL
         super.bind(context, holder, item);
 
         MediaCoverImageBinding mediaCoverImageBinding = MediaCoverImageBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));
-        Picasso.get().load(item.getAlbum().getImage().getUrl()).into(mediaCoverImageBinding.mediaImage);
+
+        if (item.getAlbum().getImage() != null) {
+            Picasso.get().load(item.getAlbum().getImage().getUrl()).into(mediaCoverImageBinding.mediaImage);
+        }
 
         this.mediaCover.addView(mediaCoverImageBinding.getRoot());
     }

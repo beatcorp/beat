@@ -1,5 +1,6 @@
 package com.beatstreaming.beat.section;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.beatstreaming.beat.R;
@@ -14,7 +15,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class HomeLastPlayedTrackSectionContext extends ListSectionContext {
+    @SuppressLint("NewApi")
     public HomeLastPlayedTrackSectionContext(Context context, ListContext listContext, LibraryItemEntity[] libraryItemEntity, ContextLibraryItemBinder contextLibraryItemBinder) {
-        super(context, R.string.home_section_last_played_track_title, new ListRecyclerViewAdapter(listContext, new HashSet<>(Arrays.asList(libraryItemEntity)).toArray(new ItemEntity[0]), contextLibraryItemBinder));
+        super(context, R.string.home_section_last_played_track_title, new ListRecyclerViewAdapter(listContext, new HashSet<>(Arrays.asList(libraryItemEntity)).toArray(ItemEntity[]::new), contextLibraryItemBinder));
     }
 }
