@@ -3,6 +3,8 @@ package com.beatstreaming.beat.player;
 import android.content.Context;
 
 import androidx.annotation.OptIn;
+import androidx.media3.common.AudioAttributes;
+import androidx.media3.common.C;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.datasource.okhttp.OkHttpDataSource;
 import androidx.media3.exoplayer.DefaultLoadControl;
@@ -32,6 +34,10 @@ public class BeatPlayer extends MusicPlayer {
                                 250,
                                 500
                         ).build())
+                .setAudioAttributes(new AudioAttributes.Builder()
+                        .setUsage(C.USAGE_MEDIA)
+                        .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
+                        .build(), true)
                 .build();
 
         super.onInit();
