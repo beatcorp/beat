@@ -1,5 +1,6 @@
 package com.beatstreaming.beat.section;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.beatstreaming.beat.R;
@@ -15,13 +16,15 @@ import com.beatstreaming.music.item.ContextLibraryItemBinder;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 public class HomeLastPlayedArtistSectionContext extends ListSectionContext {
+    @SuppressLint("NewApi")
     public HomeLastPlayedArtistSectionContext(Context context, ListContext listContext, ArtistItemType artistItemType, LibraryItemEntity[] libraryItemEntity, ContextLibraryItemBinder contextLibraryItemBinder) {
-        super(context, R.string.home_section_last_played_track_title, new ListRecyclerViewAdapter(listContext, new HashSet<>(Arrays.asList(libraryItemEntity))
-                .stream()
-                .map((item) -> new LibraryItemEntity(item.getAppSourceContext(), artistItemType, new SerializableItemEntity(artistItemType.getClazz(), ((TrackEntity) item.getItem()).getArtist())))
-                .toArray(ItemEntity[]::new),
-                contextLibraryItemBinder));
+        super(context, R.string.home_section_last_played_track_title, new ListRecyclerViewAdapter(listContext, Arrays.stream(libraryItemEntity)
+                                .map(item -> new LibraryItemEntity(item.getAppSourceContext(), artistItemType, new SerializableItemEntity(artistItemType.getClazz(), ((TrackEntity) item.getItem()).getArtist())))
+                                .collect(Collectors.toCollection(HashSet::new))
+                                .toArray(ItemEntity[]::new),
+                        contextLibraryItemBinder));
     }
 }
