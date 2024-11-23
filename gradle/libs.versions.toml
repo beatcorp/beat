@@ -1,4 +1,5 @@
 [versions]
+activity = "1.9.3"
 agp = "8.7.2"
 exoplayerUi = "2.19.1"
 flexbox = "3.0.0"
@@ -20,6 +21,7 @@ media3Common = "1.4.1"
 media3Datasource = "1.4.1"
 
 [libraries]
+activity = { module = "androidx.activity:activity", version.ref = "activity" }
 exoplayer-ui = { module = "com.google.android.exoplayer:exoplayer-ui", version.ref = "exoplayerUi" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
