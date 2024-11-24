@@ -10,6 +10,7 @@ import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.list.MediaListItemBinder;
+import com.beatstreaming.media.sheet.MediaSheetContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -65,7 +66,7 @@ public class AppTrackListItemBinder<T extends SectionPlayerContext, V extends It
             @Override
             @SneakyThrows
             public boolean onLongClick(View view) {
-                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item))).show();
+                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new MediaSheetContext(null, new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item)))).show();
 
                 return true;
             }
