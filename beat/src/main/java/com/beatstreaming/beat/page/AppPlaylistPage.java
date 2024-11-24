@@ -24,7 +24,6 @@ import com.beatstreaming.music.page.PlaylistPage;
 import com.beatstreaming.music.player.PlaylistPlayerSource;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import javax.inject.Inject;
