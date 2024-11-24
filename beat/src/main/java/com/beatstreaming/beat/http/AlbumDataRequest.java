@@ -15,6 +15,7 @@ import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.music.databinding.AlbumSectionListBinding;
 import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.player.AlbumPlayerSource;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
@@ -24,14 +25,16 @@ import lombok.SneakyThrows;
 
 public class AlbumDataRequest extends HttpRequestBinding<AlbumEntity, CollectionPageBinding, AlbumSectionListBinding> {
     private final Player player;
+    private final TrackItemType trackItemType;
     private final AppSourceEntity appSourceEntity;
     private final AlbumSectionListBinder sectionListBinder;
 
     @SneakyThrows
-    public AlbumDataRequest(Context context, CollectionPageBinding collectionPageBinding, Player player, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, AlbumSectionListBinder sectionListBinder) {
+    public AlbumDataRequest(Context context, CollectionPageBinding collectionPageBinding, Player player, TrackItemType trackItemType, AppSourceEntity appSourceEntity, AlbumPayload albumPayload, AlbumSectionListBinding albumSectionListBinding, AlbumSectionListBinder sectionListBinder) {
         super(context, collectionPageBinding.collectionList, collectionPageBinding, albumSectionListBinding, AlbumEntity.class, Request.Method.GET);
 
         this.player = player;
+        this.trackItemType = trackItemType;
         this.appSourceEntity = appSourceEntity;
         this.sectionListBinder = sectionListBinder;
 
@@ -44,7 +47,7 @@ public class AlbumDataRequest extends HttpRequestBinding<AlbumEntity, Collection
 
         this.resultBinding.sectionList.setAdapter(new ListRecyclerViewAdapter(sectionPlayerContext, albumEntity.getSections(), this.sectionListBinder));
 
-        ((StartPlayingButton) this.pageBinding.collectionHeader.findViewById(R.id.start_playing_button)).setup(new StartPlayingContext(albumEntity.getSections(), this.player, sectionPlayerContext));
+        ((StartPlayingButton) this.pageBinding.collectionHeader.findViewById(R.id.start_playing_button)).setup(new StartPlayingContext(albumEntity.getSections(), this.player, this.trackItemType, sectionPlayerContext));
 
         super.onLoad(albumEntity);
     }

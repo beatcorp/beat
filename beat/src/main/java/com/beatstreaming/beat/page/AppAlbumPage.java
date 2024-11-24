@@ -15,6 +15,7 @@ import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.music.databinding.AlbumSectionListBinding;
 import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.page.AlbumPage;
 
 import javax.inject.Inject;
@@ -24,6 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class AppAlbumPage extends AlbumPage {
     @Inject Player player;
+    @Inject TrackItemType trackItemType;
     @Inject AlbumSectionListBinder playableSectionListBinder;
 
     public AppAlbumPage(AppSourceListContext appSourceContext, AlbumEntity albumEntity) {
@@ -34,7 +36,7 @@ public class AppAlbumPage extends AlbumPage {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.collectionPageBinding = CollectionPageBinding.inflate(this.getLayoutInflater());
 
-        new AlbumDataRequest(layoutInflater.getContext(), this.collectionPageBinding, this.player, this.appSourceContext.getItem(), new AlbumPayload(this.imageItemEntity.getId()), AlbumSectionListBinding.inflate(this.getLayoutInflater()), this.playableSectionListBinder);
+        new AlbumDataRequest(layoutInflater.getContext(), this.collectionPageBinding, this.player, this.trackItemType, this.appSourceContext.getItem(), new AlbumPayload(this.imageItemEntity.getId()), AlbumSectionListBinding.inflate(this.getLayoutInflater()), this.playableSectionListBinder);
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
