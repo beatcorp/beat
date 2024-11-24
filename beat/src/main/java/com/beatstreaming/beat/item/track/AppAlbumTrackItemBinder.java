@@ -1,7 +1,6 @@
 package com.beatstreaming.beat.item.track;
 
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.music.entity.AlbumEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.page.LoadableArtistPage;
@@ -16,8 +15,6 @@ public class AppAlbumTrackItemBinder extends AppTrackListIndexItemBinder<TrackEn
 
     @Override
     public void bind(SectionPlayerContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
-        item.setAlbum((AlbumEntity) context.getPlayerSource().getItem());
-
         super.bind(context, holder, item);
     }
 }

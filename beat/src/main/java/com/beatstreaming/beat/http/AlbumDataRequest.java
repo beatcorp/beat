@@ -8,8 +8,8 @@ import com.beatstreaming.beat.payload.AlbumPayload;
 import com.beatstreaming.beat.section.AlbumSectionListBinder;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
+import com.beatstreaming.media.button.SectionStartPlayingContext;
 import com.beatstreaming.media.button.StartPlayingButton;
-import com.beatstreaming.media.button.StartPlayingContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.player.Player;
@@ -47,7 +47,7 @@ public class AlbumDataRequest extends HttpRequestBinding<AlbumEntity, Collection
 
         this.resultBinding.sectionList.setAdapter(new ListRecyclerViewAdapter(sectionPlayerContext, albumEntity.getSections(), this.sectionListBinder));
 
-        ((StartPlayingButton) this.pageBinding.collectionHeader.findViewById(R.id.start_playing_button)).setup(new StartPlayingContext(albumEntity.getSections(), this.player, this.trackItemType, sectionPlayerContext));
+        ((StartPlayingButton) this.pageBinding.collectionHeader.findViewById(R.id.start_playing_button)).setup(new SectionStartPlayingContext(albumEntity.getSections(), this.player, this.trackItemType, sectionPlayerContext));
 
         super.onLoad(albumEntity);
     }
