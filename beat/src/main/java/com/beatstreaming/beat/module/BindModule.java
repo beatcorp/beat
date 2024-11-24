@@ -12,6 +12,7 @@ import com.beatstreaming.beat.item.artist.AppArtistListImageItemBinder;
 import com.beatstreaming.beat.item.playlist.AppPlaylistItemType;
 import com.beatstreaming.beat.item.track.AppAlbumTrackItemBinder;
 import com.beatstreaming.beat.item.track.AppLibraryPlaylistTrackItemBinder;
+import com.beatstreaming.beat.item.track.AppPlaylistTrackItemBinder;
 import com.beatstreaming.beat.item.track.AppTrackItemType;
 import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
 import com.beatstreaming.beat.item.artist.AppArtistCardImageItemBinder;
@@ -22,6 +23,7 @@ import com.beatstreaming.beat.page.AppPages;
 import com.beatstreaming.beat.player.BeatPlayer;
 import com.beatstreaming.beat.section.AlbumSectionListBinder;
 import com.beatstreaming.beat.server.DefaultAppServerManager;
+import com.beatstreaming.beat.sheet.AppPlaylistTrackListSheet;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
 import com.beatstreaming.core.bind.SectionContextRegistry;
 import com.beatstreaming.core.pages.HomePage;
@@ -43,6 +45,7 @@ import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
 import com.beatstreaming.music.page.LoadableArtistPage;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.sheet.share.AppShareListSheet;
+import com.beatstreaming.music.sheet.track.PlaylistTrackListSheet;
 import com.beatstreaming.music.sheet.track.TrackListSheet;
 import com.google.gson.Gson;
 
@@ -115,6 +118,12 @@ public class BindModule {
     @Singleton
     public Class<? extends MediaListSheet> provideAppTrackListSheet() {
         return AppTrackListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends PlaylistTrackListSheet> provideAppPlaylistTrackListSheet() {
+        return AppPlaylistTrackListSheet.class;
     }
 
     @Provides
@@ -203,7 +212,13 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppLibraryPlaylistTrackItemBinder provideAppPlaylistTrackItemBinder(AppTrackListImageItemBinder appTrackListImageItemBinder) {
+    public AppPlaylistTrackItemBinder provideAppPlaylistTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends PlaylistTrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage) {
+        return new AppPlaylistTrackItemBinder(player, trackItemType, trackListSheet, loadableArtistPage);
+    }
+
+    @Provides
+    @Singleton
+    public AppLibraryPlaylistTrackItemBinder provideLibraryAppPlaylistTrackItemBinder(AppPlaylistTrackItemBinder appTrackListImageItemBinder) {
         return new AppLibraryPlaylistTrackItemBinder(appTrackListImageItemBinder);
     }
 
