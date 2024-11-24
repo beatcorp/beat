@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import com.beatstreaming.media.sheet.LibrarySheetContext;
 import com.beatstreaming.music.sheet.playlist.PlaylistListSheet;
 import com.beatstreaming.music.entity.PlaylistEntity;
-import com.beatstreaming.music.sheet.playlist.RemovePlaylistContext;
 
 public class AppPlaylistListSheet extends PlaylistListSheet<LibrarySheetContext<PlaylistEntity>> {
     public AppPlaylistListSheet(@NonNull Context context) {
@@ -37,8 +36,6 @@ public class AppPlaylistListSheet extends PlaylistListSheet<LibrarySheetContext<
     @Override
     public AppPlaylistListSheet setup(LibrarySheetContext<PlaylistEntity> item) {
         super.setup(item);
-
-        this.list.add(new RemovePlaylistContext(item));
 
         return this;
     }
