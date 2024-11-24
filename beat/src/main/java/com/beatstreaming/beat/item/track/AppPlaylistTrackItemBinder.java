@@ -1,38 +1,19 @@
 package com.beatstreaming.beat.item.track;
 
-import com.beatstreaming.core.list.ListBinder;
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.list.PlaylistListContext;
-import com.beatstreaming.music.player.PlaylistPlayerSource;
+import com.beatstreaming.music.item.TrackItemType;
+import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
-import java.util.Arrays;
-
-import javax.inject.Inject;
-
-public class AppPlaylistTrackItemBinder extends ListBinder<PlaylistListContext, LibraryItemEntity<TrackEntity>> {
-    private final AppTrackListImageItemBinder appTrackListImageItemBinder;
-
-    @Inject
-    public AppPlaylistTrackItemBinder(AppTrackListImageItemBinder appTrackListImageItemBinder) {
-        this.appTrackListImageItemBinder = appTrackListImageItemBinder;
+public class AppPlaylistTrackItemBinder<T extends ItemEntity> extends AppTrackListImageItemBinder<T> {
+    public AppPlaylistTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class trackListSheet, Class loadableArtistPage) {
+        super(player, trackItemType, trackListSheet, loadableArtistPage);
     }
 
     @Override
-    public void bind(PlaylistListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
+    public void bind(SectionPlayerContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
         super.bind(context, holder, item);
-
-        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(item.getAppSourceContext().getItem(), new PlaylistPlayerSource(context.getItem()));
-
-        sectionPlayerContext.init(Arrays.stream(context.getList()).map(LibraryItemEntity::getItem).toArray(TrackEntity[]::new), context.getIndex());
-
-        this.appTrackListImageItemBinder.bind(sectionPlayerContext, holder, item.getItem());
-    }
-
-    @Override
-    public int getItemLayout() {
-        return com.beatstreaming.media.R.layout.media_list_item_binder;
     }
 }

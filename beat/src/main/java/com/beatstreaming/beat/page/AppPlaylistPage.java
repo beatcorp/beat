@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.beat.item.track.AppPlaylistTrackItemBinder;
+import com.beatstreaming.beat.item.track.AppLibraryPlaylistTrackItemBinder;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.button.StartPlayingContext;
 import com.beatstreaming.media.databinding.StartPlayingButtonBinding;
@@ -34,7 +34,8 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class AppPlaylistPage extends PlaylistPage {
     @Inject Player player;
     @Inject TrackItemType trackItemType;
-    @Inject AppPlaylistTrackItemBinder appPlaylistTrackItemBinder;
+    @Inject
+    AppLibraryPlaylistTrackItemBinder appPlaylistTrackItemBinder;
 
     public AppPlaylistPage(AppSourceListContext appSourceContext, PlaylistEntity playlistEntity) {
         super(appSourceContext, playlistEntity);
@@ -45,7 +46,7 @@ public class AppPlaylistPage extends PlaylistPage {
         this.collectionPageBinding = CollectionPageBinding.inflate(this.getLayoutInflater());
 
         PlaylistListContext playlistListContext = new PlaylistListContext(this.imageItemEntity);
-        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(appSourceContext.getItem(), new PlaylistPlayerSource(imageItemEntity));
+        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(null, new PlaylistPlayerSource(imageItemEntity));
         TrackEntity[] list = Arrays.stream(this.imageItemEntity.getTracks().toArray(new LibraryItemEntity[]{})).map(LibraryItemEntity::getItem).toArray(TrackEntity[]::new);
 
         ItemListBinding itemListBinding = ItemListBinding.inflate(this.getLayoutInflater());

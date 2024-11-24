@@ -11,7 +11,7 @@ import com.beatstreaming.beat.item.artist.AppArtistItemType;
 import com.beatstreaming.beat.item.artist.AppArtistListImageItemBinder;
 import com.beatstreaming.beat.item.playlist.AppPlaylistItemType;
 import com.beatstreaming.beat.item.track.AppAlbumTrackItemBinder;
-import com.beatstreaming.beat.item.track.AppPlaylistTrackItemBinder;
+import com.beatstreaming.beat.item.track.AppLibraryPlaylistTrackItemBinder;
 import com.beatstreaming.beat.item.track.AppTrackItemType;
 import com.beatstreaming.beat.item.track.AppTrackListIndexItemBinder;
 import com.beatstreaming.beat.item.artist.AppArtistCardImageItemBinder;
@@ -203,8 +203,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppPlaylistTrackItemBinder provideAppPlaylistTrackItemBinder(AppTrackListImageItemBinder appTrackListImageItemBinder) {
-        return new AppPlaylistTrackItemBinder(appTrackListImageItemBinder);
+    public AppLibraryPlaylistTrackItemBinder provideAppPlaylistTrackItemBinder(AppTrackListImageItemBinder appTrackListImageItemBinder) {
+        return new AppLibraryPlaylistTrackItemBinder(appTrackListImageItemBinder);
     }
 
     @Provides
