@@ -31,7 +31,7 @@ public class AppPlaylistTrackListSheet extends PlaylistTrackListSheet {
     public void init(Context context) {
         super.init(context);
 
-        this.list.add(new RemoveFromPlaylistContext((PlaylistEntity) this.listSheetContext.getItem().getContext()));
+        this.list.add(new RemoveFromPlaylistContext((PlaylistEntity) this.listSheetContext.getItem().getContext().getPlayerSource().getItem()));
 
         this.list.add(new GoToArtistContext());
         this.list.add(new GoToAlbumContext());

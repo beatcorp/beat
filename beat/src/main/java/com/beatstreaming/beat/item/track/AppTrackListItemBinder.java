@@ -66,7 +66,7 @@ public class AppTrackListItemBinder<T extends SectionPlayerContext, V extends It
             @Override
             @SneakyThrows
             public boolean onLongClick(View view) {
-                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new MediaSheetContext(null, new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item)))).show();
+                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new MediaSheetContext(context, new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item)))).show();
 
                 return true;
             }
