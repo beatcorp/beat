@@ -4,7 +4,6 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.music.entity.PlaylistEntity;
 import com.beatstreaming.music.sheet.track.PlaylistTrackListSheet;
 import com.beatstreaming.music.sheet.track.RemoveFromPlaylistContext;
 
@@ -31,7 +30,7 @@ public class AppPlaylistTrackListSheet extends PlaylistTrackListSheet {
     public void init(Context context) {
         super.init(context);
 
-        this.list.add(new RemoveFromPlaylistContext((PlaylistEntity) this.listSheetContext.getItem().getContext().getPlayerSource().getItem()));
+        this.list.add(new RemoveFromPlaylistContext(this.listSheetContext));
 
         this.list.add(new GoToArtistContext());
         this.list.add(new GoToAlbumContext());
