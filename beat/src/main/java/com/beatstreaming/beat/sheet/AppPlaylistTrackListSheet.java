@@ -45,7 +45,7 @@ public class AppPlaylistTrackListSheet extends PlaylistTrackListSheet {
     public TrackListSheet setup(MediaSheetContext<PlayContext, LibraryItemEntity<TrackEntity>> item) {
         super.setup(item);
 
-        this.list.add(new RemoveFromPlaylistContext(this.listSheetContext));
+        this.list.add(new RemoveFromPlaylistContext(this.playContext));
 
         return this;
     }

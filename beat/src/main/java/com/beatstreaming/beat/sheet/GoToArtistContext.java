@@ -2,7 +2,6 @@ package com.beatstreaming.beat.sheet;
 
 import com.beatstreaming.beat.activity.AppArtistFragmentActivity;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
-import com.beatstreaming.media.player.PlayContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -13,7 +12,7 @@ public class GoToArtistContext extends GoToContext {
     }
 
     @Override
-    public Object[] getItems(ListSheetContext<PlayContext, LibraryItemEntity<TrackEntity>> listSheetContext) {
+    public Object[] getItems(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
         return new Object[]{listSheetContext.getItem().getAppSourceContext(), listSheetContext.getItem().getItem().getArtist()};
     }
 }
