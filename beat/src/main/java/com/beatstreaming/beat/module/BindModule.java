@@ -212,8 +212,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppPlaylistTrackItemBinder provideAppPlaylistTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends PlaylistTrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage) {
-        return new AppPlaylistTrackItemBinder(player, trackItemType, trackListSheet, loadableArtistPage);
+    public AppPlaylistTrackItemBinder provideAppPlaylistTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class<? extends PlaylistTrackListSheet> trackListSheet, Class<? extends LoadableArtistPage> loadableArtistPage, LibraryListStorageManager libraryListStorageManager) {
+        return new AppPlaylistTrackItemBinder(player, trackItemType, trackListSheet, loadableArtistPage, libraryListStorageManager);
     }
 
     @Provides

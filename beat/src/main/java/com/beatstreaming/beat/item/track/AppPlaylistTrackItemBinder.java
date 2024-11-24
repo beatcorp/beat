@@ -14,15 +14,15 @@ import com.beatstreaming.music.item.TrackItemType;
 import com.beatstreaming.music.player.MusicPlayer;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
-import javax.inject.Inject;
-
 import lombok.SneakyThrows;
 
 public class AppPlaylistTrackItemBinder<T extends ItemEntity> extends AppTrackListImageItemBinder<T> {
-    @Inject LibraryListStorageManager libraryListStorageManager;
+    private final LibraryListStorageManager libraryListStorageManager;
 
-    public AppPlaylistTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class trackListSheet, Class loadableArtistPage) {
+    public AppPlaylistTrackItemBinder(MusicPlayer player, TrackItemType trackItemType, Class trackListSheet, Class loadableArtistPage, LibraryListStorageManager libraryListStorageManager) {
         super(player, trackItemType, trackListSheet, loadableArtistPage);
+
+        this.libraryListStorageManager = libraryListStorageManager;
     }
 
     @Override
