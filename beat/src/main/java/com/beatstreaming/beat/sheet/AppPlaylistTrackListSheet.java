@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.media.sheet.AppPlaylistSheetContext;
+import com.beatstreaming.media.sheet.LibrarySheetContext;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.sheet.track.PlaylistTrackListSheet;
 import com.beatstreaming.music.sheet.track.RemoveFromPlaylistContext;
@@ -40,7 +40,7 @@ public class AppPlaylistTrackListSheet extends PlaylistTrackListSheet {
     }
 
     @Override
-    public TrackListSheet setup(AppPlaylistSheetContext<TrackEntity> item) {
+    public TrackListSheet setup(LibrarySheetContext<TrackEntity> item) {
         super.setup(item);
 
         this.list.add(new RemoveFromPlaylistContext(item));

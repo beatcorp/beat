@@ -6,7 +6,7 @@ import android.view.View;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.sheet.AppPlaylistSheetContext;
+import com.beatstreaming.media.sheet.LibrarySheetContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -33,7 +33,7 @@ public class AppPlaylistTrackItemBinder<T extends ItemEntity> extends AppTrackLi
             @Override
             @SneakyThrows
             public boolean onLongClick(View view) {
-                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new AppPlaylistSheetContext(libraryListStorageManager, context, new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item)))).show();
+                trackListSheet.getConstructor(Context.class).newInstance(holder.itemView.getContext()).setup(new LibrarySheetContext(libraryListStorageManager, context, new LibraryItemEntity<TrackEntity>(context, trackItemType, new SerializableItemEntity<>(TrackEntity.class, item)))).show();
 
                 return true;
             }

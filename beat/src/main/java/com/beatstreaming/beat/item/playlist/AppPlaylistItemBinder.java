@@ -24,5 +24,7 @@ public class AppPlaylistItemBinder extends PlaylistItemBinder {
                         .commit();
             }
         });
+
+
     }
 }
