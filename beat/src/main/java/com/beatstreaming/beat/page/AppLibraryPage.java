@@ -15,6 +15,7 @@ import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
+import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 
 import javax.inject.Inject;
@@ -32,7 +33,7 @@ public class AppLibraryPage extends Fragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.libraryPageBinding = LibraryPageBinding.inflate(this.getLayoutInflater());
 
-        LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
+        LibraryListStorage<TrackEntity> libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
         this.libraryPageBinding.libraryList.setAdapter(new ListRecyclerViewAdapter<AppSourceListContext, LibraryItemEntity<ItemEntity>>(null, libraryListStorage.getList().toArray(new LibraryItemEntity[]{}), this.abstractLibraryItemBinder));
 

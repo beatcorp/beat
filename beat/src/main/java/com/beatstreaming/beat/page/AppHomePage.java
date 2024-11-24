@@ -42,7 +42,7 @@ public class AppHomePage extends HomePage {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.homePageBinding = HomePageBinding.inflate(this.getLayoutInflater());
 
-        HistoryListStorage historyListStorage = this.historyListStorageManager.load(this.getContext());
+        HistoryListStorage<TrackEntity> historyListStorage = this.historyListStorageManager.load(this.getContext());
 
         this.homePageBinding.trackSection.init(new HomeLastPlayedTrackSectionContext(this.getContext(), new SectionRegistryListContext(this.sectionContextRegistry, SectionContextType.LIST), historyListStorage.getByType(TrackEntity.class).toArray(new LibraryItemEntity[]{}), contextLibraryItemBinder));
         this.homePageBinding.artistSection.init(new HomeLastPlayedArtistSectionContext(this.getContext(), new SectionRegistryListContext(this.sectionContextRegistry, SectionContextType.LIST), artistItemType, historyListStorage.getByType(TrackEntity.class).toArray(new LibraryItemEntity[]{}), contextLibraryItemBinder));
