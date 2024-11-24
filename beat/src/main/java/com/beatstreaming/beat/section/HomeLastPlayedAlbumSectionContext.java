@@ -16,15 +16,16 @@ import com.beatstreaming.music.item.ContextLibraryItemBinder;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class HomeLastPlayedAlbumSectionContext extends ListSectionContext {
     @SuppressLint("NewApi")
     public HomeLastPlayedAlbumSectionContext(Context context, ListContext listContext, AlbumItemType albumItemType, LibraryItemEntity[] libraryItemEntity, ContextLibraryItemBinder contextLibraryItemBinder) {
         super(context, R.string.home_section_last_played_track_title, new ListRecyclerViewAdapter(listContext, Arrays.stream(libraryItemEntity)
-                                .map(item -> new LibraryItemEntity(item.getAppSourceContext(), albumItemType, new SerializableItemEntity(albumItemType.getClazz(), ((TrackEntity) item.getItem()).getAlbum())))
-                                .collect(Collectors.toCollection(HashSet::new))
-                                .toArray(ItemEntity[]::new),
-                        contextLibraryItemBinder));
+                .map(item -> new LibraryItemEntity(item.getAppSourceContext(), albumItemType, new SerializableItemEntity(albumItemType.getClazz(), ((TrackEntity) item.getItem()).getAlbum())))
+                .collect(Collectors.toCollection(HashSet::new))
+                .toArray(ItemEntity[]::new),
+                contextLibraryItemBinder));
     }
 }
