@@ -6,7 +6,7 @@ import com.beatstreaming.beat.page.AppPlaylistPage;
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.item.LibraryItemContext;
-import com.beatstreaming.media.sheet.MediaSheetContext;
+import com.beatstreaming.media.sheet.LibrarySheetContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.PlaylistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -35,7 +35,7 @@ public class AppPlaylistItemBinder extends PlaylistItemBinder {
             @Override
             @SneakyThrows
             public boolean onLongClick(View view) {
-                new PlaylistListSheet(view.getContext()).setup(new MediaSheetContext(null, item)).show();
+                new PlaylistListSheet(view.getContext()).setup(new LibrarySheetContext(null, null, context.getLibraryItemEntity())).show();
 
                 return true;
             }
