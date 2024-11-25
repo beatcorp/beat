@@ -16,6 +16,10 @@ import com.beatstreaming.music.sheet.playlist.PlaylistListSheet;
 import lombok.SneakyThrows;
 
 public class AppPlaylistItemBinder extends PlaylistItemBinder {
+    public AppPlaylistItemBinder() {
+
+    }
+
     @Override
     public void bind(LibraryItemContext<LibraryItemEntity<TrackEntity>> context, ListViewHolder<PlaylistEntity> holder, PlaylistEntity item) {
         super.bind(context, holder, item);

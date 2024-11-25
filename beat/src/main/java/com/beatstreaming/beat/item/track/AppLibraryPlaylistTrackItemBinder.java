@@ -9,6 +9,8 @@ import com.beatstreaming.music.player.PlaylistPlayerSource;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -24,9 +26,13 @@ public class AppLibraryPlaylistTrackItemBinder extends ListBinder<PlaylistListCo
     public void bind(PlaylistListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
         super.bind(context, holder, item);
 
-        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(item.getAppSourceContext().getItem(), new PlaylistPlayerSource(context.getItem()));
+        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(Optional.ofNullable(item).map(target -> target.getAppSourceContext().getItem()).orElse(null), new PlaylistPlayerSource(context.getItem()));
 
-        sectionPlayerContext.init(Arrays.stream(context.getList()).map(LibraryItemEntity::getItem).toArray(TrackEntity[]::new), context.getIndex());
+        sectionPlayerContext.init(Arrays.stream(context.getList()).filter(Objects::nonNull).map(LibraryItemEntity::getItem).toArray(TrackEntity[]::new), context.getIndex());
+
+        if (item == null) {
+            return;
+        }
 
         this.appTrackListImageItemBinder.bind(sectionPlayerContext, holder, item.getItem());
     }

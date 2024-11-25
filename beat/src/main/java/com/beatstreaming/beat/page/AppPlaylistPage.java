@@ -25,6 +25,7 @@ import com.beatstreaming.music.player.PlaylistPlayerSource;
 import com.beatstreaming.music.player.SectionPlayerContext;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -34,8 +35,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class AppPlaylistPage extends PlaylistPage {
     @Inject Player player;
     @Inject TrackItemType trackItemType;
-    @Inject
-    AppLibraryPlaylistTrackItemBinder appPlaylistTrackItemBinder;
+    @Inject AppLibraryPlaylistTrackItemBinder appPlaylistTrackItemBinder;
 
     public AppPlaylistPage(AppSourceListContext appSourceContext, PlaylistEntity playlistEntity) {
         super(appSourceContext, playlistEntity);
@@ -47,7 +47,7 @@ public class AppPlaylistPage extends PlaylistPage {
 
         PlaylistListContext playlistListContext = new PlaylistListContext(this.imageItemEntity);
         SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(null, new PlaylistPlayerSource(imageItemEntity));
-        TrackEntity[] list = Arrays.stream(this.imageItemEntity.getTracks().toArray(new LibraryItemEntity[]{})).map(LibraryItemEntity::getItem).toArray(TrackEntity[]::new);
+        TrackEntity[] list = Arrays.stream(this.imageItemEntity.getTracks().toArray(new LibraryItemEntity[]{})).filter(Objects::nonNull).map(LibraryItemEntity::getItem).toArray(TrackEntity[]::new);
 
         ItemListBinding itemListBinding = ItemListBinding.inflate(this.getLayoutInflater());
         itemListBinding.list.setAdapter(new ListRecyclerViewAdapter(playlistListContext, this.imageItemEntity.getTracks().toArray(new LibraryItemEntity[]{}), this.appPlaylistTrackItemBinder));
