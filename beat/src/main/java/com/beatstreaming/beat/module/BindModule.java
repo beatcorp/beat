@@ -108,12 +108,6 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public HomePage provideHomePage() {
-        return new AppHomePage();
-    }
-
-    @Provides
-    @Singleton
     public Pages[] providePages() {
         return AppPages.values();
     }
@@ -254,5 +248,11 @@ public class BindModule {
     @Singleton
     public Class<? extends MainActivity> provideMainActivity() {
         return AppMainActivity.class;
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends HomePage> provideHomePage() {
+        return AppHomePage.class;
     }
 }
