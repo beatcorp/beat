@@ -36,7 +36,7 @@ public class AppAlbumPage extends AlbumPage {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.collectionPageBinding = CollectionPageBinding.inflate(this.getLayoutInflater());
 
-        new AlbumDataRequest(layoutInflater.getContext(), this.collectionPageBinding, this.player, this.trackItemType, this.appSourceContext.getItem(), new AlbumPayload(this.imageItemEntity.getId()), AlbumSectionListBinding.inflate(this.getLayoutInflater()), this.playableSectionListBinder);
+        new AlbumDataRequest(layoutInflater.getContext(), this.collectionPageBinding, this.player, this.trackItemType, this.appSourceContext.getContext(), new AlbumPayload(this.imageItemEntity.getId()), AlbumSectionListBinding.inflate(this.getLayoutInflater()), this.playableSectionListBinder);
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }

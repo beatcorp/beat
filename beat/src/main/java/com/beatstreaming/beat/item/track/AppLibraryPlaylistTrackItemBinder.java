@@ -26,7 +26,7 @@ public class AppLibraryPlaylistTrackItemBinder extends ListBinder<PlaylistListCo
     public void bind(PlaylistListContext context, ListViewHolder<LibraryItemEntity<TrackEntity>> holder, LibraryItemEntity<TrackEntity> item) {
         super.bind(context, holder, item);
 
-        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(Optional.ofNullable(item).map(target -> target.getAppSourceContext().getItem()).orElse(null), new PlaylistPlayerSource(context.getItem()));
+        SectionPlayerContext<TrackEntity> sectionPlayerContext = new SectionPlayerContext(Optional.ofNullable(item).map(target -> target.getAppSourceContext().getContext()).orElse(null), new PlaylistPlayerSource(context.getContext()));
 
         sectionPlayerContext.init(Arrays.stream(context.getList()).filter(Objects::nonNull).map(LibraryItemEntity::getItem).toArray(TrackEntity[]::new), context.getIndex());
 

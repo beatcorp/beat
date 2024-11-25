@@ -15,11 +15,11 @@ public class AppContext extends ListSheetItemContext<LibraryItemEntity<TrackEnti
 
     @Override
     public void onCall(Context context, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
-        new AppSheet(context).setup(listSheetContext.getItem().getAppSourceContext().getItem()).show();
+        new AppSheet(context).setup(listSheetContext.getItem().getAppSourceContext().getContext()).show();
     }
 
     @Override
     public String getTitle(Context context, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
-        return String.format(super.getTitle(context, listSheetContext), listSheetContext.getItem().getAppSourceContext().getItem().getName());
+        return String.format(super.getTitle(context, listSheetContext), listSheetContext.getItem().getAppSourceContext().getContext().getName());
     }
 }
