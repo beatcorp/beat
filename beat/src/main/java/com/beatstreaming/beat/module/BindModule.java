@@ -2,6 +2,7 @@ package com.beatstreaming.beat.module;
 
 import android.content.Context;
 
+import com.beatstreaming.beat.AppMainActivity;
 import com.beatstreaming.beat.bind.AlbumSectionContextRegistry;
 import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
@@ -26,6 +27,7 @@ import com.beatstreaming.beat.server.DefaultAppServerManager;
 import com.beatstreaming.beat.sheet.AppPlaylistListSheet;
 import com.beatstreaming.beat.sheet.AppPlaylistTrackListSheet;
 import com.beatstreaming.beat.sheet.AppTrackListSheet;
+import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.bind.SectionContextRegistry;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
@@ -246,5 +248,11 @@ public class BindModule {
     @Singleton
     public PlaylistItemType providePlaylistItemType() {
         return new AppPlaylistItemType();
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends MainActivity> provideMainActivity() {
+        return AppMainActivity.class;
     }
 }
