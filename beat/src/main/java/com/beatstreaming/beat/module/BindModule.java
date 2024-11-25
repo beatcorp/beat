@@ -2,6 +2,7 @@ package com.beatstreaming.beat.module;
 
 import android.content.Context;
 
+import com.beatstreaming.beat.R;
 import com.beatstreaming.beat.bind.AlbumSectionContextRegistry;
 import com.beatstreaming.beat.bind.BeatSectionContextRegistry;
 import com.beatstreaming.beat.item.album.AppAlbumCardImageItemBinder;
@@ -70,8 +71,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public PlayerContext providePlayerContext(TrackItemType trackItemType, HistoryListStorageManager historyListStorageManager) {
-        return new PlayerContext(trackItemType, historyListStorageManager);
+    public PlayerContext providePlayerContext(TrackItemType trackItemType, HistoryListStorageManager historyListStorageManager, int icLauncher) {
+        return new PlayerContext(trackItemType, historyListStorageManager, icLauncher);
     }
 
     @Provides
@@ -246,5 +247,11 @@ public class BindModule {
     @Singleton
     public PlaylistItemType providePlaylistItemType() {
         return new AppPlaylistItemType();
+    }
+
+    @Provides
+    @Singleton
+    public int provideIcLauncher() {
+        return R.mipmap.ic_launcher;
     }
 }
