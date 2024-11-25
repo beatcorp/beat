@@ -35,7 +35,7 @@ public class AppPlaylistItemBinder extends PlaylistItemBinder {
             @Override
             @SneakyThrows
             public boolean onLongClick(View view) {
-                new PlaylistListSheet(view.getContext()).setup(new LibrarySheetContext(null, null, context.getLibraryItemEntity())).show();
+                new PlaylistListSheet(view.getContext()).setup(new LibrarySheetContext(context.getLibraryListStorageManager(), null, context.getLibraryItemEntity())).show();
 
                 return true;
             }
