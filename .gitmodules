@@ -7,3 +7,6 @@
 [submodule "music"]
 	path = music
 	url = https://github.com/beatcorp/music
+[submodule "youtube"]
+	path = youtube
+	url = https://github.com/beatcorp/youtube
