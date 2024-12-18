@@ -4,3 +4,6 @@
 [submodule "media"]
 	path = media
 	url = https://github.com/beatcorp/media
+[submodule "music"]
+	path = music
+	url = https://github.com/beatcorp/music
