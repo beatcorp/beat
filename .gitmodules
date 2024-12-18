@@ -1,3 +1,6 @@
 [submodule "core"]
 	path = core
 	url = https://github.com/beatcorp/core
+[submodule "media"]
+	path = media
+	url = https://github.com/beatcorp/media
