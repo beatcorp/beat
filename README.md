@@ -5,11 +5,13 @@
 </div>
 
 ## get started
-beat costs $7, which is a one-time payment that gives you access and lifetime updates, with no monthly subscriptions or additional fees. sponsor the github to unlock access to the [releases](https://github.com/beatcorp/releases) repository, where you’ll find the apk.
+beat costs $7, which is a one-time payment that gives you access and lifetime updates, with no monthly subscriptions or additional fees. sponsor the github to unlock access to the [beatcorp/releases](https://github.com/beatcorp/releases) repository, where you’ll find the apk.
 
 currently, it's only available on android, but we plan to release it on more devices and extend your one-time license to them. our web/desktop version is 50% done.
 
-<img src="https://img.shields.io/static/v1?label=Buy%20now&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" height="20" />
+<a href="https://github.com/sponsors/Ailakks/sponsorships?sponsor=Ailakks&tier_id=451088">
+    <img src="https://img.shields.io/static/v1?label=Buy%20now&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" height="20" />
+</a>
 
 ## screenshots
 <div align="left">
